@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Games101-P3-4</title>
+      <link href="/2023/03/21/Games101-P3-4/"/>
+      <url>/2023/03/21/Games101-P3-4/</url>
+      
+        <content type="html"><![CDATA[<ul><li>Overview<ul><li>Why study transformation </li><li>2D变换：rotation, scale, shear</li><li>其次坐标</li><li>复合变换</li></ul></li></ul><span id="more"></span><h1 id="P3-4-Transformation"><a href="#P3-4-Transformation" class="headerlink" title="P3-4 - Transformation"></a>P3-4 - Transformation</h1><h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><ul><li>Modeling模型变换</li><li>Viewing视图变换：（3D to 2D）projection</li></ul><h2 id="2D-Transformation"><a href="#2D-Transformation" class="headerlink" title="2D Transformation"></a>2D Transformation</h2><ul><li>Scale<ul><li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.16.25.png" alt="截屏2023-03-21 20.16.25" style="zoom:25%;"></li></ul></li><li>Reflection<ul><li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.18.45.png" alt="截屏2023-03-21 20.18.45" style="zoom:25%;"></li></ul></li><li>Shear(切变)<ul><li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.24.18.png" alt="截屏2023-03-21 20.24.18" style="zoom:25%;"></li></ul></li><li>Rotation（特殊化点，推导</li><li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.27.31.png" alt="截屏2023-03-21 20.27.31" style="zoom:25%;"></li><li>线性变换（写成矩阵形式<ul><li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 21.15.53.png" alt="截屏2023-03-21 21.15.53" style="zoom:25%;"></li></ul></li></ul><h2 id="其次坐标"><a href="#其次坐标" class="headerlink" title="其次坐标"></a>其次坐标</h2><p>- </p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Games101 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Games101-P2</title>
+      <link href="/2023/03/20/Games101-P2/"/>
+      <url>/2023/03/20/Games101-P2/</url>
+      
+        <content type="html"><![CDATA[<ul><li>Overview<ul><li>向量点乘、叉乘</li><li>矩阵</li></ul></li></ul><span id="more"></span><h1 id="P2-Review-Of-Linear-Algebra-向量与线性代数"><a href="#P2-Review-Of-Linear-Algebra-向量与线性代数" class="headerlink" title="P2 - Review Of Linear Algebra 向量与线性代数"></a>P2 - Review Of Linear Algebra 向量与线性代数</h1><h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><h3 id="向量点乘"><a href="#向量点乘" class="headerlink" title="向量点乘"></a>向量点乘</h3><ul><li>快速得到两个向量的夹角：如，光照运算中，法线、光线夹角 &#x2F; 投影<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 18.45.34.png" alt="截屏2023-03-21 18.45.34" style="zoom:25%;"></li></ul></li><li>测量两个向量距离远近<ul><li>单位向量点乘范围[-1, 1]，1近，-1远</li><li>可用于镜面反射，金属高光：反射处附近看，高光明显</li></ul></li><li>判断向量方向，向前&#x2F;向后<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.07.09.png" alt="截屏2023-03-21 19.07.09" style="zoom:25%;"></li></ul></li><li>计算<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.01.02.png" alt="截屏2023-03-21 19.01.02" style="zoom:25%;"></li></ul></li></ul><h3 id="向量叉乘"><a href="#向量叉乘" class="headerlink" title="向量叉乘"></a>向量叉乘</h3><ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.12.25.png" alt="截屏2023-03-21 19.12.25" style="zoom:33%;"></li><li>$\vec{x}$ $\times$ $\vec{y}$ &#x3D; + $\vec{z}$</li><li>&#x3D;&#x3D;判断左右&#x3D;&#x3D;（叉乘向内&#x2F;外）&#x3D;&#x3D;&#x2F;内外&#x3D;&#x3D;（三角形三边叉乘同向则在内部，光栅化基础）⭐️<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.24.34.png" alt="截屏2023-03-21 19.24.34" style="zoom:25%;"></li></ul></li></ul><h3 id="直角坐标系便于向量分解"><a href="#直角坐标系便于向量分解" class="headerlink" title="直角坐标系便于向量分解"></a>直角坐标系便于向量分解</h3><ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.33.42.png" alt="截屏2023-03-21 19.33.42" style="zoom:25%;"></li></ul><h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><ul><li>运算法则<ul><li>(AB)C &#x3D; A(BC)</li><li>A(B+C) &#x3D; AB + AC</li><li>(A+B)C &#x3D; AC + AB</li></ul></li><li>矩阵转置</li><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.43.16.png" alt="截屏2023-03-21 19.43.16" style="zoom:25%;"></li><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.45.50.png" alt="截屏2023-03-21 19.45.50" style="zoom:25%;"></li><li>单位矩阵<ul><li>是对角阵</li><li>定义矩阵的逆<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.47.38.png" alt="截屏2023-03-21 19.47.38" style="zoom:25%;"></li></ul></li></ul></li><li>向量点乘&#x2F;叉乘写成矩阵形式<ul><li><img src="/2023/03/20/Games101-P2/截屏2023-03-21 19.49.52.png" alt="截屏2023-03-21 19.49.52" style="zoom:25%;"></li></ul></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Games101 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Games101-P1</title>
+      <link href="/2023/03/20/Games101-P1/"/>
+      <url>/2023/03/20/Games101-P1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P1-Overview-Of-Computer-Graphic"><a href="#P1-Overview-Of-Computer-Graphic" class="headerlink" title="P1 - Overview Of Computer Graphic"></a>P1 - Overview Of Computer Graphic</h1><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul><li>游戏<ul><li>判断画面质量：亮度（全局光照）</li></ul></li><li>电影<ul><li>特效：常见&#x3D;难做</li></ul></li><li>动画：如毛发，以及和光线作用<ul><li>几何形体的表述</li><li>渲染</li><li>光线计算</li></ul></li><li>设计：如CAD<ul><li>几何</li><li>光照</li><li>物理模拟，如车辆碰撞测试</li></ul></li><li>可视化：将三维空间信息编程视觉信息<ul><li><img src="/2023/03/20/Games101-P1/截屏2023-03-20 14.22.25.png" alt="截屏2023-03-20 14.22.25" style="zoom:50%;"></li></ul></li><li>虚拟现实</li><li>数字图像绘制&#x2F;处理</li><li>物理模拟</li><li>GUI：图形用户接口（UI设计</li><li>字体设计<ul><li><img src="/2023/03/20/Games101-P1/截屏2023-03-20 20.30.50.png" alt="截屏2023-03-20 20.30.50" style="zoom:25%;"></li></ul></li></ul><h2 id="Course-Topics"><a href="#Course-Topics" class="headerlink" title="Course Topics"></a>Course Topics</h2><ul><li>光栅化（rasterization）<ul><li>三维空间几何形体显示在屏幕上</li><li>广泛用于实时渲染（实时：&gt;30fps）</li></ul></li><li>曲线和曲面</li><li>光线追踪（ray tracing）<ul><li>动画&#x2F;电影使用</li><li>实时光线追踪</li></ul></li><li>动画与模拟</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Games101 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2023/03/20/hello-world/"/>
+      <url>/2023/03/20/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
