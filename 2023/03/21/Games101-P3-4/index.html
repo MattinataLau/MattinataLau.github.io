@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P3 Overview Why study transformation  2D变换：rotation, scale, shear 其次坐标：增加一维表示平移变换 复合变换   P4 Overview 3D变换 Viewing(观测) Transformation View(视图)&#x2F;Camera Transformation Projection(投影) Transformation">
+    <meta name="description" content="P3 Overview Why study transformation  2D变换：rotation, scale, shear 其次坐标：增加一维表示平移变换 复合变换   P4 Overview 3D变换 Viewing(观测) Transformation View(视图)&#x2F;Camera Transformation Projection(投影) Transformation Ortho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P3-4">
 <meta property="og:url" content="http://example.com/2023/03/21/Games101-P3-4/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P3 Overview Why study transformation  2D变换：rotation, scale, shear 其次坐标：增加一维表示平移变换 复合变换   P4 Overview 3D变换 Viewing(观测) Transformation View(视图)&#x2F;Camera Transformation Projection(投影) Transformation">
+<meta property="og:description" content="P3 Overview Why study transformation  2D变换：rotation, scale, shear 其次坐标：增加一维表示平移变换 复合变换   P4 Overview 3D变换 Viewing(观测) Transformation View(视图)&#x2F;Camera Transformation Projection(投影) Transformation Ortho">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-21%2020.16.25.png">
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-21%2020.18.45.png">
@@ -63,7 +63,7 @@
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-27%2015.14.45.png">
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-27%2015.15.03.png">
 <meta property="article:published_time" content="2023-03-21T12:06:20.000Z">
-<meta property="article:modified_time" content="2023-03-27T07:15:18.207Z">
+<meta property="article:modified_time" content="2023-03-29T08:03:26.282Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta name="twitter:card" content="summary">
@@ -177,7 +177,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P3-4-Transformation"><span class="nav-number">1.</span> <span class="nav-text">P3-4 - Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P3"><span class="nav-number">1.1.</span> <span class="nav-text">P3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2D-Transformation"><span class="nav-number">1.1.2.</span> <span class="nav-text">2D Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">其次坐标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Transformation"><span class="nav-number">1.1.3.</span> <span class="nav-text">3D Transformation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P4"><span class="nav-number">1.2.</span> <span class="nav-text">P4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Transformation-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">3D Transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewing-Transformation-%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="nav-number">1.2.2.</span> <span class="nav-text">Viewing Transformation 视图变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#View-x2F-Camera-Transformation"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">View&#x2F;Camera Transformation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Projection-Transformation"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Projection Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Orthographic-Projection%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">Orthographic Projection正交投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Perspective-Projection-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">Perspective Projection 透视投影</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P3-4-Transformation"><span class="nav-number">1.</span> <span class="nav-text">P3-4 - Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P3"><span class="nav-number">1.1.</span> <span class="nav-text">P3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2D-Transformation"><span class="nav-number">1.1.2.</span> <span class="nav-text">2D Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E6%AC%A1%E5%9D%90%E6%A0%87"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">其次坐标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Transformation"><span class="nav-number">1.1.3.</span> <span class="nav-text">3D Transformation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P4"><span class="nav-number">1.2.</span> <span class="nav-text">P4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Transformation-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">3D Transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewing-Transformation-%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="nav-number">1.2.2.</span> <span class="nav-text">Viewing Transformation 视图变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#View-Camera-Transformation"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">View&#x2F;Camera Transformation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Projection-Transformation"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Projection Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Orthographic-Projection%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">Orthographic Projection正交投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Perspective-Projection-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">Perspective Projection 透视投影</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,13 +192,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -266,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-27 15:15:18" itemprop="dateModified" datetime="2023-03-27T15:15:18+08:00">2023-03-27</time>
+      <time title="Modified: 2023-03-29 16:03:26" itemprop="dateModified" datetime="2023-03-29T16:03:26+08:00">2023-03-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E2%80%9CGames%E2%80%9D/" itemprop="url" rel="index"><span itemprop="name">“Games”</span></a>
+          <a href="/categories/Games/" itemprop="url" rel="index"><span itemprop="name">Games</span></a>
         </span>
     </span>
 
@@ -306,7 +306,7 @@
 <li>P4 Overview<ul>
 <li>3D变换</li>
 <li>Viewing(观测) Transformation<ul>
-<li>View(视图)&#x2F;Camera Transformation</li>
+<li>View(视图)/Camera Transformation</li>
 <li>Projection(投影) Transformation<ul>
 <li>Orthographic(正交)</li>
 <li>Perspective(透视)</li>
@@ -318,7 +318,6 @@
 </li>
 </ul>
 <span id="more"></span>
-
 <h1 id="P3-4-Transformation"><a href="#P3-4-Transformation" class="headerlink" title="P3-4 - Transformation"></a>P3-4 - Transformation</h1><h2 id="P3"><a href="#P3" class="headerlink" title="P3"></a>P3</h2><h3 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h3><ul>
 <li>Modeling模型变换</li>
 <li>Viewing视图变换：（3D to 2D）projection</li>
@@ -336,10 +335,14 @@
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.24.18.png" alt="截屏2023-03-21 20.24.18" style="zoom:25%;"></li>
 </ul>
 </li>
-<li>Rotation（特殊化点，推导（旋转绕原点</li>
+<li>Rotation（特殊化点，推导（旋转绕原点<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 20.27.31.png" alt="截屏2023-03-21 20.27.31" style="zoom:25%;"></li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.12.13.png" alt="截屏2023-03-27 10.12.13" style="zoom:25%;">
-- 正交矩阵，转置 = 逆</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.12.13.png" alt="截屏2023-03-27 10.12.13" style="zoom:25%;"><ul>
+<li>正交矩阵，转置 = 逆</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>线性变换（写成矩阵形式<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-21 21.15.53.png" alt="截屏2023-03-21 21.15.53" style="zoom:25%;"></li>
 </ul>
@@ -358,30 +361,31 @@
 <li>向量是0: 因为向量具有平移不变性</li>
 </ul>
 </li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.27.22.png" alt="截屏2023-03-26 21.27.22" style="zoom:25%;">
-- point + point得到两点间中点</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.27.22.png" alt="截屏2023-03-26 21.27.22" style="zoom:25%;"><ul>
+<li>point + point得到两点间中点</li>
 </ul>
 </li>
-<li><p>Affine Transform 仿射变换</p>
-<ul>
+</ul>
+</li>
+<li>Affine Transform 仿射变换<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.29.32.png" alt="截屏2023-03-26 21.29.32" style="zoom:25%;"></li>
-<li>$$\begin{pmatrix}线 &amp; 性 &amp; 平\ 变 &amp; 换 &amp; 移\ 0&amp;0&amp;1 \ \end{pmatrix}$$</li>
+<li><script type="math/tex; mode=display">\begin{pmatrix}线 & 性 & 平\\ 变 & 换 & 移\\ 0&0&1 \\ \end{pmatrix}</script></li>
 </ul>
 </li>
-<li><p>逆变换</p>
-</li>
-<li><p>复合变换：分步左乘变换矩阵，不满足交换律</p>
-<ul>
+<li>逆变换</li>
+<li>复合变换：分步左乘变换矩阵，不满足交换律<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.42.15.png" alt="截屏2023-03-26 21.42.15" style="zoom:25%;"></li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.43.20.png" alt="截屏2023-03-26 21.43.20" style="zoom: 33%;">
-- 先应用线性变换，再平移</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.43.20.png" alt="截屏2023-03-26 21.43.20" style="zoom: 33%;"><ul>
+<li>先应用线性变换，再平移</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="3D-Transformation"><a href="#3D-Transformation" class="headerlink" title="3D Transformation"></a>3D Transformation</h3><ul>
 <li>引入其次坐标<ul>
-<li>3D point &#x3D; (x, y, z, 1)^T^</li>
-<li>3D vector &#x3D; (x, y, z, 0)^T^</li>
+<li>3D point = (x, y, z, 1)^T^</li>
+<li>3D vector = (x, y, z, 0)^T^</li>
 </ul>
 </li>
 <li>仿射变换<ul>
@@ -391,9 +395,11 @@
 </ul>
 <h2 id="P4"><a href="#P4" class="headerlink" title="P4"></a>P4</h2><h3 id="3D-Transformation-1"><a href="#3D-Transformation-1" class="headerlink" title="3D Transformation"></a>3D Transformation</h3><ul>
 <li>三维空间旋转<ul>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.27.29.png" alt="截屏2023-03-27 10.27.29" style="zoom:25%;">
-- Y轴旋转相反：X ✖️ Z = -Y</li>
-<li>R<del>xyz</del>($\alpha$, $\beta$ ,$\gamma$) &#x3D; R<del>x</del>($\alpha$)R<del>y</del>($\beta$)R<del>z</del>($\gamma$) 三维空间变换分解<ul>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.27.29.png" alt="截屏2023-03-27 10.27.29" style="zoom:25%;"><ul>
+<li>Y轴旋转相反：X ✖️ Z = -Y</li>
+</ul>
+</li>
+<li>R~xyz~($\alpha$, $\beta$ ,$\gamma$) = R~x~($\alpha$)R~y~($\beta$)R~z~($\gamma$) 三维空间变换分解<ul>
 <li>$\alpha$, $\beta$ ,$\gamma$ 为欧拉角</li>
 <li>Yaw, Pitch, Roll描述三维空间变换<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.37.26.png" alt="截屏2023-03-27 10.37.26" style="zoom:25%;"></li>
@@ -408,25 +414,32 @@
 </ul>
 </li>
 </ul>
-<h3 id="Viewing-Transformation-视图变换"><a href="#Viewing-Transformation-视图变换" class="headerlink" title="Viewing Transformation 视图变换"></a>Viewing Transformation 视图变换</h3><h4 id="View-x2F-Camera-Transformation"><a href="#View-x2F-Camera-Transformation" class="headerlink" title="View&#x2F;Camera Transformation"></a>View&#x2F;Camera Transformation</h4><ul>
+<h3 id="Viewing-Transformation-视图变换"><a href="#Viewing-Transformation-视图变换" class="headerlink" title="Viewing Transformation 视图变换"></a>Viewing Transformation 视图变换</h3><p><mark>得到[-1, 1]^3^的立方体</mark></p>
+<h4 id="View-Camera-Transformation"><a href="#View-Camera-Transformation" class="headerlink" title="View/Camera Transformation"></a>View/Camera Transformation</h4><ul>
 <li><strong>MVP变换</strong><ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.52.32.png" alt="截屏2023-03-27 10.52.32" style="zoom: 33%;"></li>
 </ul>
 </li>
-<li>How to perform view transformation? 得到<strong>M<del>view</del>视图变换矩阵</strong><ul>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.56.48.png" alt="截屏2023-03-27 10.56.48" style="zoom: 33%;">
-- Up Direction：用一个向量定义相机向上的方向</li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.57.15.png" alt="截屏2023-03-27 10.57.15" style="zoom:33%;">
-- 相机放在标准位置(0, 0, 0)，向-Z看，上方向为Y</li>
+<li>How to perform view transformation? 得到<strong>M~view~视图变换矩阵</strong><ul>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.56.48.png" alt="截屏2023-03-27 10.56.48" style="zoom: 33%;"><ul>
+<li>Up Direction：用一个向量定义相机向上的方向</li>
+</ul>
+</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.57.15.png" alt="截屏2023-03-27 10.57.15" style="zoom:33%;"><ul>
+<li>相机放在标准位置(0, 0, 0)，向-Z看，上方向为Y</li>
+</ul>
+</li>
 <li>实现上一步的步骤<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 11.03.25.png" alt="截屏2023-03-27 11.03.25" style="zoom:33%;"></li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 11.05.16.png" alt="截屏2023-03-27 11.05.16" style="zoom:33%;">
-- R~view~^-1^：将xy -z旋转到etg（代入**X**(1,0,0,0)^T^, **Y**(0,1,0,0)^T^, **Z**(0,0,1,0)^T^可以验证XYZ向量的旋转得到etg）<img src="/2023/03/21/Games101-P3-4/IMG_0776.jpg" alt="IMG_0776" style="zoom:25%;">
-- 正交矩阵，逆 = 转置</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 11.05.16.png" alt="截屏2023-03-27 11.05.16" style="zoom:33%;"><ul>
+<li>R~view~^-1^：将xy -z旋转到etg（代入<strong>X</strong>(1,0,0,0)^T^, <strong>Y</strong>(0,1,0,0)^T^, <strong>Z</strong>(0,0,1,0)^T^可以验证XYZ向量的旋转得到etg）<img src="/2023/03/21/Games101-P3-4/IMG_0776.jpg" alt="IMG_0776" style="zoom:25%;"></li>
+<li>正交矩阵，逆 = 转置</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>总结<ul>
-<li>M<del>view</del>视图变换操作相机，其他物体跟着相机发生变换</li>
+<li>M~view~视图变换操作相机，其他物体跟着相机发生变换</li>
 <li>得到的结果：相机在原点，朝向-Z，上方向为Y</li>
 </ul>
 </li>
@@ -446,15 +459,19 @@
 </ul>
 </li>
 <li>正式做法<ul>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.14.53.png" alt="截屏2023-03-27 14.14.53" style="zoom:33%;">
-- 定义立方体（三个轴的范围）
-- 将立方体中心移到原点
-- 映射到cube[-1, 1]^3^</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.14.53.png" alt="截屏2023-03-27 14.14.53" style="zoom:33%;"><ul>
+<li>定义立方体（三个轴的范围）</li>
+<li>将立方体中心移到原点</li>
+<li>映射到cube[-1, 1]^3^</li>
 </ul>
 </li>
-<li>M<del>ortho</del>正交变换矩阵<ul>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.18.21.png" alt="截屏2023-03-27 14.18.21" style="zoom:33%;">
-- 先平移，再缩放</li>
+</ul>
+</li>
+<li>M~ortho~正交变换矩阵<ul>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.18.21.png" alt="截屏2023-03-27 14.18.21" style="zoom:33%;"><ul>
+<li>先平移，再缩放</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>注意⚠️<ul>
@@ -469,27 +486,31 @@
 </li>
 <li>步骤<ul>
 <li>概述：<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.33.45.png" alt="截屏2023-03-27 14.33.45" style="zoom:33%;"><ul>
-<li>将视锥远平面压缩到长方体中（M<del>persp-&gt;ortho</del>）<ul>
+<li>将视锥远平面压缩到长方体中（M~persp-&gt;ortho~）<ul>
 <li>近平面永远不变</li>
 <li>远平面中心点不变，Z不变</li>
 </ul>
 </li>
-<li>长方体做正交投影（M<del>ortho</del>）</li>
+<li>长方体做正交投影（M~ortho~）</li>
 </ul>
 </li>
 <li>STEP1：将persp视锥远平面压缩到ortho长方体中，xy可通过相似三角形计算，z未知<ul>
 <li>关于Y如何被挤压<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.41.45.png" alt="截屏2023-03-27 14.41.45" style="zoom:33%;"></li>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.44.02.png" alt="截屏2023-03-27 14.44.02" style="zoom:33%;"></li>
-<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.50.43.png" alt="截屏2023-03-27 14.50.43" style="zoom:33%;">
-- 利用近平面的点(x, y, n, 1)，特殊化求解第三行
-  - 下图右上角：(x,y,n,1)^T^经M~persp->ortho~变换后，还是会得到自己本身。因此乘n，得到与左上角格式类似的矩阵（此时的z=n），可看到unknown的值在近平面为n^2^
-  - <img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.56.24.png" alt="截屏2023-03-27 14.56.24" style="zoom:33%;"><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.57.10.png" alt="截屏2023-03-27 14.57.10" style="zoom:33%;">
-- 利用远平面中点(0, 0, f, 1)不变<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.58.40.png" alt="截屏2023-03-27 14.58.40" style="zoom:33%;">
-- <img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 15.14.45.png" alt="截屏2023-03-27 15.14.45" style="zoom: 33%;">
-- M~persp->ortho~ = $$\begin{pmatrix}n & 0 & 0 & 0\\ 0 & n & 0 & 0\\ 0 & 0 & n+f &-nf \\ 0 & 0 & 1& 0 \\ \end{pmatrix}$$</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.50.43.png" alt="截屏2023-03-27 14.50.43" style="zoom:33%;"><ul>
+<li>利用近平面的点(x, y, n, 1)，特殊化求解第三行<ul>
+<li>下图右上角：(x,y,n,1)^T^经M~persp-&gt;ortho~变换后，还是会得到自己本身。因此乘n，得到与左上角格式类似的矩阵（此时的z=n），可看到unknown的值在近平面为n^2^</li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.56.24.png" alt="截屏2023-03-27 14.56.24" style="zoom:33%;"><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.57.10.png" alt="截屏2023-03-27 14.57.10" style="zoom:33%;"></li>
 </ul>
 </li>
-<li>STEP2：对压缩后长方体进行M<del>ortho</del><ul>
+<li>利用远平面中点(0, 0, f, 1)不变<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.58.40.png" alt="截屏2023-03-27 14.58.40" style="zoom:33%;"></li>
+<li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 15.14.45.png" alt="截屏2023-03-27 15.14.45" style="zoom: 33%;"></li>
+<li>M~persp-&gt;ortho~ = <script type="math/tex">\begin{pmatrix}n & 0 & 0 & 0\\ 0 & n & 0 & 0\\ 0 & 0 & n+f &-nf \\ 0 & 0 & 1& 0 \\ \end{pmatrix}</script></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>STEP2：对压缩后长方体进行M~ortho~<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 15.15.03.png" alt="截屏2023-03-27 15.15.03" style="zoom:33%;"></li>
 </ul>
 </li>
@@ -594,6 +615,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
