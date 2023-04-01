@@ -63,9 +63,11 @@
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-27%2015.14.45.png">
 <meta property="og:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-27%2015.15.03.png">
 <meta property="article:published_time" content="2023-03-21T12:06:20.000Z">
-<meta property="article:modified_time" content="2023-03-29T08:03:26.282Z">
+<meta property="article:modified_time" content="2023-03-31T06:40:05.858Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
+<meta property="article:tag" content="图形学">
+<meta property="article:tag" content="MVP变换">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2023/03/21/Games101-P3-4/%E6%88%AA%E5%B1%8F2023-03-21%2020.16.25.png">
 
@@ -203,7 +205,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -266,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-29 16:03:26" itemprop="dateModified" datetime="2023-03-29T16:03:26+08:00">2023-03-29</time>
+      <time title="Modified: 2023-03-31 14:40:05" itemprop="dateModified" datetime="2023-03-31T14:40:05+08:00">2023-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,7 +276,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Games/" itemprop="url" rel="index"><span itemprop="name">Games</span></a>
+          <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
         </span>
     </span>
 
@@ -284,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.8k</span>
+      <span>1.9k</span>
     </span>
 </div>
 
@@ -369,7 +371,7 @@
 </li>
 <li>Affine Transform 仿射变换<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-26 21.29.32.png" alt="截屏2023-03-26 21.29.32" style="zoom:25%;"></li>
-<li><script type="math/tex; mode=display">\begin{pmatrix}线 & 性 & 平\\ 变 & 换 & 移\\ 0&0&1 \\ \end{pmatrix}</script></li>
+<li>$\begin{pmatrix}线 &amp; 性 &amp; 平\\ 变 &amp; 换 &amp; 移\\ 0&amp;0&amp;1 \\ \end{pmatrix}$</li>
 </ul>
 </li>
 <li>逆变换</li>
@@ -384,8 +386,8 @@
 </ul>
 <h3 id="3D-Transformation"><a href="#3D-Transformation" class="headerlink" title="3D Transformation"></a>3D Transformation</h3><ul>
 <li>引入其次坐标<ul>
-<li>3D point = (x, y, z, 1)^T^</li>
-<li>3D vector = (x, y, z, 0)^T^</li>
+<li>$3D\quad point = (x, y, z, 1)^T$</li>
+<li>$3D \quad vector = (x, y, z, 0)^T$</li>
 </ul>
 </li>
 <li>仿射变换<ul>
@@ -399,7 +401,7 @@
 <li>Y轴旋转相反：X ✖️ Z = -Y</li>
 </ul>
 </li>
-<li>R~xyz~($\alpha$, $\beta$ ,$\gamma$) = R~x~($\alpha$)R~y~($\beta$)R~z~($\gamma$) 三维空间变换分解<ul>
+<li>$R_{xyz}(\alpha, \beta ,\gamma) = R_x(\alpha)R_y(\beta)R_z(\gamma)$ 三维空间变换分解<ul>
 <li>$\alpha$, $\beta$ ,$\gamma$ 为欧拉角</li>
 <li>Yaw, Pitch, Roll描述三维空间变换<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.37.26.png" alt="截屏2023-03-27 10.37.26" style="zoom:25%;"></li>
@@ -414,13 +416,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="Viewing-Transformation-视图变换"><a href="#Viewing-Transformation-视图变换" class="headerlink" title="Viewing Transformation 视图变换"></a>Viewing Transformation 视图变换</h3><p><mark>得到[-1, 1]^3^的立方体</mark></p>
+<h3 id="Viewing-Transformation-视图变换"><a href="#Viewing-Transformation-视图变换" class="headerlink" title="Viewing Transformation 视图变换"></a>Viewing Transformation 视图变换</h3><p><mark>得到$[-1, 1]^3$的立方体</mark></p>
 <h4 id="View-Camera-Transformation"><a href="#View-Camera-Transformation" class="headerlink" title="View/Camera Transformation"></a>View/Camera Transformation</h4><ul>
 <li><strong>MVP变换</strong><ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.52.32.png" alt="截屏2023-03-27 10.52.32" style="zoom: 33%;"></li>
 </ul>
 </li>
-<li>How to perform view transformation? 得到<strong>M~view~视图变换矩阵</strong><ul>
+<li>How to perform view transformation? 得到<strong>$M_{view}$视图变换矩阵</strong><ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 10.56.48.png" alt="截屏2023-03-27 10.56.48" style="zoom: 33%;"><ul>
 <li>Up Direction：用一个向量定义相机向上的方向</li>
 </ul>
@@ -439,7 +441,7 @@
 </ul>
 </li>
 <li>总结<ul>
-<li>M~view~视图变换操作相机，其他物体跟着相机发生变换</li>
+<li>$M_{view}$视图变换操作相机，其他物体跟着相机发生变换</li>
 <li>得到的结果：相机在原点，朝向-Z，上方向为Y</li>
 </ul>
 </li>
@@ -462,12 +464,12 @@
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.14.53.png" alt="截屏2023-03-27 14.14.53" style="zoom:33%;"><ul>
 <li>定义立方体（三个轴的范围）</li>
 <li>将立方体中心移到原点</li>
-<li>映射到cube[-1, 1]^3^</li>
+<li>映射到$cube[-1, 1]^3$</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>M~ortho~正交变换矩阵<ul>
+<li>$M_{ortho}$正交变换矩阵<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.18.21.png" alt="截屏2023-03-27 14.18.21" style="zoom:33%;"><ul>
 <li>先平移，再缩放</li>
 </ul>
@@ -486,12 +488,12 @@
 </li>
 <li>步骤<ul>
 <li>概述：<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.33.45.png" alt="截屏2023-03-27 14.33.45" style="zoom:33%;"><ul>
-<li>将视锥远平面压缩到长方体中（M~persp-&gt;ortho~）<ul>
+<li>将视锥远平面压缩到长方体中（$M_{persp-&gt;ortho}$）<ul>
 <li>近平面永远不变</li>
 <li>远平面中心点不变，Z不变</li>
 </ul>
 </li>
-<li>长方体做正交投影（M~ortho~）</li>
+<li>长方体做正交投影（$M_{ortho}$）</li>
 </ul>
 </li>
 <li>STEP1：将persp视锥远平面压缩到ortho长方体中，xy可通过相似三角形计算，z未知<ul>
@@ -499,18 +501,18 @@
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.44.02.png" alt="截屏2023-03-27 14.44.02" style="zoom:33%;"></li>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.50.43.png" alt="截屏2023-03-27 14.50.43" style="zoom:33%;"><ul>
 <li>利用近平面的点(x, y, n, 1)，特殊化求解第三行<ul>
-<li>下图右上角：(x,y,n,1)^T^经M~persp-&gt;ortho~变换后，还是会得到自己本身。因此乘n，得到与左上角格式类似的矩阵（此时的z=n），可看到unknown的值在近平面为n^2^</li>
+<li>下图右上角：$(x,y,n,1)^T$经$M_{persp-&gt;ortho}$变换后，还是会得到自己本身。因此乘n，得到与左上角格式类似的矩阵（此时的z=n），可看到unknown的值在近平面为$n^2$</li>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.56.24.png" alt="截屏2023-03-27 14.56.24" style="zoom:33%;"><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.57.10.png" alt="截屏2023-03-27 14.57.10" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>利用远平面中点(0, 0, f, 1)不变<img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 14.58.40.png" alt="截屏2023-03-27 14.58.40" style="zoom:33%;"></li>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 15.14.45.png" alt="截屏2023-03-27 15.14.45" style="zoom: 33%;"></li>
-<li>M~persp-&gt;ortho~ = <script type="math/tex">\begin{pmatrix}n & 0 & 0 & 0\\ 0 & n & 0 & 0\\ 0 & 0 & n+f &-nf \\ 0 & 0 & 1& 0 \\ \end{pmatrix}</script></li>
+<li>$M_{persp-&gt;ortho} = \begin{pmatrix}n &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; n &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; n+f &amp;-nf \\ 0 &amp; 0 &amp; 1&amp; 0 \\ \end{pmatrix}$</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>STEP2：对压缩后长方体进行M~ortho~<ul>
+<li>STEP2：对压缩后长方体进行$M_{ortho}$<ul>
 <li><img src="/2023/03/21/Games101-P3-4/截屏2023-03-27 15.15.03.png" alt="截屏2023-03-27 15.15.03" style="zoom:33%;"></li>
 </ul>
 </li>
@@ -527,6 +529,8 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Games101/" rel="tag"># Games101</a>
+              <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag"># 图形学</a>
+              <a href="/tags/MVP%E5%8F%98%E6%8D%A2/" rel="tag"># MVP变换</a>
           </div>
 
         
@@ -573,7 +577,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">3k</span>
+    <span title="Word count total">4k</span>
   </span>
 </div>
 
