@@ -19,16 +19,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P7 Overview Illumination &amp; Shading  Graphics Pipeline   P8 Overview P9 Overview  P7-9 Shading (Illumination, Shading and Graphics Pipeline)P7 回顾：Model - View - Projection - Viewport - Rasterizati">
+    <meta name="description" content="P7 Overview Illumination &amp; Shading  Graphics Pipeline   P8 Overview P9 Overview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P7-9">
 <meta property="og:url" content="http://example.com/2023/04/02/Games101-P7-9/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P7 Overview Illumination &amp; Shading  Graphics Pipeline   P8 Overview P9 Overview  P7-9 Shading (Illumination, Shading and Graphics Pipeline)P7 回顾：Model - View - Projection - Viewport - Rasterizati">
+<meta property="og:description" content="P7 Overview Illumination &amp; Shading  Graphics Pipeline   P8 Overview P9 Overview">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-02%2014.31.29.png">
 <meta property="article:published_time" content="2023-04-02T06:26:32.000Z">
-<meta property="article:modified_time" content="2023-04-02T06:51:57.676Z">
+<meta property="article:modified_time" content="2023-04-02T07:07:46.550Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-9-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.</span> <span class="nav-text">P7-9 Shading (Illumination, Shading and Graphics Pipeline)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P7"><span class="nav-number">1.1.</span> <span class="nav-text">P7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8"><span class="nav-number">1.2.</span> <span class="nav-text">P8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9"><span class="nav-number">1.3.</span> <span class="nav-text">P9</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-9-Shading"><span class="nav-number">1.</span> <span class="nav-text">P7-9 Shading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.1.</span> <span class="nav-text">P7 Shading (Illumination, Shading and Graphics Pipeline)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8"><span class="nav-number">1.2.</span> <span class="nav-text">P8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9"><span class="nav-number">1.3.</span> <span class="nav-text">P9</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -227,7 +227,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-04-02 14:26:32 / Modified: 14:51:57" itemprop="dateCreated datePublished" datetime="2023-04-02T14:26:32+08:00">2023-04-02</time>
+      <time title="Created: 2023-04-02 14:26:32 / Modified: 15:07:46" itemprop="dateCreated datePublished" datetime="2023-04-02T14:26:32+08:00">2023-04-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,7 +245,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>175</span>
+      <span>182</span>
     </span>
 </div>
 
@@ -265,7 +265,8 @@
 <li>P8 Overview</li>
 <li>P9 Overview</li>
 </ul>
-<h1 id="P7-9-Shading-Illumination-Shading-and-Graphics-Pipeline"><a href="#P7-9-Shading-Illumination-Shading-and-Graphics-Pipeline" class="headerlink" title="P7-9 Shading (Illumination, Shading and Graphics Pipeline)"></a>P7-9 Shading (Illumination, Shading and Graphics Pipeline)</h1><h2 id="P7"><a href="#P7" class="headerlink" title="P7"></a>P7</h2><ul>
+<span id="more"></span>
+<h1 id="P7-9-Shading"><a href="#P7-9-Shading" class="headerlink" title="P7-9 Shading"></a>P7-9 Shading</h1><h2 id="P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><a href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline" class="headerlink" title="P7 Shading (Illumination, Shading and Graphics Pipeline)"></a>P7 Shading (Illumination, Shading and Graphics Pipeline)</h2><ul>
 <li>回顾：Model - View - Projection - Viewport - Rasterization<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-02 14.31.29.png" alt="截屏2023-04-02 14.31.29" style="zoom:33%;"></li>
 </ul>
