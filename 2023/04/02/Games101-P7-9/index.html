@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P7 Overview Illumination &amp; Shading Blinn - Phong Diffuse Reflection Model     P8 Overview  Illumination &amp; Shading Graphics Pipeline   P9 Overview">
+    <meta name="description" content="P7 Overview Blinn - Phong Diffuse Reflection Model Diffuse     P8 Overview  Blinn - Phong Diffuse Reflection Model Specular Ambient   Shading Frequencies Graphics Pipeline   P9 Overview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P7-9">
 <meta property="og:url" content="http://example.com/2023/04/02/Games101-P7-9/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P7 Overview Illumination &amp; Shading Blinn - Phong Diffuse Reflection Model     P8 Overview  Illumination &amp; Shading Graphics Pipeline   P9 Overview">
+<meta property="og:description" content="P7 Overview Blinn - Phong Diffuse Reflection Model Diffuse     P8 Overview  Blinn - Phong Diffuse Reflection Model Specular Ambient   Shading Frequencies Graphics Pipeline   P9 Overview">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-02%2014.31.29.png">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-06%2020.33.25.png">
@@ -34,12 +34,26 @@
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-06%2020.59.29.png">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-06%2021.05.53.png">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-06%2021.20.04.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2009.36.00.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2009.43.05.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2009.52.26.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2009.55.47.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2009.59.36.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.01.33.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.08.19.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.13.38.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.16.24.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.20.37.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.30.47.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.37.34.png">
+<meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-07%2010.41.34.png">
 <meta property="article:published_time" content="2023-04-02T06:26:32.000Z">
-<meta property="article:modified_time" content="2023-04-06T13:34:13.654Z">
+<meta property="article:modified_time" content="2023-04-07T02:53:47.397Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
 <meta property="article:tag" content="着色">
+<meta property="article:tag" content="渲染管线">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-02%2014.31.29.png">
 
@@ -151,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-9-Shading"><span class="nav-number">1.</span> <span class="nav-text">P7-9 Shading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.1.</span> <span class="nav-text">P7 Shading (Illumination, Shading and Graphics Pipeline)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-Definition"><span class="nav-number">1.1.1.</span> <span class="nav-text">Shading Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E7%9D%80%E8%89%B2%E4%BE%8B%E5%AD%90%EF%BC%9ABlinn-Phong-Reflection-Model"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单的着色例子：Blinn - Phong Reflection Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shading-in-Local"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Shading in Local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diffuse-Reflection-%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Diffuse Reflection 漫反射</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8-Shading-Pipeline-and-Texture-Mapping"><span class="nav-number">1.2.</span> <span class="nav-text">P8 Shading (Pipeline and Texture Mapping)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9"><span class="nav-number">1.3.</span> <span class="nav-text">P9</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-9-Shading"><span class="nav-number">1.</span> <span class="nav-text">P7-9 Shading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.1.</span> <span class="nav-text">P7 Shading (Illumination, Shading and Graphics Pipeline)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-Definition"><span class="nav-number">1.1.1.</span> <span class="nav-text">Shading Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E7%9D%80%E8%89%B2%E4%BE%8B%E5%AD%90%EF%BC%9ABlinn-Phong-Reflection-Model"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单的着色例子：Blinn - Phong Reflection Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shading-in-Local"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Shading in Local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diffuse-Reflection-%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Diffuse Reflection 漫反射</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8-Shading-Pipeline-and-Texture-Mapping"><span class="nav-number">1.2.</span> <span class="nav-text">P8 Shading (Pipeline and Texture Mapping)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Blinn-Phong-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">Blinn - Phong Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Specular-Term-%E9%AB%98%E5%85%89"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Specular Term 高光</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ambient-Term-%E7%8E%AF%E5%A2%83%E5%85%89"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Ambient Term 环境光</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">最终效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-Frequencies-%E7%9D%80%E8%89%B2%E9%A2%91%E7%8E%87"><span class="nav-number">1.2.2.</span> <span class="nav-text">Shading Frequencies 着色频率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flat-Shading-shade-each-triangle"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Flat Shading: shade each triangle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gouraud-Shading-shade-each-vertex"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Gouraud Shading: shade each vertex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Phong-Shading-shade-each-pixel"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Phong Shading: shade each pixel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%A1%B6%E7%82%B9%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">定义顶点法线方向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%83%8F%E7%B4%A0%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">定义像素法线方向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graphics-Real-time-Rendering-Pipeline-%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">1.2.3.</span> <span class="nav-text">Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9"><span class="nav-number">1.3.</span> <span class="nav-text">P9</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +191,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -240,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-06 21:34:13" itemprop="dateModified" datetime="2023-04-06T21:34:13+08:00">2023-04-06</time>
+      <time title="Modified: 2023-04-07 10:53:47" itemprop="dateModified" datetime="2023-04-07T10:53:47+08:00">2023-04-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,7 +272,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.3k</span>
+      <span>2.1k</span>
     </span>
 </div>
 
@@ -271,15 +285,20 @@
     <div class="post-body" itemprop="articleBody">
         <ul>
 <li>P7 Overview<ul>
-<li>Illumination &amp; Shading<ul>
-<li>Blinn - Phong Diffuse Reflection Model</li>
+<li>Blinn - Phong Diffuse Reflection Model<ul>
+<li>Diffuse</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>P8 Overview</p>
 <ul>
-<li>Illumination &amp; Shading</li>
+<li>Blinn - Phong Diffuse Reflection Model<ul>
+<li>Specular</li>
+<li>Ambient</li>
+</ul>
+</li>
+<li>Shading Frequencies</li>
 <li>Graphics Pipeline</li>
 </ul>
 </li>
@@ -308,7 +327,7 @@
 </ul>
 </li>
 <li>Shading Point：相机所观察到的点<ul>
-<li>input：（一下所有向量只表示方向，均为单位向量）<ul>
+<li>input：（一下所有向量只表示方向，均为单位向量，由两点向量归一化得到）<ul>
 <li>Viewer direction, v：观测方向，shading point向相机连线的方向</li>
 <li>Surface normal, n：法线方向</li>
 <li>Light direction, l：光照方向，shading point向光源连线的方向</li>
@@ -352,7 +371,89 @@
 </li>
 <li>漫反射理论上各个方向反射均匀，各个方向所观测到的着色应一致</li>
 </ul>
-<h2 id="P8-Shading-Pipeline-and-Texture-Mapping"><a href="#P8-Shading-Pipeline-and-Texture-Mapping" class="headerlink" title="P8 Shading (Pipeline and Texture Mapping)"></a>P8 Shading (Pipeline and Texture Mapping)</h2><h2 id="P9"><a href="#P9" class="headerlink" title="P9"></a>P9</h2>
+<h2 id="P8-Shading-Pipeline-and-Texture-Mapping"><a href="#P8-Shading-Pipeline-and-Texture-Mapping" class="headerlink" title="P8 Shading (Pipeline and Texture Mapping)"></a>P8 Shading (Pipeline and Texture Mapping)</h2><h3 id="Blinn-Phong-Model"><a href="#Blinn-Phong-Model" class="headerlink" title="Blinn - Phong Model"></a>Blinn - Phong Model</h3><h4 id="Specular-Term-高光"><a href="#Specular-Term-高光" class="headerlink" title="Specular Term 高光"></a>Specular Term 高光</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.36.00.png" alt="截屏2023-04-07 09.36.00" style="zoom:33%;"><ul>
+<li>$v$$和r$足够接近时，可得到高光项</li>
+</ul>
+</li>
+<li>Blinn - Phong 模型中的trick<ul>
+<li>​    <img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.43.05.png" alt="截屏2023-04-07 09.43.05" style="zoom:33%;"></li>
+<li>备注：<ul>
+<li><strong>$v$$和r$很接近$\iff$法线方向和半程向量($l$和$v$角平分线方向)很接近</strong>；$n\cdot h$越接近1，则观察到的镜面反射越强烈</li>
+<li>镜面反射系数$k_s$通常认为是白色的</li>
+<li>利用半程向量的Blinn - Phong模型是对计算反射方向$r$的简化计算。若直接$r\cdot v$，则是Phong模型。</li>
+<li>$max(0, n \cdot h)^p$指数$p$的作用：限制高光范围<ul>
+<li>下图最左，不做指数运算，则会看到很大的高光；$p$通常为100~200</li>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.52.26.png" alt="截屏2023-04-07 09.52.26" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最终效果<ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.55.47.png" alt="截屏2023-04-07 09.55.47" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="Ambient-Term-环境光"><a href="#Ambient-Term-环境光" class="headerlink" title="Ambient Term 环境光"></a>Ambient Term 环境光</h4><ul>
+<li>假设所有点接收到的环境光相同，强度$I_a$，来自四面八方；假设是错的！<ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.59.36.png" alt="截屏2023-04-07 09.59.36" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><ul>
+<li>叠加所有光效<ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.01.33.png" alt="截屏2023-04-07 10.01.33" style="zoom: 50%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Shading-Frequencies-着色频率"><a href="#Shading-Frequencies-着色频率" class="headerlink" title="Shading Frequencies 着色频率"></a>Shading Frequencies 着色频率</h3><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.08.19.png" alt="截屏2023-04-07 10.08.19" style="zoom:33%;"><ul>
+<li>利用法线插值</li>
+</ul>
+</li>
+</ul>
+<h4 id="Flat-Shading-shade-each-triangle"><a href="#Flat-Shading-shade-each-triangle" class="headerlink" title="Flat Shading: shade each triangle"></a>Flat Shading: shade each triangle</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.13.38.png" alt="截屏2023-04-07 10.13.38" style="zoom: 50%;"><ul>
+<li>每一个面都是平的，只有一个本身的法线</li>
+<li>针对以一个三角面进行着色</li>
+</ul>
+</li>
+</ul>
+<h4 id="Gouraud-Shading-shade-each-vertex"><a href="#Gouraud-Shading-shade-each-vertex" class="headerlink" title="Gouraud Shading: shade each vertex"></a>Gouraud Shading: shade each vertex</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.16.24.png" alt="截屏2023-04-07 10.16.24" style="zoom:50%;"><ul>
+<li>求出顶点法线，针对每一个顶点进行着色</li>
+<li>三个顶点所确定的三角形，根据三个顶点的颜色进行插值</li>
+</ul>
+</li>
+</ul>
+<h4 id="Phong-Shading-shade-each-pixel"><a href="#Phong-Shading-shade-each-pixel" class="headerlink" title="Phong Shading: shade each pixel"></a>Phong Shading: shade each pixel</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.20.37.png" alt="截屏2023-04-07 10.20.37" style="zoom:50%;"><ul>
+<li>得出三个顶点的法线后，插值三个顶点间每一个像素的法线方向，针对每个像素着色</li>
+</ul>
+</li>
+</ul>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.30.47.png" alt="截屏2023-04-07 10.30.47" style="zoom:50%;"><ul>
+<li>效果好坏是相对的</li>
+<li>当面数极高，高于像素数，Flat shading消耗少于Phong shading，而效果差异不大</li>
+</ul>
+</li>
+</ul>
+<h4 id="定义顶点法线方向"><a href="#定义顶点法线方向" class="headerlink" title="定义顶点法线方向"></a>定义顶点法线方向</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.37.34.png" alt="截屏2023-04-07 10.37.34" style="zoom: 50%;"><ul>
+<li><mark>顶点法线</mark><strong>：相邻面的法线方向加权平均(根据面积)，再归一化</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="定义像素法线方向"><a href="#定义像素法线方向" class="headerlink" title="定义像素法线方向"></a>定义像素法线方向</h4><ul>
+<li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.41.34.png" alt="截屏2023-04-07 10.41.34" style="zoom:50%;"><ul>
+<li><mark>逐像素的法线</mark><strong>：根据顶点法线，利用重心坐标(Barycentric interpolation)插值，而后归一化</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线"><a href="#Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线" class="headerlink" title="Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线"></a>Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</h3><h2 id="P9"><a href="#P9" class="headerlink" title="P9"></a>P9</h2>
     </div>
 
     
@@ -364,6 +465,7 @@
               <a href="/tags/Games101/" rel="tag"># Games101</a>
               <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag"># 图形学</a>
               <a href="/tags/%E7%9D%80%E8%89%B2/" rel="tag"># 着色</a>
+              <a href="/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/" rel="tag"># 渲染管线</a>
           </div>
 
         
@@ -407,7 +509,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">8k</span>
+    <span title="Word count total">9k</span>
   </span>
 </div>
 
