@@ -19,20 +19,51 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+    <meta name="description" content="P10&amp;11 Overview Introduce to geometry Examples of geometry Various representations of geometry Implicit Explicit       P11 Overview  Curves  Bézier Curves De Casteljau’s algorithm B-splines, etc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P10-12 Geometry">
 <meta property="og:url" content="http://example.com/2023/04/15/Games101-P10-12/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+<meta property="og:description" content="P10&amp;11 Overview Introduce to geometry Examples of geometry Various representations of geometry Implicit Explicit       P11 Overview  Curves  Bézier Curves De Casteljau’s algorithm B-splines, etc">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.29.06.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.34.32.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.37.00.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.37.52.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.55.20.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.59.13.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2014.10.46.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2014.54.33.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2015.12.26.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2015.30.03.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2015.36.59.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2015.38.52.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2016.32.06.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.39.50.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.48.06.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.52.05.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2016.39.57.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2016.46.23.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2016.49.26.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2017.07.15.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.07.32.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2017.33.48.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.06.24.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.16.38.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.12.16.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.21.57.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.22.12.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.31.19.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.42.32.png">
+<meta property="og:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2020.52.32.png">
 <meta property="article:published_time" content="2023-04-14T16:51:17.000Z">
-<meta property="article:modified_time" content="2023-04-14T16:52:36.827Z">
+<meta property="article:modified_time" content="2023-04-15T13:03:12.860Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
 <meta property="article:tag" content="几何">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/15/Games101-P10-12/%E6%88%AA%E5%B1%8F2023-04-15%2013.29.06.png">
 
 
 <link rel="canonical" href="http://example.com/2023/04/15/Games101-P10-12/">
@@ -129,7 +160,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P10-amp-11-Geometry-Implicit-amp-Explicit"><span class="nav-number">1.</span> <span class="nav-text">P10&amp;11 Geometry (Implicit&amp;Explicit)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">几何的表示形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E7%9A%84%E9%9A%90%E5%BC%8F-Implicit-%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.1.</span> <span class="nav-text">几何的隐式(Implicit)表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-%E9%9A%90%E5%BC%8F%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Intro - 隐式函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Algebraic-Surfaces"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Algebraic Surfaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructive-Solid-Geometry"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Constructive Solid Geometry</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Distance-Functions"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">Distance Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Level-Set-Methods-%E6%B0%B4%E5%B9%B3%E9%9B%86"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">Level Set Methods 水平集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fractals-%E5%88%86%E5%BD%A2"><span class="nav-number">1.1.1.6.</span> <span class="nav-text">Fractals 分形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pros-amp-Cons-%E9%9A%90%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%88%A9%E5%BC%8A%E5%88%86%E6%9E%90"><span class="nav-number">1.1.1.7.</span> <span class="nav-text">Pros &amp; Cons 隐式表示利弊分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E7%9A%84%E6%98%BE%E5%BC%8F-Explicit-%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">几何的显式(Explicit)表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-%E6%98%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Intro - 显式表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Point-Cloud-%E7%82%B9%E4%BA%91"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Point Cloud 点云</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Polygon-Mesh"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Polygon Mesh</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P11-Geometry-Curves-and-Surfaces"><span class="nav-number">2.</span> <span class="nav-text">P11 Geometry (Curves and Surfaces)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Curves"><span class="nav-number">2.1.</span> <span class="nav-text">Curves</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Be%CC%81zier-Curves"><span class="nav-number">2.1.1.</span> <span class="nav-text">Bézier Curves</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%EF%BC%9Ade-Casteljau-Algorithm%E5%BE%B7%E5%8D%A1%E6%96%AF%E7%89%B9%E9%87%8C%E5%A5%A5%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.1.0.1.</span> <span class="nav-text">计算贝塞尔曲线：de Casteljau Algorithm德卡斯特里奥算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Piecewise-Be%CC%81zier-Curves-%E9%80%90%E6%AE%B5%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.1.1.0.2.</span> <span class="nav-text">Piecewise Bézier Curves 逐段贝塞尔曲线</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -236,7 +268,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-04-15 00:51:17 / Modified: 00:52:36" itemprop="dateCreated datePublished" datetime="2023-04-15T00:51:17+08:00">2023-04-15</time>
+      <time title="Created: 2023-04-15 00:51:17 / Modified: 21:03:12" itemprop="dateCreated datePublished" datetime="2023-04-15T00:51:17+08:00">2023-04-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>0</span>
+      <span>2k</span>
     </span>
 </div>
 
@@ -265,7 +297,242 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <ul>
+<li>P10&amp;11 Overview<ul>
+<li>Introduce to geometry<ul>
+<li>Examples of geometry</li>
+<li>Various representations of geometry<ul>
+<li>Implicit</li>
+<li>Explicit</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>P11 Overview</p>
+<ul>
+<li><p>Curves</p>
+<ul>
+<li>Bézier Curves</li>
+<li>De Casteljau’s algorithm</li>
+<li>B-splines, etc.</li>
+</ul>
+</li>
+<li><p>Surfaces</p>
+<ul>
+<li>Bezier surfaces</li>
+<li>Triangles &amp; quads<ul>
+<li>Subdivision, simplification, regularization</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>P12 Overview</p>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="P10-amp-11-Geometry-Implicit-amp-Explicit"><a href="#P10-amp-11-Geometry-Implicit-amp-Explicit" class="headerlink" title="P10&amp;11 Geometry (Implicit&amp;Explicit)"></a>P10&amp;11 Geometry (Implicit&amp;Explicit)</h1><ul>
+<li>难点：存储；渲染</li>
+<li>过于精细不适宜三角面表示</li>
+</ul>
+<h2 id="几何的表示形式"><a href="#几何的表示形式" class="headerlink" title="几何的表示形式"></a>几何的表示形式</h2><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.29.06.png" alt="截屏2023-04-15 13.29.06" style="zoom:33%;"></p>
+<h3 id="几何的隐式-Implicit-表示"><a href="#几何的隐式-Implicit-表示" class="headerlink" title="几何的隐式(Implicit)表示"></a>几何的隐式(Implicit)表示</h3><h4 id="Intro-隐式函数"><a href="#Intro-隐式函数" class="headerlink" title="Intro - 隐式函数"></a>Intro - 隐式函数</h4><ul>
+<li>已知几何的点满足一定关系，未知点的具体位置<ul>
+<li>eg：三维空间中单位球 $x^2+y^2+z^2=1$</li>
+<li>通用：$f(x,y,z) = 0$</li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.34.32.png" alt="截屏2023-04-15 13.34.32" style="zoom:40%;"></li>
+</ul>
+</li>
+<li>缺点：采样难，所表现的形状不直观<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.37.00.png" alt="截屏2023-04-15 13.37.00" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>优点：便于检测点是否在物体表面上/内/外<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.37.52.png" alt="截屏2023-04-15 13.37.52" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="Algebraic-Surfaces"><a href="#Algebraic-Surfaces" class="headerlink" title="Algebraic Surfaces"></a>Algebraic Surfaces</h4><ul>
+<li>可表述参数化模型，而无法表述复杂的又不可参数化描述的模型<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.55.20.png" alt="截屏2023-04-15 13.55.20" style="zoom: 50%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="Constructive-Solid-Geometry"><a href="#Constructive-Solid-Geometry" class="headerlink" title="Constructive Solid Geometry"></a>Constructive Solid Geometry</h4><ul>
+<li>通过一系列基本几何的布尔运算，来定义新的几何<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.59.13.png" alt="截屏2023-04-15 13.59.13" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="Distance-Functions"><a href="#Distance-Functions" class="headerlink" title="Distance Functions"></a>Distance Functions</h4><ul>
+<li>距离函数：对空间中任何一个点，到想要的几何形体表面的最小距离（内负外正）。将两个物体的空间函数blend后，推算出得到的新的函数所表示的几何形体<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 14.10.46.png" alt="截屏2023-04-15 14.10.46" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>理想：blend后得到二者位置的中间状态，SDF为0处表示物体边缘<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 14.54.33.png" alt="截屏2023-04-15 14.54.33" style="zoom:33%;"></li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 15.12.26.png" alt="截屏2023-04-15 15.12.26"></li>
+</ul>
+</li>
+<li>大神作品：<a target="_blank" rel="noopener" href="https://iquilezles.org/www/articles/raymarchingdf/raymarchingdf.htm">https://iquilezles.org/www/articles/raymarchingdf/raymarchingdf.htm</a></li>
+</ul>
+<h4 id="Level-Set-Methods-水平集"><a href="#Level-Set-Methods-水平集" class="headerlink" title="Level Set Methods 水平集"></a>Level Set Methods 水平集</h4><ul>
+<li><p>与距离函数类似，只是表示形式不同</p>
+</li>
+<li><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 15.30.03.png" alt="截屏2023-04-15 15.30.03" style="zoom:50%;"></p>
+<ul>
+<li><p>封闭形式的方程很难描述复杂的形状</p>
+</li>
+<li><p>替代方案：存储一个近似函数的值网格</p>
+</li>
+<li><p>表面处，值为0</p>
+</li>
+<li><p>提供对形状的更明确的控制（如纹理）</p>
+</li>
+</ul>
+</li>
+<li><p>水平集的三维应用</p>
+<ul>
+<li>Level Sets from Medical Data<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 15.36.59.png" alt="截屏2023-04-15 15.36.59" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>Level Sets in Physical Simulation，如水滴融合<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 15.38.52.png" alt="截屏2023-04-15 15.38.52" style="zoom:50%;"><ul>
+<li><a target="_blank" rel="noopener" href="http://physbam.stanford.edu">http://physbam.stanford.edu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Fractals-分形"><a href="#Fractals-分形" class="headerlink" title="Fractals 分形"></a>Fractals 分形</h4><ul>
+<li>自相似，理解为递归</li>
+</ul>
+<h4 id="Pros-amp-Cons-隐式表示利弊分析"><a href="#Pros-amp-Cons-隐式表示利弊分析" class="headerlink" title="Pros &amp; Cons 隐式表示利弊分析"></a>Pros &amp; Cons 隐式表示利弊分析</h4><ul>
+<li>Pros<ul>
+<li>函数描述几何形体，紧凑</li>
+<li>容易查询，如inside object, distance to surface</li>
+<li>good for ray-to-surface intersection</li>
+<li>对于简单的物体，描述精确，且无采样造成的错误</li>
+<li>容易处理拓扑结构的变化（例如，流体）</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>很难模拟复杂的形状</li>
+</ul>
+</li>
+</ul>
+<h3 id="几何的显式-Explicit-表示"><a href="#几何的显式-Explicit-表示" class="headerlink" title="几何的显式(Explicit)表示"></a>几何的显式(Explicit)表示</h3><h4 id="Intro-显式表示"><a href="#Intro-显式表示" class="headerlink" title="Intro - 显式表示"></a>Intro - 显式表示</h4><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 16.32.06.png" alt="截屏2023-04-15 16.32.06" style="zoom:33%;"></p>
+<ul>
+<li>所有点直接给出，或通过参数映射<ul>
+<li>给出一个函数$f$，可将$uv$映射到$xyz$</li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.39.50.png" alt="截屏2023-04-15 13.39.50" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>优点：采样简单，可直接通过已知的$uv$的出对应的$xyz$<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.48.06.png" alt="截屏2023-04-15 13.48.06" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>缺点：难以判断点是否在物体表面上/内/外<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 13.52.05.png" alt="截屏2023-04-15 13.52.05" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>按需选择表示方法</li>
+</ul>
+<h4 id="Point-Cloud-点云"><a href="#Point-Cloud-点云" class="headerlink" title="Point Cloud 点云"></a>Point Cloud 点云</h4><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 16.39.57.png" alt="截屏2023-04-15 16.39.57" style="zoom: 40%;"></p>
+<h4 id="Polygon-Mesh"><a href="#Polygon-Mesh" class="headerlink" title="Polygon Mesh"></a>Polygon Mesh</h4><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 16.46.23.png" alt="截屏2023-04-15 16.46.23" style="zoom:40%;"></p>
+<ul>
+<li>如何表示用三角形面形成的物体：The Wavefront Object File (.obj) Format<ul>
+<li>是一种存储vertices, normals, texture, coordinates和它们之间联系的文本文件<ul>
+<li>如图，表示一个立方体的八个点（v点，vn法线，vt纹理坐标，f面联系 v/vt/vn）<img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 16.49.26.png" alt="截屏2023-04-15 16.49.26" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="P11-Geometry-Curves-and-Surfaces"><a href="#P11-Geometry-Curves-and-Surfaces" class="headerlink" title="P11 Geometry (Curves and Surfaces)"></a>P11 Geometry (Curves and Surfaces)</h1><h2 id="Curves"><a href="#Curves" class="headerlink" title="Curves"></a>Curves</h2><ul>
+<li>应用<ul>
+<li>摄影机运动路径</li>
+<li>动画路径</li>
+<li>字体设计（矢量）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Bézier-Curves"><a href="#Bézier-Curves" class="headerlink" title="Bézier Curves"></a>Bézier Curves</h3><ul>
+<li>用一系列控制点，去定义一条曲线；属于显式的几何表示方法<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 17.07.15.png" alt="截屏2023-04-15 17.07.15" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h5 id="计算贝塞尔曲线：de-Casteljau-Algorithm德卡斯特里奥算法"><a href="#计算贝塞尔曲线：de-Casteljau-Algorithm德卡斯特里奥算法" class="headerlink" title="计算贝塞尔曲线：de Casteljau Algorithm德卡斯特里奥算法"></a>计算贝塞尔曲线：de Casteljau Algorithm德卡斯特里奥算法</h5><ul>
+<li><p>计算思路：递归</p>
+<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.07.32.png" alt="截屏2023-04-15 20.07.32" style="zoom:40%;"></li>
+</ul>
+</li>
+<li><p>计算步骤</p>
+<ul>
+<li><p>三个点：</p>
+<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 17.33.48.png" alt="截屏2023-04-15 17.33.48" style="zoom:40%;"></li>
+<li><p>认为两个控制点间范围$(0,1)$</p>
+</li>
+<li><p>分别找到对应$t$的点的位置$b_0^1$和$b_1^1$，连接</p>
+</li>
+<li><p>再找到$b_0^1$$b_1^1$线段上$t$对应的点$b_0^2$</p>
+</li>
+<li><p>按上述方法，对$t$枚举，即可画出曲线</p>
+</li>
+</ul>
+</li>
+<li><p>四个点：</p>
+<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.06.24.png" alt="截屏2023-04-15 20.06.24" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>代数公式</strong></p>
+<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.16.38.png" alt="截屏2023-04-15 20.16.38" style="zoom:50%;"></li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.12.16.png" alt="截屏2023-04-15 20.12.16" style="zoom:33%;"></li>
+<li>$n+1$个控制点$(0,1,2,…,n)$可以得到$n$阶的贝塞尔曲线<ul>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.21.57.png" alt="截屏2023-04-15 20.21.57" style="zoom:50%;"></li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.22.12.png" alt="截屏2023-04-15 20.22.12" style="zoom:50%;"></li>
+<li>$B_j^n(t) = C_n^i t^i (1-t)^{n-i}$：伯恩斯坦多项式<ul>
+<li>其实是$[t+(1-t)]^n = 1^n$的二项式展开的每一项，因此下图y方向，和为1</li>
+<li><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.31.19.png" alt="截屏2023-04-15 20.31.19" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>性质</p>
+<ul>
+<li><p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.42.32.png" alt="截屏2023-04-15 20.42.32" style="zoom:40%;"></p>
+</li>
+<li><ol>
+<li><p>必过起点和终点。则$t=0$时$b(0) = b_0$，$t=1$时$b(1) = b_3$</p>
+</li>
+<li><p>对三次控制点：切线$b’(0)=3(b_1-b_0)$，$b’(1) = 3(b_3-b_2)$。针对系数3，通过求导可知</p>
+</li>
+<li><p>对于仿射变换：针对控制点的变换，和针对曲线本身的变换，得到的结果相同</p>
+</li>
+<li><p>凸包性质：贝塞尔曲线在控制点所形成的凸包内</p>
+<p><img src="/2023/04/15/Games101-P10-12/截屏2023-04-15 20.52.32.png" alt="截屏2023-04-15 20.52.32" style="zoom:33%;"></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Piecewise-Bézier-Curves-逐段贝塞尔曲线"><a href="#Piecewise-Bézier-Curves-逐段贝塞尔曲线" class="headerlink" title="Piecewise Bézier Curves 逐段贝塞尔曲线"></a>Piecewise Bézier Curves 逐段贝塞尔曲线</h5>
     </div>
 
     
@@ -320,7 +587,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">13k</span>
+    <span title="Word count total">15k</span>
   </span>
 </div>
 
