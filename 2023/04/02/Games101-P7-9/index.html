@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-15%2000.44.30.png">
 <meta property="og:image" content="http://example.com/2023/04/02/Games101-P7-9/%E6%88%AA%E5%B1%8F2023-04-15%2000.49.03.png">
 <meta property="article:published_time" content="2023-04-02T06:26:32.000Z">
-<meta property="article:modified_time" content="2023-04-14T16:52:43.140Z">
+<meta property="article:modified_time" content="2023-04-20T15:06:28.586Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -216,7 +216,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-9-Shading"><span class="nav-number">1.</span> <span class="nav-text">P7-9 Shading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.1.</span> <span class="nav-text">P7 Shading (Illumination, Shading and Graphics Pipeline)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-Definition"><span class="nav-number">1.1.1.</span> <span class="nav-text">Shading Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E7%9D%80%E8%89%B2%E4%BE%8B%E5%AD%90%EF%BC%9ABlinn-Phong-Reflection-Model"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单的着色例子：Blinn - Phong Reflection Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shading-in-Local"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Shading in Local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diffuse-Reflection-%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Diffuse Reflection 漫反射</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P8-Shading-Pipeline-and-Texture-Mapping"><span class="nav-number">1.2.</span> <span class="nav-text">P8 Shading (Pipeline and Texture Mapping)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Blinn-Phong-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">Blinn - Phong Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Specular-Term-%E9%AB%98%E5%85%89"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Specular Term 高光</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ambient-Term-%E7%8E%AF%E5%A2%83%E5%85%89"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Ambient Term 环境光</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">最终效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-Frequencies-%E7%9D%80%E8%89%B2%E9%A2%91%E7%8E%87"><span class="nav-number">1.2.2.</span> <span class="nav-text">Shading Frequencies 着色频率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flat-Shading-shade-each-triangle"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Flat Shading: shade each triangle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gouraud-Shading-shade-each-vertex"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Gouraud Shading: shade each vertex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Phong-Shading-shade-each-pixel"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Phong Shading: shade each pixel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%A1%B6%E7%82%B9%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">定义顶点法线方向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%83%8F%E7%B4%A0%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">定义像素法线方向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graphics-Real-time-Rendering-Pipeline-%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">1.2.3.</span> <span class="nav-text">Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">渲染管线概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shader-Programs"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Shader Programs</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Texture-Mapping-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84"><span class="nav-number">1.2.4.</span> <span class="nav-text">Texture Mapping 纹理映射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P9-Shading-Texture-Mapping-cont"><span class="nav-number">1.3.</span> <span class="nav-text">P9 Shading (Texture Mapping cont.)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Interpolation-Across-Triangles-Barycentric-Coordinates-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87"><span class="nav-number">1.3.1.</span> <span class="nav-text">Interpolation Across Triangles: Barycentric Coordinates 重心坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applying-Textures-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">Applying Textures 纹理应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Magnification-%E7%BA%B9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87%E5%B0%8F%EF%BC%8C%E9%9C%80%E6%94%BE%E5%A4%A7"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Texture Magnification(纹理分辨率小，需放大)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Nearest"><span class="nav-number">1.3.2.1.1.</span> <span class="nav-text">Nearest</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bilinear-Interpolation-%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC"><span class="nav-number">1.3.2.1.2.</span> <span class="nav-text">Bilinear Interpolation 双线性插值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bicubic-Interpolation"><span class="nav-number">1.3.2.1.3.</span> <span class="nav-text">Bicubic Interpolation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Texture-Magnification-%E7%BA%B9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87%E5%A4%A7%EF%BC%8C%E9%9C%80%E7%BC%A9%E5%B0%8F"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Texture Magnification(纹理分辨率大，需缩小)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mipmap-Allowing-fast-approx-square-range-queries"><span class="nav-number">1.3.3.</span> <span class="nav-text">Mipmap: Allowing (fast, approx., square) range queries</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97Mipmap%E7%9A%84Level-D-%E5%BE%97%E5%87%BA%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E9%9D%A2%E7%A7%AF"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">如何计算Mipmap的Level D(得出范围查询的面积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mipmap%E9%97%B4%E8%BF%87%E6%B8%A1-Trilinear-Interpolation-%E4%B8%89%E7%BA%BF%E5%BD%A2%E6%8F%92%E5%80%BC"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">Mipmap间过渡: Trilinear Interpolation 三线形插值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anisotropic-Filtering%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E8%BF%87%E6%BB%A4%EF%BC%9BEWA-Fliter"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">Anisotropic Filtering各向异性过滤；EWA Fliter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-of-texture"><span class="nav-number">1.3.4.</span> <span class="nav-text">Application of texture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Environment-Map-%E7%8E%AF%E5%A2%83%E5%85%89%E8%B4%B4%E5%9B%BE"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">Environment Map 环境光贴图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bump-Map-%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">Bump Map 凹凸贴图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%BA%B9%E7%90%86"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">三维纹理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Provide-Precomputed-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97%E7%9A%84-Shading"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">Provide Precomputed(预先计算的) Shading</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D-Textures-and-Volume-Rendering"><span class="nav-number">1.3.4.5.</span> <span class="nav-text">3D Textures and Volume Rendering</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><span class="nav-number">1.</span> <span class="nav-text">P7 Shading (Illumination, Shading and Graphics Pipeline)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shading-Definition"><span class="nav-number">1.1.</span> <span class="nav-text">Shading Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E7%9D%80%E8%89%B2%E4%BE%8B%E5%AD%90%EF%BC%9ABlinn-Phong-Reflection-Model"><span class="nav-number">1.2.</span> <span class="nav-text">简单的着色例子：Blinn - Phong Reflection Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shading-in-Local"><span class="nav-number">1.2.1.</span> <span class="nav-text">Shading in Local</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diffuse-Reflection-%E6%BC%AB%E5%8F%8D%E5%B0%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">Diffuse Reflection 漫反射</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P8-Shading-Pipeline-and-Texture-Mapping"><span class="nav-number">2.</span> <span class="nav-text">P8 Shading (Pipeline and Texture Mapping)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blinn-Phong-Model"><span class="nav-number">2.1.</span> <span class="nav-text">Blinn - Phong Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Specular-Term-%E9%AB%98%E5%85%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">Specular Term 高光</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ambient-Term-%E7%8E%AF%E5%A2%83%E5%85%89"><span class="nav-number">2.1.2.</span> <span class="nav-text">Ambient Term 环境光</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">2.1.3.</span> <span class="nav-text">最终效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shading-Frequencies-%E7%9D%80%E8%89%B2%E9%A2%91%E7%8E%87"><span class="nav-number">2.2.</span> <span class="nav-text">Shading Frequencies 着色频率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flat-Shading-shade-each-triangle"><span class="nav-number">2.2.1.</span> <span class="nav-text">Flat Shading: shade each triangle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gouraud-Shading-shade-each-vertex"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gouraud Shading: shade each vertex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phong-Shading-shade-each-pixel"><span class="nav-number">2.2.3.</span> <span class="nav-text">Phong Shading: shade each pixel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">2.2.4.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%A1%B6%E7%82%B9%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">2.2.5.</span> <span class="nav-text">定义顶点法线方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%83%8F%E7%B4%A0%E6%B3%95%E7%BA%BF%E6%96%B9%E5%90%91"><span class="nav-number">2.2.6.</span> <span class="nav-text">定义像素法线方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graphics-Real-time-Rendering-Pipeline-%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">2.3.</span> <span class="nav-text">Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">渲染管线概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shader-Programs"><span class="nav-number">2.3.2.</span> <span class="nav-text">Shader Programs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Texture-Mapping-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84"><span class="nav-number">2.4.</span> <span class="nav-text">Texture Mapping 纹理映射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P9-Shading-Texture-Mapping-cont"><span class="nav-number">3.</span> <span class="nav-text">P9 Shading (Texture Mapping cont.)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Interpolation-Across-Triangles-Barycentric-Coordinates-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87"><span class="nav-number">3.1.</span> <span class="nav-text">Interpolation Across Triangles: Barycentric Coordinates 重心坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applying-Textures-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">Applying Textures 纹理应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Texture-Magnification-%E7%BA%B9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87%E5%B0%8F%EF%BC%8C%E9%9C%80%E6%94%BE%E5%A4%A7"><span class="nav-number">3.2.1.</span> <span class="nav-text">Texture Magnification(纹理分辨率小，需放大)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nearest"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Nearest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bilinear-Interpolation-%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Bilinear Interpolation 双线性插值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bicubic-Interpolation"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Bicubic Interpolation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Texture-Magnification-%E7%BA%B9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87%E5%A4%A7%EF%BC%8C%E9%9C%80%E7%BC%A9%E5%B0%8F"><span class="nav-number">3.2.2.</span> <span class="nav-text">Texture Magnification(纹理分辨率大，需缩小)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mipmap-Allowing-fast-approx-square-range-queries"><span class="nav-number">3.3.</span> <span class="nav-text">Mipmap: Allowing (fast, approx., square) range queries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">3.3.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97Mipmap%E7%9A%84Level-D-%E5%BE%97%E5%87%BA%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2%E7%9A%84%E9%9D%A2%E7%A7%AF"><span class="nav-number">3.3.2.</span> <span class="nav-text">如何计算Mipmap的Level D(得出范围查询的面积)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mipmap%E9%97%B4%E8%BF%87%E6%B8%A1-Trilinear-Interpolation-%E4%B8%89%E7%BA%BF%E5%BD%A2%E6%8F%92%E5%80%BC"><span class="nav-number">3.3.3.</span> <span class="nav-text">Mipmap间过渡: Trilinear Interpolation 三线形插值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anisotropic-Filtering%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E8%BF%87%E6%BB%A4%EF%BC%9BEWA-Fliter"><span class="nav-number">3.3.4.</span> <span class="nav-text">Anisotropic Filtering各向异性过滤；EWA Fliter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-of-texture"><span class="nav-number">3.4.</span> <span class="nav-text">Application of texture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Environment-Map-%E7%8E%AF%E5%A2%83%E5%85%89%E8%B4%B4%E5%9B%BE"><span class="nav-number">3.4.1.</span> <span class="nav-text">Environment Map 环境光贴图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bump-Map-%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE"><span class="nav-number">3.4.2.</span> <span class="nav-text">Bump Map 凹凸贴图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%BA%B9%E7%90%86"><span class="nav-number">3.4.3.</span> <span class="nav-text">三维纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provide-Precomputed-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97%E7%9A%84-Shading"><span class="nav-number">3.4.4.</span> <span class="nav-text">Provide Precomputed(预先计算的) Shading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Textures-and-Volume-Rendering"><span class="nav-number">3.4.5.</span> <span class="nav-text">3D Textures and Volume Rendering</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -317,7 +317,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-15 00:52:43" itemprop="dateModified" datetime="2023-04-15T00:52:43+08:00">2023-04-15</time>
+      <time title="Modified: 2023-04-20 23:06:28" itemprop="dateModified" datetime="2023-04-20T23:06:28+08:00">2023-04-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -372,20 +372,20 @@
 </li>
 </ul>
 <span id="more"></span>
-<h1 id="P7-9-Shading"><a href="#P7-9-Shading" class="headerlink" title="P7-9 Shading"></a>P7-9 Shading</h1><h2 id="P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><a href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline" class="headerlink" title="P7 Shading (Illumination, Shading and Graphics Pipeline)"></a>P7 Shading (Illumination, Shading and Graphics Pipeline)</h2><ul>
+<h1 id="P7-Shading-Illumination-Shading-and-Graphics-Pipeline"><a href="#P7-Shading-Illumination-Shading-and-Graphics-Pipeline" class="headerlink" title="P7 Shading (Illumination, Shading and Graphics Pipeline)"></a>P7 Shading (Illumination, Shading and Graphics Pipeline)</h1><ul>
 <li>回顾：Model - View - Projection - Viewport - Rasterization<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-02 14.31.29.png" alt="截屏2023-04-02 14.31.29" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
-<h3 id="Shading-Definition"><a href="#Shading-Definition" class="headerlink" title="Shading Definition"></a>Shading Definition</h3><ul>
+<h2 id="Shading-Definition"><a href="#Shading-Definition" class="headerlink" title="Shading Definition"></a>Shading Definition</h2><ul>
 <li>字典中：The darkening or coloring of an illustration or diagram with parallel lines or a block of color.</li>
 <li>本课中：The process of <strong>applying a material</strong> to an object. // 不同材质和光线相互作用的方法不同</li>
 </ul>
-<h3 id="简单的着色例子：Blinn-Phong-Reflection-Model"><a href="#简单的着色例子：Blinn-Phong-Reflection-Model" class="headerlink" title="简单的着色例子：Blinn - Phong Reflection Model"></a>简单的着色例子：Blinn - Phong Reflection Model</h3><ul>
+<h2 id="简单的着色例子：Blinn-Phong-Reflection-Model"><a href="#简单的着色例子：Blinn-Phong-Reflection-Model" class="headerlink" title="简单的着色例子：Blinn - Phong Reflection Model"></a>简单的着色例子：Blinn - Phong Reflection Model</h2><ul>
 <li>Blinn - Phong Reflection Model是经验型模型，并不完全符合物理</li>
 </ul>
-<h4 id="Shading-in-Local"><a href="#Shading-in-Local" class="headerlink" title="Shading in Local"></a>Shading in Local</h4><ul>
+<h3 id="Shading-in-Local"><a href="#Shading-in-Local" class="headerlink" title="Shading in Local"></a>Shading in Local</h3><ul>
 <li>光——得出反射模型<img src="/2023/04/02/Games101-P7-9/截屏2023-04-06 20.33.25.png" alt="截屏2023-04-06 20.33.25" style="zoom:25%;"><ul>
 <li>Specular Highlight 高光</li>
 <li>Diffuse Reflection 漫反射光</li>
@@ -408,7 +408,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Diffuse-Reflection-漫反射"><a href="#Diffuse-Reflection-漫反射" class="headerlink" title="Diffuse Reflection 漫反射"></a>Diffuse Reflection 漫反射</h4><ul>
+<h3 id="Diffuse-Reflection-漫反射"><a href="#Diffuse-Reflection-漫反射" class="headerlink" title="Diffuse Reflection 漫反射"></a>Diffuse Reflection 漫反射</h3><ul>
 <li>漫反射<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-06 20.43.27.png" alt="截屏2023-04-06 20.43.27" style="zoom:25%;"></li>
 </ul>
@@ -438,7 +438,7 @@
 </li>
 <li>漫反射理论上各个方向反射均匀，各个方向所观测到的着色应一致</li>
 </ul>
-<h2 id="P8-Shading-Pipeline-and-Texture-Mapping"><a href="#P8-Shading-Pipeline-and-Texture-Mapping" class="headerlink" title="P8 Shading (Pipeline and Texture Mapping)"></a>P8 Shading (Pipeline and Texture Mapping)</h2><h3 id="Blinn-Phong-Model"><a href="#Blinn-Phong-Model" class="headerlink" title="Blinn - Phong Model"></a>Blinn - Phong Model</h3><h4 id="Specular-Term-高光"><a href="#Specular-Term-高光" class="headerlink" title="Specular Term 高光"></a>Specular Term 高光</h4><ul>
+<h1 id="P8-Shading-Pipeline-and-Texture-Mapping"><a href="#P8-Shading-Pipeline-and-Texture-Mapping" class="headerlink" title="P8 Shading (Pipeline and Texture Mapping)"></a>P8 Shading (Pipeline and Texture Mapping)</h1><h2 id="Blinn-Phong-Model"><a href="#Blinn-Phong-Model" class="headerlink" title="Blinn - Phong Model"></a>Blinn - Phong Model</h2><h3 id="Specular-Term-高光"><a href="#Specular-Term-高光" class="headerlink" title="Specular Term 高光"></a>Specular Term 高光</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.36.00.png" alt="截屏2023-04-07 09.36.00" style="zoom:33%;"><ul>
 <li>$v$$和r$足够接近时，可得到高光项</li>
 </ul>
@@ -463,64 +463,64 @@
 </ul>
 </li>
 </ul>
-<h4 id="Ambient-Term-环境光"><a href="#Ambient-Term-环境光" class="headerlink" title="Ambient Term 环境光"></a>Ambient Term 环境光</h4><ul>
+<h3 id="Ambient-Term-环境光"><a href="#Ambient-Term-环境光" class="headerlink" title="Ambient Term 环境光"></a>Ambient Term 环境光</h3><ul>
 <li>假设所有点接收到的环境光相同，强度$I_a$，来自四面八方；假设是错的！<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 09.59.36.png" alt="截屏2023-04-07 09.59.36" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><ul>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><ul>
 <li>叠加所有光效<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.01.33.png" alt="截屏2023-04-07 10.01.33" style="zoom: 50%;"></li>
 </ul>
 </li>
 </ul>
-<h3 id="Shading-Frequencies-着色频率"><a href="#Shading-Frequencies-着色频率" class="headerlink" title="Shading Frequencies 着色频率"></a>Shading Frequencies 着色频率</h3><ul>
+<h2 id="Shading-Frequencies-着色频率"><a href="#Shading-Frequencies-着色频率" class="headerlink" title="Shading Frequencies 着色频率"></a>Shading Frequencies 着色频率</h2><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.08.19.png" alt="截屏2023-04-07 10.08.19" style="zoom:33%;"><ul>
 <li>利用法线插值</li>
 </ul>
 </li>
 </ul>
-<h4 id="Flat-Shading-shade-each-triangle"><a href="#Flat-Shading-shade-each-triangle" class="headerlink" title="Flat Shading: shade each triangle"></a>Flat Shading: shade each triangle</h4><ul>
+<h3 id="Flat-Shading-shade-each-triangle"><a href="#Flat-Shading-shade-each-triangle" class="headerlink" title="Flat Shading: shade each triangle"></a>Flat Shading: shade each triangle</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.13.38.png" alt="截屏2023-04-07 10.13.38" style="zoom: 50%;"><ul>
 <li>每一个面都是平的，只有一个本身的法线</li>
 <li>针对以一个三角面进行着色</li>
 </ul>
 </li>
 </ul>
-<h4 id="Gouraud-Shading-shade-each-vertex"><a href="#Gouraud-Shading-shade-each-vertex" class="headerlink" title="Gouraud Shading: shade each vertex"></a>Gouraud Shading: shade each vertex</h4><ul>
+<h3 id="Gouraud-Shading-shade-each-vertex"><a href="#Gouraud-Shading-shade-each-vertex" class="headerlink" title="Gouraud Shading: shade each vertex"></a>Gouraud Shading: shade each vertex</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.16.24.png" alt="截屏2023-04-07 10.16.24" style="zoom:50%;"><ul>
 <li>求出顶点法线，针对每一个顶点进行着色</li>
 <li>三个顶点所确定的三角形，根据三个顶点的颜色进行插值</li>
 </ul>
 </li>
 </ul>
-<h4 id="Phong-Shading-shade-each-pixel"><a href="#Phong-Shading-shade-each-pixel" class="headerlink" title="Phong Shading: shade each pixel"></a>Phong Shading: shade each pixel</h4><ul>
+<h3 id="Phong-Shading-shade-each-pixel"><a href="#Phong-Shading-shade-each-pixel" class="headerlink" title="Phong Shading: shade each pixel"></a>Phong Shading: shade each pixel</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.20.37.png" alt="截屏2023-04-07 10.20.37" style="zoom:50%;"><ul>
 <li>得出三个顶点的法线后，插值三个顶点间每一个像素的法线方向，针对每个像素着色</li>
 </ul>
 </li>
 </ul>
-<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ul>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.30.47.png" alt="截屏2023-04-07 10.30.47" style="zoom:50%;"><ul>
 <li>效果好坏是相对的</li>
 <li>当面数极高，高于像素数，Flat shading消耗少于Phong shading，而效果差异不大</li>
 </ul>
 </li>
 </ul>
-<h4 id="定义顶点法线方向"><a href="#定义顶点法线方向" class="headerlink" title="定义顶点法线方向"></a>定义顶点法线方向</h4><ul>
+<h3 id="定义顶点法线方向"><a href="#定义顶点法线方向" class="headerlink" title="定义顶点法线方向"></a>定义顶点法线方向</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.37.34.png" alt="截屏2023-04-07 10.37.34" style="zoom: 50%;"><ul>
 <li><mark>顶点法线</mark><strong>：相邻面的法线方向加权平均(根据面积)，再归一化</strong></li>
 </ul>
 </li>
 </ul>
-<h4 id="定义像素法线方向"><a href="#定义像素法线方向" class="headerlink" title="定义像素法线方向"></a>定义像素法线方向</h4><ul>
+<h3 id="定义像素法线方向"><a href="#定义像素法线方向" class="headerlink" title="定义像素法线方向"></a>定义像素法线方向</h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-07 10.41.34.png" alt="截屏2023-04-07 10.41.34" style="zoom:50%;"><ul>
 <li><mark>逐像素的法线</mark><strong>：根据顶点法线，利用重心坐标(Barycentric interpolation)插值，而后归一化</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线"><a href="#Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线" class="headerlink" title="Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线"></a>Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</h3><h4 id="渲染管线概述"><a href="#渲染管线概述" class="headerlink" title="渲染管线概述"></a>渲染管线概述</h4><ul>
+<h2 id="Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线"><a href="#Graphics-Real-time-Rendering-Pipeline-实时渲染-渲染管线" class="headerlink" title="Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线"></a>Graphics (Real-time Rendering) Pipeline 实时渲染 渲染管线</h2><h3 id="渲染管线概述"><a href="#渲染管线概述" class="headerlink" title="渲染管线概述"></a>渲染管线概述</h3><ul>
 <li>概览<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-08 17.53.04.png" alt="截屏2023-04-08 17.53.04" style="zoom:50%;"></li>
 </ul>
@@ -550,7 +550,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Shader-Programs"><a href="#Shader-Programs" class="headerlink" title="Shader Programs"></a>Shader Programs</h4><ul>
+<h3 id="Shader-Programs"><a href="#Shader-Programs" class="headerlink" title="Shader Programs"></a>Shader Programs</h3><ul>
 <li><p>关于shader</p>
 <ul>
 <li>本质是可以通过API在硬件上执行的语言</li>
@@ -589,7 +589,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h3 id="Texture-Mapping-纹理映射"><a href="#Texture-Mapping-纹理映射" class="headerlink" title="Texture Mapping 纹理映射"></a>Texture Mapping 纹理映射</h3><ul>
+<h2 id="Texture-Mapping-纹理映射"><a href="#Texture-Mapping-纹理映射" class="headerlink" title="Texture Mapping 纹理映射"></a>Texture Mapping 纹理映射</h2><ul>
 <li><p><mark>注意</mark>⚠️：接下来的配图有点儿掉san🥵</p>
 </li>
 <li><p>思路：共用同一个模型，但漫反射系数发生了改变；需寻找一种方法，定义一个物体上任意一点的属性</p>
@@ -617,7 +617,7 @@ void diffuseShader()
 </li>
 <li>关于三角形内部点的uv值：通过顶点uv和重心坐标插值得出</li>
 </ul>
-<h2 id="P9-Shading-Texture-Mapping-cont"><a href="#P9-Shading-Texture-Mapping-cont" class="headerlink" title="P9 Shading (Texture Mapping cont.)"></a>P9 Shading (Texture Mapping cont.)</h2><h3 id="Interpolation-Across-Triangles-Barycentric-Coordinates-重心坐标"><a href="#Interpolation-Across-Triangles-Barycentric-Coordinates-重心坐标" class="headerlink" title="Interpolation Across Triangles: Barycentric Coordinates 重心坐标"></a>Interpolation Across Triangles: Barycentric Coordinates 重心坐标</h3><ul>
+<h1 id="P9-Shading-Texture-Mapping-cont"><a href="#P9-Shading-Texture-Mapping-cont" class="headerlink" title="P9 Shading (Texture Mapping cont.)"></a>P9 Shading (Texture Mapping cont.)</h1><h2 id="Interpolation-Across-Triangles-Barycentric-Coordinates-重心坐标"><a href="#Interpolation-Across-Triangles-Barycentric-Coordinates-重心坐标" class="headerlink" title="Interpolation Across Triangles: Barycentric Coordinates 重心坐标"></a>Interpolation Across Triangles: Barycentric Coordinates 重心坐标</h2><ul>
 <li>三角形内部插值的作用：通过顶点的值，完成顶点间片元（像素）的平滑过度</li>
 <li>插值的内容：texture coordinates, color, normal vectors…</li>
 <li><strong>重心插值数学基础</strong><ul>
@@ -649,7 +649,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h3 id="Applying-Textures-纹理应用"><a href="#Applying-Textures-纹理应用" class="headerlink" title="Applying Textures 纹理应用"></a>Applying Textures 纹理应用</h3><ul>
+<h2 id="Applying-Textures-纹理应用"><a href="#Applying-Textures-纹理应用" class="headerlink" title="Applying Textures 纹理应用"></a>Applying Textures 纹理应用</h2><ul>
 <li>纹理映射举例——Diffuse Color<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 10.13.15.png" alt="截屏2023-04-13 10.13.15" style="zoom:33%;"></li>
 <li>通过对顶点插值，得出每一个片元(x, y)的uv坐标；</li>
@@ -658,24 +658,24 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="Texture-Magnification-纹理分辨率小，需放大"><a href="#Texture-Magnification-纹理分辨率小，需放大" class="headerlink" title="Texture Magnification(纹理分辨率小，需放大)"></a>Texture Magnification(纹理分辨率小，需放大)</h4><ul>
+<h3 id="Texture-Magnification-纹理分辨率小，需放大"><a href="#Texture-Magnification-纹理分辨率小，需放大" class="headerlink" title="Texture Magnification(纹理分辨率小，需放大)"></a>Texture Magnification(纹理分辨率小，需放大)</h3><ul>
 <li>插值方法：Nearest, Bilinear, Bicubic<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 10.25.17.png" alt="截屏2023-04-13 10.25.17" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
-<h5 id="Nearest"><a href="#Nearest" class="headerlink" title="Nearest"></a>Nearest</h5><ul>
+<h4 id="Nearest"><a href="#Nearest" class="headerlink" title="Nearest"></a>Nearest</h4><ul>
 <li>屏幕pixel颜色应用最近的纹理texel的颜色，导致多个相邻pixel被映射成一个texel</li>
 </ul>
-<h5 id="Bilinear-Interpolation-双线性插值"><a href="#Bilinear-Interpolation-双线性插值" class="headerlink" title="Bilinear Interpolation 双线性插值"></a>Bilinear Interpolation 双线性插值</h5><ul>
+<h4 id="Bilinear-Interpolation-双线性插值"><a href="#Bilinear-Interpolation-双线性插值" class="headerlink" title="Bilinear Interpolation 双线性插值"></a>Bilinear Interpolation 双线性插值</h4><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 10.39.27.png" alt="截屏2023-04-13 10.39.27" style="zoom: 50%;"></li>
 <li>寻找一个pixel(红色)附近的四个texel(黑色)，定义$t$和$s$范围都为$(0,1)$</li>
 <li>由此插值后，$u_{00},u_{01},u_{10},u_{11}$四个texel所围成的区域内，pixel可实现平滑过度</li>
 </ul>
-<h5 id="Bicubic-Interpolation"><a href="#Bicubic-Interpolation" class="headerlink" title="Bicubic Interpolation"></a>Bicubic Interpolation</h5><ul>
+<h4 id="Bicubic-Interpolation"><a href="#Bicubic-Interpolation" class="headerlink" title="Bicubic Interpolation"></a>Bicubic Interpolation</h4><ul>
 <li>利用pixel附近的十六个texel，进行三次的插值</li>
 </ul>
-<h4 id="Texture-Magnification-纹理分辨率大，需缩小"><a href="#Texture-Magnification-纹理分辨率大，需缩小" class="headerlink" title="Texture Magnification(纹理分辨率大，需缩小)"></a>Texture Magnification(纹理分辨率大，需缩小)</h4><ul>
+<h3 id="Texture-Magnification-纹理分辨率大，需缩小"><a href="#Texture-Magnification-纹理分辨率大，需缩小" class="headerlink" title="Texture Magnification(纹理分辨率大，需缩小)"></a>Texture Magnification(纹理分辨率大，需缩小)</h3><ul>
 <li>问题：产生摩尔纹和锯齿<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 16.57.04.png" alt="截屏2023-04-13 16.57.04" style="zoom:50%;"></li>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 16.59.38.png" alt="截屏2023-04-13 16.59.38" style="zoom:50%;"></li>
@@ -692,7 +692,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h3 id="Mipmap-Allowing-fast-approx-square-range-queries"><a href="#Mipmap-Allowing-fast-approx-square-range-queries" class="headerlink" title="Mipmap: Allowing (fast, approx., square) range queries"></a>Mipmap: Allowing (fast, approx., square) range queries</h3><h4 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h4><ul>
+<h2 id="Mipmap-Allowing-fast-approx-square-range-queries"><a href="#Mipmap-Allowing-fast-approx-square-range-queries" class="headerlink" title="Mipmap: Allowing (fast, approx., square) range queries"></a>Mipmap: Allowing (fast, approx., square) range queries</h2><h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><ul>
 <li>mipmap做近似的、正方形的查询</li>
 <li>如下图，Level提升以及，分辨率减半</li>
 </ul>
@@ -705,7 +705,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="如何计算Mipmap的Level-D-得出范围查询的面积"><a href="#如何计算Mipmap的Level-D-得出范围查询的面积" class="headerlink" title="如何计算Mipmap的Level D(得出范围查询的面积)"></a>如何计算Mipmap的Level D(得出范围查询的面积)</h4><ul>
+<h3 id="如何计算Mipmap的Level-D-得出范围查询的面积"><a href="#如何计算Mipmap的Level-D-得出范围查询的面积" class="headerlink" title="如何计算Mipmap的Level D(得出范围查询的面积)"></a>如何计算Mipmap的Level D(得出范围查询的面积)</h3><ul>
 <li><p>思路</p>
 <ul>
 <li>计算一个像素在纹理上的覆盖面积，$D=log_2L$</li>
@@ -733,7 +733,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="Mipmap间过渡-Trilinear-Interpolation-三线形插值"><a href="#Mipmap间过渡-Trilinear-Interpolation-三线形插值" class="headerlink" title="Mipmap间过渡: Trilinear Interpolation 三线形插值"></a>Mipmap间过渡: <mark>Trilinear Interpolation 三线形插值</mark></h4><ul>
+<h3 id="Mipmap间过渡-Trilinear-Interpolation-三线形插值"><a href="#Mipmap间过渡-Trilinear-Interpolation-三线形插值" class="headerlink" title="Mipmap间过渡: Trilinear Interpolation 三线形插值"></a>Mipmap间过渡: <mark>Trilinear Interpolation 三线形插值</mark></h3><ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-13 21.34.22.png" alt="截屏2023-04-13 21.34.22" style="zoom:50%;"><ul>
 <li>两层Level分别先做Bilinear Interpolation，所得的插值结果再进行一次插值</li>
 </ul>
@@ -754,7 +754,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="Anisotropic-Filtering各向异性过滤；EWA-Fliter"><a href="#Anisotropic-Filtering各向异性过滤；EWA-Fliter" class="headerlink" title="Anisotropic Filtering各向异性过滤；EWA Fliter"></a>Anisotropic Filtering各向异性过滤；EWA Fliter</h4><ul>
+<h3 id="Anisotropic-Filtering各向异性过滤；EWA-Fliter"><a href="#Anisotropic-Filtering各向异性过滤；EWA-Fliter" class="headerlink" title="Anisotropic Filtering各向异性过滤；EWA Fliter"></a>Anisotropic Filtering各向异性过滤；EWA Fliter</h3><ul>
 <li>解决<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-14 15.08.08.png" alt="截屏2023-04-14 15.08.08" style="zoom:33%;"></li>
 </ul>
@@ -772,13 +772,13 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h3 id="Application-of-texture"><a href="#Application-of-texture" class="headerlink" title="Application of texture"></a>Application of texture</h3><ul>
+<h2 id="Application-of-texture"><a href="#Application-of-texture" class="headerlink" title="Application of texture"></a>Application of texture</h2><ul>
 <li>纹理应用范围很广<ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-14 16.53.31.png" alt="截屏2023-04-14 16.53.31" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="Environment-Map-环境光贴图"><a href="#Environment-Map-环境光贴图" class="headerlink" title="Environment Map 环境光贴图"></a>Environment Map 环境光贴图</h4><ul>
+<h3 id="Environment-Map-环境光贴图"><a href="#Environment-Map-环境光贴图" class="headerlink" title="Environment Map 环境光贴图"></a>Environment Map 环境光贴图</h3><ul>
 <li><p>运用环境光贴图的假设前提：光来自无限远处，贴图只记录方向信息，无实际深度意义</p>
 <ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-14 16.54.12.png" alt="截屏2023-04-14 16.54.12" style="zoom:50%;"></li>
@@ -802,7 +802,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="Bump-Map-凹凸贴图"><a href="#Bump-Map-凹凸贴图" class="headerlink" title="Bump Map 凹凸贴图"></a>Bump Map 凹凸贴图</h4><ul>
+<h3 id="Bump-Map-凹凸贴图"><a href="#Bump-Map-凹凸贴图" class="headerlink" title="Bump Map 凹凸贴图"></a>Bump Map 凹凸贴图</h3><ul>
 <li><p>区分：高度贴图和法线贴图</p>
 <ul>
 <li><img src="/2023/04/02/Games101-P7-9/截屏2023-04-14 22.25.57.png" alt="截屏2023-04-14 22.25.57"><ul>
@@ -883,7 +883,7 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="三维纹理"><a href="#三维纹理" class="headerlink" title="三维纹理"></a>三维纹理</h4><ul>
+<h3 id="三维纹理"><a href="#三维纹理" class="headerlink" title="三维纹理"></a>三维纹理</h3><ul>
 <li>3D Procedural Noise + Solid Modeling<ul>
 <li>纹理是实心的球，可以定义三维空间中任意一点的纹理。</li>
 <li>并没有生成对应的内部纹理图，但是定义了一个三维空间中的噪声函数(Perlin Noise)，可以通过解析式算出任意一点的噪声</li>
@@ -891,11 +891,11 @@ void diffuseShader()
 </ul>
 </li>
 </ul>
-<h4 id="Provide-Precomputed-预先计算的-Shading"><a href="#Provide-Precomputed-预先计算的-Shading" class="headerlink" title="Provide Precomputed(预先计算的) Shading"></a>Provide Precomputed(预先计算的) Shading</h4><ul>
+<h3 id="Provide-Precomputed-预先计算的-Shading"><a href="#Provide-Precomputed-预先计算的-Shading" class="headerlink" title="Provide Precomputed(预先计算的) Shading"></a>Provide Precomputed(预先计算的) Shading</h3><ul>
 <li>eg：提前计算AO Map，与原有shader做multiple</li>
 </ul>
 <p><img src="/2023/04/02/Games101-P7-9/截屏2023-04-15 00.44.30.png" alt="截屏2023-04-15 00.44.30" style="zoom:50%;"></p>
-<h4 id="3D-Textures-and-Volume-Rendering"><a href="#3D-Textures-and-Volume-Rendering" class="headerlink" title="3D Textures and Volume Rendering"></a>3D Textures and Volume Rendering</h4><ul>
+<h3 id="3D-Textures-and-Volume-Rendering"><a href="#3D-Textures-and-Volume-Rendering" class="headerlink" title="3D Textures and Volume Rendering"></a>3D Textures and Volume Rendering</h3><ul>
 <li>eg：医学CT影像，扫描出的数据处理成三维纹理以呈现</li>
 </ul>
 <p><img src="/2023/04/02/Games101-P7-9/截屏2023-04-15 00.49.03.png" alt="截屏2023-04-15 00.49.03" style="zoom:50%;"></p>
@@ -958,7 +958,7 @@ void diffuseShader()
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">15k</span>
+    <span title="Word count total">17k</span>
   </span>
 </div>
 

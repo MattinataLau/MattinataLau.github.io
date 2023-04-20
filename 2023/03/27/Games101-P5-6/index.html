@@ -73,8 +73,14 @@
 <meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-02%2014.05.47.png">
 <meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-02%2014.07.41.png">
 <meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-02%2014.14.54.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.29.38.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.39.20.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.39.44.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.40.10.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.40.33.png">
+<meta property="og:image" content="http://example.com/2023/03/27/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.52.49.png">
 <meta property="article:published_time" content="2023-03-27T07:25:22.000Z">
-<meta property="article:modified_time" content="2023-04-14T07:28:25.853Z">
+<meta property="article:modified_time" content="2023-04-20T15:57:47.243Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -191,7 +197,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P5-6-Rasterization"><span class="nav-number">1.</span> <span class="nav-text">P5-6 Rasterization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P5-Rasterization-Triangles"><span class="nav-number">1.1.</span> <span class="nav-text">P5 Rasterization(Triangles)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Finishing-up-viewing"><span class="nav-number">1.1.1.</span> <span class="nav-text">Finishing up viewing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Viewport-transformation-%E8%A7%86%E5%8F%A3%E5%8F%98%E6%8D%A2"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Viewport transformation 视口变换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Intro-%E6%91%84%E5%BD%B1%E6%9C%BA"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">Intro - 摄影机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Intro-%E5%B1%8F%E5%B9%95"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">Intro - 屏幕</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%8F%A3%E5%8F%98%E6%8D%A2%EF%BC%9A%E5%B0%86-1-1-3-%E7%AB%8B%E6%96%B9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0%E6%95%B4%E4%B8%AA%E5%B1%8F%E5%B9%95"><span class="nav-number">1.1.1.1.3.</span> <span class="nav-text">视口变换：将$[-1, 1]^3$立方体转化到整个屏幕</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96-Rasterizing-Triangles-into-Pixels"><span class="nav-number">1.1.2.</span> <span class="nav-text">光栅化 - Rasterizing Triangles into Pixels</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Frame-Buffer-Memory-of-a-Raster-Display"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Frame Buffer: Memory of a Raster Display</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Polygon-Mesh"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Polygon Mesh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sampling-%E9%87%87%E6%A0%B7"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Sampling 采样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E5%8A%A0%E9%80%9F%E4%BC%98%E5%8C%96"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">光栅化加速优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%B1%8F%E5%B9%95%E7%9A%84%E5%85%89%E6%A0%85%E5%8C%96-Rasterization-on-Real-Displays"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">实际屏幕的光栅化 Rasterization on Real Displays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">光栅化问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P6-Rasterization-Antialiasing-and-Z-Buffer-%E5%8F%8D%E8%B5%B0%E6%A0%B7%E5%92%8C%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%86%B2"><span class="nav-number">1.2.</span> <span class="nav-text">P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E7%90%86%E8%AE%BA"><span class="nav-number">1.2.1.</span> <span class="nav-text">采样理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何反走样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Frequency-Domain-%E9%A2%91%E5%9F%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">Frequency Domain 频域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">前置知识 - 信号处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%B0%E6%A0%B7"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">走样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filtering-%E6%BB%A4%E6%B3%A2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Filtering 滤波</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Fliter-Convolution-%E5%8D%B7%E7%A7%AF-Averaging"><span class="nav-number">1.2.3.3.1.</span> <span class="nav-text">Fliter &#x3D; Convolution 卷积 ( &#x3D; Averaging)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sampling%E9%87%87%E6%A0%B7-Repeating-Frequency-Contents"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">Sampling采样 &#x3D; Repeating Frequency Contents</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7-Antialiasing"><span class="nav-number">1.2.4.</span> <span class="nav-text">反走样 Antialiasing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">反走样原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MSAA-Antialiasing-By-Supersampling"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">MSAA: Antialiasing By Supersampling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FXAA-Fast-Approximate-AA"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">FXAA: Fast Approximate AA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TAA-Temporal-AA"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">TAA: Temporal AA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%EF%BC%9ASuper-Resolution%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87-Super-Sampling"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">补：Super Resolution超分辨率 &#x2F; Super Sampling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visible%E5%8F%AF%E8%A7%81%E6%80%A7-Occlusion%E9%81%AE%E6%8C%A1"><span class="nav-number">1.2.5.</span> <span class="nav-text">Visible可见性 &#x2F;  Occlusion遮挡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%BB%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">画家算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Z-Buffer-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">Z-Buffer 深度缓存</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P5-Rasterization-Triangles"><span class="nav-number">1.</span> <span class="nav-text">P5 Rasterization(Triangles)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Finishing-up-viewing"><span class="nav-number">1.1.</span> <span class="nav-text">Finishing up viewing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewport-transformation-%E8%A7%86%E5%8F%A3%E5%8F%98%E6%8D%A2"><span class="nav-number">1.1.1.</span> <span class="nav-text">Viewport transformation 视口变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-%E6%91%84%E5%BD%B1%E6%9C%BA"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Intro - 摄影机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-%E5%B1%8F%E5%B9%95"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Intro - 屏幕</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E5%8F%A3%E5%8F%98%E6%8D%A2%EF%BC%9A%E5%B0%86-1-1-3-%E7%AB%8B%E6%96%B9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0%E6%95%B4%E4%B8%AA%E5%B1%8F%E5%B9%95"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">视口变换：将$[-1, 1]^3$立方体转化到整个屏幕</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96-Rasterizing-Triangles-into-Pixels"><span class="nav-number">1.2.</span> <span class="nav-text">光栅化 - Rasterizing Triangles into Pixels</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frame-Buffer-Memory-of-a-Raster-Display"><span class="nav-number">1.2.1.</span> <span class="nav-text">Frame Buffer: Memory of a Raster Display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polygon-Mesh"><span class="nav-number">1.2.2.</span> <span class="nav-text">Polygon Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling-%E9%87%87%E6%A0%B7"><span class="nav-number">1.2.3.</span> <span class="nav-text">Sampling 采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E5%8A%A0%E9%80%9F%E4%BC%98%E5%8C%96"><span class="nav-number">1.2.4.</span> <span class="nav-text">光栅化加速优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%B1%8F%E5%B9%95%E7%9A%84%E5%85%89%E6%A0%85%E5%8C%96-Rasterization-on-Real-Displays"><span class="nav-number">1.2.5.</span> <span class="nav-text">实际屏幕的光栅化 Rasterization on Real Displays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.6.</span> <span class="nav-text">光栅化问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P6-Rasterization-Antialiasing-and-Z-Buffer-%E5%8F%8D%E8%B5%B0%E6%A0%B7%E5%92%8C%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%86%B2"><span class="nav-number">2.</span> <span class="nav-text">P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E7%90%86%E8%AE%BA"><span class="nav-number">2.1.</span> <span class="nav-text">采样理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="nav-number">2.2.</span> <span class="nav-text">如何反走样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Frequency-Domain-%E9%A2%91%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">Frequency Domain 频域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86"><span class="nav-number">2.3.1.</span> <span class="nav-text">前置知识 - 信号处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B0%E6%A0%B7"><span class="nav-number">2.3.2.</span> <span class="nav-text">走样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filtering-%E6%BB%A4%E6%B3%A2"><span class="nav-number">2.3.3.</span> <span class="nav-text">Filtering 滤波</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fliter-Convolution-%E5%8D%B7%E7%A7%AF-Averaging"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">Fliter &#x3D; Convolution 卷积 ( &#x3D; Averaging)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling%E9%87%87%E6%A0%B7-Repeating-Frequency-Contents"><span class="nav-number">2.3.4.</span> <span class="nav-text">Sampling采样 &#x3D; Repeating Frequency Contents</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7-Antialiasing"><span class="nav-number">2.4.</span> <span class="nav-text">反走样 Antialiasing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.1.</span> <span class="nav-text">反走样原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSAA-Antialiasing-By-Supersampling"><span class="nav-number">2.4.2.</span> <span class="nav-text">MSAA: Antialiasing By Supersampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FXAA-Fast-Approximate-AA"><span class="nav-number">2.4.3.</span> <span class="nav-text">FXAA: Fast Approximate AA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TAA-Temporal-AA"><span class="nav-number">2.4.4.</span> <span class="nav-text">TAA: Temporal AA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%EF%BC%9ASuper-Resolution%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87-Super-Sampling"><span class="nav-number">2.4.5.</span> <span class="nav-text">补：Super Resolution超分辨率 &#x2F; Super Sampling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visible%E5%8F%AF%E8%A7%81%E6%80%A7-Occlusion%E9%81%AE%E6%8C%A1"><span class="nav-number">2.5.</span> <span class="nav-text">Visible可见性 &#x2F;  Occlusion遮挡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%BB%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-number">2.5.1.</span> <span class="nav-text">画家算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z-Buffer-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98"><span class="nav-number">2.5.2.</span> <span class="nav-text">Z-Buffer 深度缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shadows"><span class="nav-number">3.</span> <span class="nav-text">Shadows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shadow-mapping"><span class="nav-number">3.1.</span> <span class="nav-text">Shadow mapping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">3.1.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps"><span class="nav-number">3.1.2.</span> <span class="nav-text">Steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems-with-shadow-maps"><span class="nav-number">3.1.3.</span> <span class="nav-text">Problems with shadow maps</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -292,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-14 15:28:25" itemprop="dateModified" datetime="2023-04-14T15:28:25+08:00">2023-04-14</time>
+      <time title="Modified: 2023-04-20 23:57:47" itemprop="dateModified" datetime="2023-04-20T23:57:47+08:00">2023-04-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,7 +316,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>4.2k</span>
+      <span>4.7k</span>
     </span>
 </div>
 
@@ -349,9 +355,14 @@
 </li>
 </ul>
 </li>
+<li><p>补充！</p>
+<ul>
+<li>shadows</li>
+</ul>
+</li>
 </ul>
 <span id="more"></span>
-<h1 id="P5-6-Rasterization"><a href="#P5-6-Rasterization" class="headerlink" title="P5-6 Rasterization"></a>P5-6 Rasterization</h1><h2 id="P5-Rasterization-Triangles"><a href="#P5-Rasterization-Triangles" class="headerlink" title="P5 Rasterization(Triangles)"></a>P5 Rasterization(Triangles)</h2><h3 id="Finishing-up-viewing"><a href="#Finishing-up-viewing" class="headerlink" title="Finishing up viewing"></a>Finishing up viewing</h3><h4 id="Viewport-transformation-视口变换"><a href="#Viewport-transformation-视口变换" class="headerlink" title="Viewport transformation 视口变换"></a>Viewport transformation 视口变换</h4><h5 id="Intro-摄影机"><a href="#Intro-摄影机" class="headerlink" title="Intro - 摄影机"></a>Intro - 摄影机</h5><ul>
+<h1 id="P5-Rasterization-Triangles"><a href="#P5-Rasterization-Triangles" class="headerlink" title="P5 Rasterization(Triangles)"></a>P5 Rasterization(Triangles)</h1><h2 id="Finishing-up-viewing"><a href="#Finishing-up-viewing" class="headerlink" title="Finishing up viewing"></a>Finishing up viewing</h2><h3 id="Viewport-transformation-视口变换"><a href="#Viewport-transformation-视口变换" class="headerlink" title="Viewport transformation 视口变换"></a>Viewport transformation 视口变换</h3><h4 id="Intro-摄影机"><a href="#Intro-摄影机" class="headerlink" title="Intro - 摄影机"></a>Intro - 摄影机</h4><ul>
 <li>定义视锥的两个概念<ul>
 <li>长宽比</li>
 <li>FOV</li>
@@ -366,7 +377,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="Intro-屏幕"><a href="#Intro-屏幕" class="headerlink" title="Intro - 屏幕"></a>Intro - 屏幕</h5><ul>
+<h4 id="Intro-屏幕"><a href="#Intro-屏幕" class="headerlink" title="Intro - 屏幕"></a>Intro - 屏幕</h4><ul>
 <li>什么是屏幕<ul>
 <li>抽象地认为是二维数组，其中每个元素都是一个像素</li>
 <li>数组的大小就是屏幕分辨率</li>
@@ -395,7 +406,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="视口变换：将-1-1-3-立方体转化到整个屏幕"><a href="#视口变换：将-1-1-3-立方体转化到整个屏幕" class="headerlink" title="视口变换：将$[-1, 1]^3$立方体转化到整个屏幕"></a>视口变换：将$[-1, 1]^3$立方体转化到整个屏幕</h5><ul>
+<h4 id="视口变换：将-1-1-3-立方体转化到整个屏幕"><a href="#视口变换：将-1-1-3-立方体转化到整个屏幕" class="headerlink" title="视口变换：将$[-1, 1]^3$立方体转化到整个屏幕"></a>视口变换：将$[-1, 1]^3$立方体转化到整个屏幕</h4><ul>
 <li>Transform xy plane: $[-1, 1]^2$ to  $[0 ,width] * [0, height]$，先不管$z$<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-03-27 21.42.23.png" alt="截屏2023-03-27 21.42.23" style="zoom:33%;"></li>
 <li>视口转化矩阵<ul>
@@ -409,10 +420,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="光栅化-Rasterizing-Triangles-into-Pixels"><a href="#光栅化-Rasterizing-Triangles-into-Pixels" class="headerlink" title="光栅化 - Rasterizing Triangles into Pixels"></a>光栅化 - Rasterizing Triangles into Pixels</h3><h4 id="Frame-Buffer-Memory-of-a-Raster-Display"><a href="#Frame-Buffer-Memory-of-a-Raster-Display" class="headerlink" title="Frame Buffer: Memory of a Raster Display"></a>Frame Buffer: Memory of a Raster Display</h4><ul>
+<h2 id="光栅化-Rasterizing-Triangles-into-Pixels"><a href="#光栅化-Rasterizing-Triangles-into-Pixels" class="headerlink" title="光栅化 - Rasterizing Triangles into Pixels"></a>光栅化 - Rasterizing Triangles into Pixels</h2><h3 id="Frame-Buffer-Memory-of-a-Raster-Display"><a href="#Frame-Buffer-Memory-of-a-Raster-Display" class="headerlink" title="Frame Buffer: Memory of a Raster Display"></a>Frame Buffer: Memory of a Raster Display</h3><ul>
 <li>内存空间的一块区域映射到屏幕上，成为显示的图像</li>
 </ul>
-<h4 id="Polygon-Mesh"><a href="#Polygon-Mesh" class="headerlink" title="Polygon Mesh"></a>Polygon Mesh</h4><ul>
+<h3 id="Polygon-Mesh"><a href="#Polygon-Mesh" class="headerlink" title="Polygon Mesh"></a>Polygon Mesh</h3><ul>
 <li>intro<ul>
 <li>已完成：将三维空间顶点变换到屏幕空间中</li>
 <li>下一步：将多边形拆成不同的像素（光栅化的过程</li>
@@ -434,7 +445,7 @@
 </li>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-03-31 14.57.13.png" alt="截屏2023-03-31 14.57.13" style="zoom:33%;"></li>
 </ul>
-<h4 id="Sampling-采样"><a href="#Sampling-采样" class="headerlink" title="Sampling 采样"></a>Sampling 采样</h4><ul>
+<h3 id="Sampling-采样"><a href="#Sampling-采样" class="headerlink" title="Sampling 采样"></a>Sampling 采样</h3><ul>
 <li><p>采样函数（一维</p>
 <ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-03-31 15.00.30.png" alt="截屏2023-03-31 15.00.30" style="zoom:33%;"></li>
@@ -465,7 +476,7 @@
 <li><p>边界处理：OpenGL认为上左在内，下右在外</p>
 </li>
 </ul>
-<h4 id="光栅化加速优化"><a href="#光栅化加速优化" class="headerlink" title="光栅化加速优化"></a>光栅化加速优化</h4><ul>
+<h3 id="光栅化加速优化"><a href="#光栅化加速优化" class="headerlink" title="光栅化加速优化"></a>光栅化加速优化</h3><ul>
 <li>包围盒Bounding Box（AABB）<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 10.03.48.png" alt="截屏2023-04-01 10.03.48" style="zoom:25%;"></li>
 </ul>
@@ -476,7 +487,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="实际屏幕的光栅化-Rasterization-on-Real-Displays"><a href="#实际屏幕的光栅化-Rasterization-on-Real-Displays" class="headerlink" title="实际屏幕的光栅化 Rasterization on Real Displays"></a>实际屏幕的光栅化 Rasterization on Real Displays</h4><ul>
+<h3 id="实际屏幕的光栅化-Rasterization-on-Real-Displays"><a href="#实际屏幕的光栅化-Rasterization-on-Real-Displays" class="headerlink" title="实际屏幕的光栅化 Rasterization on Real Displays"></a>实际屏幕的光栅化 Rasterization on Real Displays</h3><ul>
 <li>加色<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 10.23.06.png" alt="截屏2023-04-01 10.23.06" style="zoom:25%;"></li>
 </ul>
@@ -486,13 +497,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="光栅化问题"><a href="#光栅化问题" class="headerlink" title="光栅化问题"></a>光栅化问题</h4><ul>
+<h3 id="光栅化问题"><a href="#光栅化问题" class="headerlink" title="光栅化问题"></a>光栅化问题</h3><ul>
 <li>锯齿<ul>
 <li>像素有一定大小，采样率不够高，导致图像走样</li>
 </ul>
 </li>
 </ul>
-<h2 id="P6-Rasterization-Antialiasing-and-Z-Buffer-反走样和深度缓冲"><a href="#P6-Rasterization-Antialiasing-and-Z-Buffer-反走样和深度缓冲" class="headerlink" title="P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)"></a>P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)</h2><h3 id="采样理论"><a href="#采样理论" class="headerlink" title="采样理论"></a>采样理论</h3><ul>
+<h1 id="P6-Rasterization-Antialiasing-and-Z-Buffer-反走样和深度缓冲"><a href="#P6-Rasterization-Antialiasing-and-Z-Buffer-反走样和深度缓冲" class="headerlink" title="P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)"></a>P6 Rasterization(Antialiasing and Z-Buffer 反走样和深度缓冲)</h1><h2 id="采样理论"><a href="#采样理论" class="headerlink" title="采样理论"></a>采样理论</h2><ul>
 <li>Artifact：黑话。泛指图形学中的error/mistake/inaccuracies<ul>
 <li>锯齿</li>
 <li>摩尔纹</li>
@@ -501,7 +512,7 @@
 </li>
 <li><strong>产生Artifact的本质原因：信号速度太快，而采样速度跟不上</strong></li>
 </ul>
-<h3 id="如何反走样"><a href="#如何反走样" class="headerlink" title="如何反走样"></a>如何反走样</h3><ul>
+<h2 id="如何反走样"><a href="#如何反走样" class="headerlink" title="如何反走样"></a>如何反走样</h2><ul>
 <li><strong>基本思想</strong>：前进行Blur，本质是滤(高频)波；再进行采样<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 10.48.46.png" alt="截屏2023-04-01 10.48.46" style="zoom:33%;"></li>
 <li>不可以先采样，再滤波（先采样的话，混叠的信号已然存在，再进行滤波也无法消除）<ul>
@@ -511,7 +522,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Frequency-Domain-频域"><a href="#Frequency-Domain-频域" class="headerlink" title="Frequency Domain 频域"></a>Frequency Domain 频域</h3><h4 id="前置知识-信号处理"><a href="#前置知识-信号处理" class="headerlink" title="前置知识 - 信号处理"></a>前置知识 - 信号处理</h4><ul>
+<h2 id="Frequency-Domain-频域"><a href="#Frequency-Domain-频域" class="headerlink" title="Frequency Domain 频域"></a>Frequency Domain 频域</h2><h3 id="前置知识-信号处理"><a href="#前置知识-信号处理" class="headerlink" title="前置知识 - 信号处理"></a>前置知识 - 信号处理</h3><ul>
 <li>傅里叶级数展开：任何一个周期函数都可以写成一系列sin和cos的线性组合，和常数项<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 11.07.27.png" alt="截屏2023-04-01 11.07.27" style="zoom:33%;"></li>
 </ul>
@@ -524,7 +535,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="走样"><a href="#走样" class="headerlink" title="走样"></a>走样</h4><ul>
+<h3 id="走样"><a href="#走样" class="headerlink" title="走样"></a>走样</h3><ul>
 <li>对于傅里叶展开后的函数采样，高频部分出现走样<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 11.17.29.png" alt="截屏2023-04-01 11.17.29" style="zoom:33%;"></li>
 <li><strong>奈奎斯特采样定理</strong>：采样频率要大于信号最高频率的2倍，才能无失真的保留信号的完整信息</li>
@@ -538,7 +549,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Filtering-滤波"><a href="#Filtering-滤波" class="headerlink" title="Filtering 滤波"></a>Filtering 滤波</h4><ul>
+<h3 id="Filtering-滤波"><a href="#Filtering-滤波" class="headerlink" title="Filtering 滤波"></a>Filtering 滤波</h3><ul>
 <li>滤波：把某个特定频率抹去</li>
 <li>对图像进行傅里叶变换（变成频域空间<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 16.19.46.png" alt="截屏2023-04-01 16.19.46"><ul>
@@ -559,7 +570,7 @@
 <li><p>中通滤波</p>
 <ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 16.40.29.png" alt="截屏2023-04-01 16.40.29"></li>
-<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 16.41.21.png" alt="截屏2023-04-01 16.41.21"><h5 id="Fliter-Convolution-卷积-Averaging"><a href="#Fliter-Convolution-卷积-Averaging" class="headerlink" title="Fliter = Convolution 卷积 ( = Averaging)"></a>Fliter = Convolution 卷积 ( = Averaging)</h5></li>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 16.41.21.png" alt="截屏2023-04-01 16.41.21"><h4 id="Fliter-Convolution-卷积-Averaging"><a href="#Fliter-Convolution-卷积-Averaging" class="headerlink" title="Fliter = Convolution 卷积 ( = Averaging)"></a>Fliter = Convolution 卷积 ( = Averaging)</h4></li>
 </ul>
 </li>
 <li><p>滤波器和卷积效果相近，但原理不同</p>
@@ -622,7 +633,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Sampling采样-Repeating-Frequency-Contents"><a href="#Sampling采样-Repeating-Frequency-Contents" class="headerlink" title="Sampling采样 = Repeating Frequency Contents"></a>Sampling采样 = Repeating Frequency Contents</h4><p><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 20.56.53.png" alt="截屏2023-04-01 20.56.53" style="zoom:50%;"></p>
+<h3 id="Sampling采样-Repeating-Frequency-Contents"><a href="#Sampling采样-Repeating-Frequency-Contents" class="headerlink" title="Sampling采样 = Repeating Frequency Contents"></a>Sampling采样 = Repeating Frequency Contents</h3><p><img src="/2023/03/27/Games101-P5-6/截屏2023-04-01 20.56.53.png" alt="截屏2023-04-01 20.56.53" style="zoom:50%;"></p>
 <ul>
 <li>上图<ul>
 <li>(e)是(a)和(c)在时域上的乘积</li>
@@ -638,7 +649,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="反走样-Antialiasing"><a href="#反走样-Antialiasing" class="headerlink" title="反走样 Antialiasing"></a>反走样 Antialiasing</h3><h4 id="反走样原理"><a href="#反走样原理" class="headerlink" title="反走样原理"></a>反走样原理</h4><ul>
+<h2 id="反走样-Antialiasing"><a href="#反走样-Antialiasing" class="headerlink" title="反走样 Antialiasing"></a>反走样 Antialiasing</h2><h3 id="反走样原理"><a href="#反走样原理" class="headerlink" title="反走样原理"></a>反走样原理</h3><ul>
 <li>Reduce Aliasing Error<ul>
 <li><strong>Option1: 增加采样率</strong><ul>
 <li>增大冲激信号在频域的间隔</li>
@@ -689,7 +700,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="MSAA-Antialiasing-By-Supersampling"><a href="#MSAA-Antialiasing-By-Supersampling" class="headerlink" title="MSAA: Antialiasing By Supersampling"></a>MSAA: Antialiasing By Supersampling</h4><ul>
+<h3 id="MSAA-Antialiasing-By-Supersampling"><a href="#MSAA-Antialiasing-By-Supersampling" class="headerlink" title="MSAA: Antialiasing By Supersampling"></a>MSAA: Antialiasing By Supersampling</h3><ul>
 <li><p>原理：超采样Supersampling</p>
 <ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-02 10.04.46.png" alt="截屏2023-04-02 10.04.46" style="zoom:33%;"><ul>
@@ -710,14 +721,14 @@
 <li><p><strong>实际应用</strong>中以降低性能代价，像素不会被规则的划分为NxN，而是会用更加有效的划分方法，一些点还会被临近像素复用。</p>
 </li>
 </ul>
-<h4 id="FXAA-Fast-Approximate-AA"><a href="#FXAA-Fast-Approximate-AA" class="headerlink" title="FXAA: Fast Approximate AA"></a>FXAA: Fast Approximate AA</h4><ul>
+<h3 id="FXAA-Fast-Approximate-AA"><a href="#FXAA-Fast-Approximate-AA" class="headerlink" title="FXAA: Fast Approximate AA"></a>FXAA: Fast Approximate AA</h3><ul>
 <li>与增加样本数无关，属于图像的后期处理。速度快</li>
 <li>过程：得到有锯齿的图后，通过图像匹配的方法找到边界部分，将边界换成没有锯齿的边界</li>
 </ul>
-<h4 id="TAA-Temporal-AA"><a href="#TAA-Temporal-AA" class="headerlink" title="TAA: Temporal AA"></a>TAA: Temporal AA</h4><ul>
+<h3 id="TAA-Temporal-AA"><a href="#TAA-Temporal-AA" class="headerlink" title="TAA: Temporal AA"></a>TAA: Temporal AA</h3><ul>
 <li>理解：将MSAA对应样本，从空间分布改变为时间分布</li>
 </ul>
-<h4 id="补：Super-Resolution超分辨率-Super-Sampling"><a href="#补：Super-Resolution超分辨率-Super-Sampling" class="headerlink" title="补：Super Resolution超分辨率 / Super Sampling"></a>补：Super Resolution超分辨率 / Super Sampling</h4><ul>
+<h3 id="补：Super-Resolution超分辨率-Super-Sampling"><a href="#补：Super-Resolution超分辨率-Super-Sampling" class="headerlink" title="补：Super Resolution超分辨率 / Super Sampling"></a>补：Super Resolution超分辨率 / Super Sampling</h3><ul>
 <li><p>将小图放大，并避免锯齿的产生（举例：<a target="_blank" rel="noopener" href="https://github.com/nagadomi/waifu2x">waifu2x</a>）</p>
 </li>
 <li><p>DLSS: Deep Learning Super Sampling</p>
@@ -726,14 +737,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="Visible可见性-Occlusion遮挡"><a href="#Visible可见性-Occlusion遮挡" class="headerlink" title="Visible可见性 /  Occlusion遮挡"></a>Visible可见性 /  Occlusion遮挡</h3><h4 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h4><ul>
+<h2 id="Visible可见性-Occlusion遮挡"><a href="#Visible可见性-Occlusion遮挡" class="headerlink" title="Visible可见性 /  Occlusion遮挡"></a>Visible可见性 /  Occlusion遮挡</h2><h3 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h3><ul>
 <li>对三角面排序，从远到近画，overwrite in the framebuffer</li>
 <li>会出现错误遮挡<ul>
 <li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-02 13.39.23.png" alt="截屏2023-04-02 13.39.23" style="zoom:25%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="Z-Buffer-深度缓存"><a href="#Z-Buffer-深度缓存" class="headerlink" title="Z-Buffer 深度缓存"></a>Z-Buffer 深度缓存</h4><ul>
+<h3 id="Z-Buffer-深度缓存"><a href="#Z-Buffer-深度缓存" class="headerlink" title="Z-Buffer 深度缓存"></a>Z-Buffer 深度缓存</h3><ul>
 <li>对<strong>像素内</strong>深度进行排序</li>
 <li>Ideas：<ul>
 <li>存储当先像素最小的深度</li>
@@ -766,6 +777,46 @@
 <li>假设没有像素在同一深度（实际情况中，浮点数几乎不可能相等），深度缓存画三角形的顺序将不影响结果</li>
 <li>若结合MSAA，则需针对每一个采样点进行相应的Z-Buffer深度操作</li>
 <li>Z-Buffer处理不了透明物体！</li>
+</ul>
+<h1 id="Shadows"><a href="#Shadows" class="headerlink" title="Shadows"></a>Shadows</h1><h2 id="Shadow-mapping"><a href="#Shadow-mapping" class="headerlink" title="Shadow mapping"></a>Shadow mapping</h2><p> （shadow mapping只能处理<strong>点光源</strong>的<strong>硬阴影</strong>）</p>
+<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><ul>
+<li>一种图片空间的算法<ul>
+<li>计算阴影时，无需知道场景几何信息</li>
+<li>需解决走样问题</li>
+</ul>
+</li>
+<li><strong>Key idea：若点不在阴影里，则摄影机和光源都可看到该点</strong>（若在阴影中，摄影机可看到但光源看不到）</li>
+</ul>
+<h3 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h3><p><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.29.38.png" alt="截屏2023-04-20 23.29.38" style="zoom:40%;"></p>
+<ul>
+<li><p>Render from light：从光源看向场景，记录深度图</p>
+</li>
+<li><p>Render from eye：从眼睛（摄像机）处看向光源，记录深度和颜色信息图</p>
+</li>
+<li>Project to light：将眼睛所看见的点映射回光源所看到的深度图中对应的像素，计算该点在光源处看的深度，比较所得深度和第一步该点处深度。一致，则光源可以看到，该点不在阴影中；不一致，则光源看不到，该点在阴影中。</li>
+<li>举例<ul>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.39.20.png" alt="截屏2023-04-20 23.39.20" style="zoom:50%;"></li>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.39.44.png" alt="截屏2023-04-20 23.39.44" style="zoom:50%;"></li>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.40.10.png" alt="截屏2023-04-20 23.40.10" style="zoom:50%;"></li>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.40.33.png" alt="截屏2023-04-20 23.40.33" style="zoom:50%;"><ul>
+<li>问题：边缘不清晰——浮点数很难判断相等，边界处深度判断易出错；shadow map分辨率会引起相应采样问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Problems-with-shadow-maps"><a href="#Problems-with-shadow-maps" class="headerlink" title="Problems with shadow maps"></a>Problems with shadow maps</h3><ul>
+<li>Hard shadows (point lights only)<ul>
+<li>补：软阴影<ul>
+<li>光源有大小才可能出现软阴影</li>
+<li>出现在Penumbra半影区。本质是本影、半影、影子外的过渡</li>
+<li><img src="/2023/03/27/Games101-P5-6/截屏2023-04-20 23.52.49.png" alt="截屏2023-04-20 23.52.49" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>阴影质量取决于shadow map分辨率（采样率低有锯齿，采样率高耗性能）(general problem with image-based techniques……)</li>
+<li>涉及浮点深度值的相等比较，是指尺度、偏差、公差等问题</li>
 </ul>
 
     </div>
@@ -826,7 +877,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">15k</span>
+    <span title="Word count total">17k</span>
   </span>
 </div>
 
