@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Games101-P13-16</title>
+      <link href="/2023/04/23/Games101-P13-16/"/>
+      <url>/2023/04/23/Games101-P13-16/</url>
+      
+        <content type="html"><![CDATA[<ul><li>P13 Overview</li></ul><h1 id="P13-Ray-Tracing-1"><a href="#P13-Ray-Tracing-1" class="headerlink" title="P13 Ray Tracing 1"></a>P13 Ray Tracing 1</h1><ul><li>Why ray tracing?<ul><li>光栅化渲染不能完美诠释global effects(下图都算global effect)<ul><li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 22.54.49.png" alt="截屏2023-04-23 22.54.49" style="zoom:50%;"></li></ul></li><li>光栅化速度快，可实现近似，但质量较低</li><li>光栅化是Real-time；光线追踪是Offline</li></ul></li><li>Features of ray-tracing<ul><li>accurate</li><li>slow </li></ul></li></ul><h2 id="Basic-Ray-Tracing-Algorithm"><a href="#Basic-Ray-Tracing-Algorithm" class="headerlink" title="Basic Ray-Tracing Algorithm"></a>Basic Ray-Tracing Algorithm</h2><h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><ul><li>Light光线<ul><li>光线延直线传播（本课中）</li><li>光线相交时不会发生碰撞（本课中）</li><li>光线从光源发射出，经反射、折射后进入人眼</li></ul></li></ul><h3 id="Ray-Casting"><a href="#Ray-Casting" class="headerlink" title="Ray Casting"></a>Ray Casting</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.15.03.png" alt="截屏2023-04-23 23.15.03" style="zoom:50%;"></p><ul><li>概述<ul><li>摄像机与屏幕像素连线，并穿透屏幕并打在红圈处</li><li>连接红圈和光源，判断红圈处点是否在阴影中</li><li>若不在阴影中，则该光线有效，可进行进一步计算该点处光的能量</li></ul></li></ul><h4 id="Generating-Eye-Rays"><a href="#Generating-Eye-Rays" class="headerlink" title="Generating Eye Rays"></a>Generating Eye Rays</h4><ul><li>Pinhole Camera Model 针孔相机模型<ul><li>Step1: 每一个像素的光线射入，与场景相交，求出最近交点<img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.23.10.png" alt="截屏2023-04-23 23.23.10" style="zoom: 40%;"><ul><li>对于光线和多个物体相交的情况：因遮挡，只考虑最近（直接避免光追中的深度测试）</li></ul></li><li>Step2: 交点与光源连线，若不在阴影中就计算着色<img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.25.16.png" alt="截屏2023-04-23 23.25.16" style="zoom:40%;"></li><li>Step3: 写入对应像素</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Games101 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Games101 </tag>
+            
+            <tag> 图形学 </tag>
+            
+            <tag> 光线追踪 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Games101-P10-12 Geometry</title>
       <link href="/2023/04/15/Games101-P10-12/"/>
       <url>/2023/04/15/Games101-P10-12/</url>
