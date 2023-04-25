@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box      P13 Ray Traci">
+    <meta name="description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14 Overview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P13-16">
 <meta property="og:url" content="http://example.com/2023/04/23/Games101-P13-16/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box      P13 Ray Traci">
+<meta property="og:description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14 Overview">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2022.54.49.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.15.03.png">
@@ -45,8 +45,13 @@
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.13.40.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.23.43.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.33.35.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.18.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.24.21.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/pinjie01.jpg">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.33.59.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.58.33.png">
 <meta property="article:published_time" content="2023-04-23T14:41:02.000Z">
-<meta property="article:modified_time" content="2023-04-25T14:07:05.823Z">
+<meta property="article:modified_time" content="2023-04-25T15:23:00.561Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -162,7 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P13-Ray-Tracing-1"><span class="nav-number">1.</span> <span class="nav-text">P13 Ray Tracing 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Ray-Tracing-Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Ray-Tracing Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">1.1.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ray-Casting"><span class="nav-number">1.1.2.</span> <span class="nav-text">Ray Casting</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-Eye-Rays"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Generating Eye Rays</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Whitted-Style-Ray-Tracing"><span class="nav-number">1.1.3.</span> <span class="nav-text">Recursive (Whitted-Style) Ray Tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ray-Surface-Intersection-%E5%85%89%E7%BA%BF%E5%92%8C%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Ray-Surface Intersection 光线和面求交</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E7%90%83%E4%BD%93%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">光线和球体求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E9%9A%90%E5%BC%8F%E8%A1%A8%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">光线和隐式表面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E4%B8%89%E8%A7%92%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.3.</span> <span class="nav-text">与三角面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.1.4.</span> <span class="nav-text">缺点问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accelerating-Ray-Surface-Intersection-%E5%8A%A0%E9%80%9F"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Accelerating Ray-Surface Intersection 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ray-Intersection-with-Axis-Aligned-Box"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">Ray Intersection with Axis-Aligned Box</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><span class="nav-number">2.</span> <span class="nav-text">P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P13-Ray-Tracing-1"><span class="nav-number">1.</span> <span class="nav-text">P13 Ray Tracing 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Ray-Tracing-Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Ray-Tracing Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">1.1.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ray-Casting"><span class="nav-number">1.1.2.</span> <span class="nav-text">Ray Casting</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-Eye-Rays"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Generating Eye Rays</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Whitted-Style-Ray-Tracing"><span class="nav-number">1.1.3.</span> <span class="nav-text">Recursive (Whitted-Style) Ray Tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ray-Surface-Intersection-%E5%85%89%E7%BA%BF%E5%92%8C%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Ray-Surface Intersection 光线和面求交</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E7%90%83%E4%BD%93%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">光线和球体求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E9%9A%90%E5%BC%8F%E8%A1%A8%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">光线和隐式表面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E4%B8%89%E8%A7%92%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.3.</span> <span class="nav-text">与三角面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.1.4.</span> <span class="nav-text">缺点问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accelerating-Ray-Surface-Intersection-%E5%8A%A0%E9%80%9F"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Accelerating Ray-Surface Intersection 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ray-Intersection-with-Axis-Aligned-Box"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">Ray Intersection with Axis-Aligned Box</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><span class="nav-number">2.</span> <span class="nav-text">P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-AABBs-to-accelerate-ray-tracing"><span class="nav-number">2.1.</span> <span class="nav-text">Using AABBs to accelerate ray tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Spatial-Partitions-Grids"><span class="nav-number">2.1.1.</span> <span class="nav-text">Uniform Spatial Partitions (Grids)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spatial-Partitions-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E5%89%8D"><span class="nav-number">2.1.2.</span> <span class="nav-text">Spatial Partitions 空间划分(光线追踪前)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KD-Trees"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">KD-Trees</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -263,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-25 22:07:05" itemprop="dateModified" datetime="2023-04-25T22:07:05+08:00">2023-04-25</time>
+      <time title="Modified: 2023-04-25 23:23:00" itemprop="dateModified" datetime="2023-04-25T23:23:00+08:00">2023-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.6k</span>
+      <span>2.1k</span>
     </span>
 </div>
 
@@ -304,7 +309,20 @@
 </li>
 </ul>
 </li>
+<li><p>P14 Overview</p>
+<ul>
+<li><p>Using AABBs to accelerate ray tracing</p>
+<ul>
+<li>Uniform grids</li>
+<li>Spatial partitions 空间划分</li>
 </ul>
+</li>
+<li><p>Basic radiometry</p>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
 <h1 id="P13-Ray-Tracing-1"><a href="#P13-Ray-Tracing-1" class="headerlink" title="P13 Ray Tracing 1"></a>P13 Ray Tracing 1</h1><ul>
 <li>Why ray tracing?<ul>
 <li>光栅化渲染不能完美诠释global effects(下图都算global effect)<ul>
@@ -366,8 +384,8 @@
 </ul>
 </li>
 <li>联立方程求交点：<ul>
-<li>光线：$r(t) = \bold o+t \bold d , (0 \leq t &lt; \infty)$</li>
-<li>球：$\bold p: (\bold{p} -c)^2 - R^2 = 0$</li>
+<li>光线：$r(t) = \boldsymbol o+t \boldsymbol d , (0 \leq t &lt; \infty)$</li>
+<li>球：$\boldsymbol p: (\boldsymbol{p} -c)^2 - R^2 = 0$</li>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.30.30.png" alt="截屏2023-04-24 13.30.30" style="zoom:33%;"></li>
 </ul>
 </li>
@@ -388,7 +406,7 @@
 <li><strong>光线与三角面求交计算过程</strong><ul>
 <li>光线和三角形所在面求交<ul>
 <li>平面的定义：向量+一个点</li>
-<li>平面上的点$\bold p$和法线$\bold N$满足向量$\bold{p’p}\perp \bold N$，则点乘为0：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.23.25.png" alt="截屏2023-04-25 19.23.25"></li>
+<li>平面上的点$\boldsymbol p$和法线$\boldsymbol N$满足向量$\boldsymbol{p’p}\perp \boldsymbol N$，则点乘为0：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.23.25.png" alt="截屏2023-04-25 19.23.25"></li>
 <li>联立光线&amp;平面方程求交：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.31.08.png" alt="截屏2023-04-25 19.31.08" style="zoom:33%;"></li>
 </ul>
 </li>
@@ -440,7 +458,34 @@
 </ul>
 </li>
 </ul>
-<h1 id="P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><a href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry" class="headerlink" title="P14 Ray Tracing 2 (Acceleration &amp; Radiometry)"></a>P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</h1>
+<h1 id="P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><a href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry" class="headerlink" title="P14 Ray Tracing 2 (Acceleration &amp; Radiometry)"></a>P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</h1><h2 id="Using-AABBs-to-accelerate-ray-tracing"><a href="#Using-AABBs-to-accelerate-ray-tracing" class="headerlink" title="Using AABBs to accelerate ray tracing"></a>Using AABBs to accelerate ray tracing</h2><h3 id="Uniform-Spatial-Partitions-Grids"><a href="#Uniform-Spatial-Partitions-Grids" class="headerlink" title="Uniform Spatial Partitions (Grids)"></a>Uniform Spatial Partitions (Grids)</h3><ul>
+<li><p>思路：将光线与物体求交换为光线与盒子求交</p>
+</li>
+<li><p>场景预处理</p>
+<ul>
+<li><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.18.54.png" alt="截屏2023-04-25 22.18.54" style="zoom:50%;"></p>
+</li>
+<li><p>进行<strong>光线追踪</strong><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.24.21.png" alt="截屏2023-04-25 22.24.21" style="zoom:50%;"></p>
+</li>
+<li><p>效率问题：寻找合适的格子数<img src="/2023/04/23/Games101-P13-16/pinjie01.jpg" alt="pinjie01"></p>
+<p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.33.59.png" alt="截屏2023-04-25 22.33.59" style="zoom:40%;"></p>
+</li>
+</ul>
+</li>
+<li><p>Grid可以很好地处理在大小和空间上均匀分布的大量对象集合，但是（<strong>问题</strong>）</p>
+<ul>
+<li>不适用于物体分布不均的场景，会存在“Teapot in a stadium” problem。为检测小物体则需要密集的格子，浪费性能</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spatial-Partitions-空间划分-光线追踪前"><a href="#Spatial-Partitions-空间划分-光线追踪前" class="headerlink" title="Spatial Partitions 空间划分(光线追踪前)"></a>Spatial Partitions 空间划分(光线追踪前)</h3><ul>
+<li>解决物体分布不均导致的格子需求不同的问题</li>
+<li>Spatial Partitioning Examples<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.58.33.png" alt="截屏2023-04-25 22.58.33" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="KD-Trees"><a href="#KD-Trees" class="headerlink" title="KD-Trees"></a>KD-Trees</h4>
     </div>
 
     
@@ -495,7 +540,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">18k</span>
+    <span title="Word count total">19k</span>
   </span>
 </div>
 
