@@ -228,9 +228,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-23 22:41:02 / Modified: 23:31:45" itemprop="dateCreated datePublished" datetime="2023-04-23T22:41:02+08:00">2023-04-23</time>
+      <time title="Created: 2023-04-23 22:41:02" itemprop="dateCreated datePublished" datetime="2023-04-23T22:41:02+08:00">2023-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-25 22:07:05" itemprop="dateModified" datetime="2023-04-25T22:07:05+08:00">2023-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -248,7 +254,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>471</span>
+      <span>1.6k</span>
     </span>
 </div>
 
@@ -260,7 +266,17 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li>P13 Overview</li>
+<li>P13 Overview<ul>
+<li>Recursive (Whitted-Style) Ray Tracing<ul>
+<li>Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点</li>
+</ul>
+</li>
+<li>Accelerating Ray-Surface Intersection 加速<ul>
+<li>Ray Intersection with Axis-Aligned Box</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="P13-Ray-Tracing-1"><a href="#P13-Ray-Tracing-1" class="headerlink" title="P13 Ray Tracing 1"></a>P13 Ray Tracing 1</h1><ul>
 <li>Why ray tracing?<ul>
@@ -306,7 +322,98 @@
 </ul>
 </li>
 </ul>
-
+<h3 id="Recursive-Whitted-Style-Ray-Tracing"><a href="#Recursive-Whitted-Style-Ray-Tracing" class="headerlink" title="Recursive (Whitted-Style) Ray Tracing"></a>Recursive (Whitted-Style) Ray Tracing</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.09.39.png" alt="截屏2023-04-24 10.09.39" style="zoom:33%;"></p>
+<ul>
+<li><p>对于透明物体，发生折射+反射</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.27.20.png" alt="截屏2023-04-24 10.27.20" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.31.17.png" alt="截屏2023-04-24 10.31.17" style="zoom:50%;"></li>
+</ul>
+</li>
+<li><p>所有被打到的点（红圈处），都计算着色，最终相加，得出像素最终颜色</p>
+</li>
+</ul>
+<h4 id="Ray-Surface-Intersection-光线和面求交"><a href="#Ray-Surface-Intersection-光线和面求交" class="headerlink" title="Ray-Surface Intersection 光线和面求交"></a>Ray-Surface Intersection 光线和面求交</h4><h5 id="光线和球体求交"><a href="#光线和球体求交" class="headerlink" title="光线和球体求交"></a>光线和球体求交</h5><ul>
+<li>光线：起点+方向<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.44.35.png" alt="截屏2023-04-24 10.44.35" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>联立方程求交点：<ul>
+<li>光线：$r(t) = \bold o+t \bold d , (0 \leq t &lt; \infty)$</li>
+<li>球：$\bold p: (\bold{p} -c)^2 - R^2 = 0$</li>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.30.30.png" alt="截屏2023-04-24 13.30.30" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h5 id="光线和隐式表面求交"><a href="#光线和隐式表面求交" class="headerlink" title="光线和隐式表面求交"></a>光线和隐式表面求交</h5><ul>
+<li>将光线函数表示带入隐式表面公式<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.35.58.png" alt="截屏2023-04-24 13.35.58" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h5 id="与三角面求交"><a href="#与三角面求交" class="headerlink" title="与三角面求交"></a>与三角面求交</h5><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.49.32.png" alt="截屏2023-04-24 13.49.32"></p>
+<ul>
+<li>补：<strong>判断空间中任意点是否在（封闭）物体内</strong>：<ul>
+<li>从该点向任意方向做一条光线，检测光线和该物体交点个数</li>
+<li>若交点为奇数，则点在物体内；若交点为偶数，则点在物体外</li>
+</ul>
+</li>
+<li><strong>光线与三角面求交计算过程</strong><ul>
+<li>光线和三角形所在面求交<ul>
+<li>平面的定义：向量+一个点</li>
+<li>平面上的点$\bold p$和法线$\bold N$满足向量$\bold{p’p}\perp \bold N$，则点乘为0：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.23.25.png" alt="截屏2023-04-25 19.23.25"></li>
+<li>联立光线&amp;平面方程求交：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.31.08.png" alt="截屏2023-04-25 19.31.08" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>判断交点在不在三角形内（叉乘）</li>
+</ul>
+</li>
+<li>Möller Trumbore Algorithm：光线方程 = 重心坐标方程（可表示三角形平面内任意一点）<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.43.30.png" alt="截屏2023-04-25 19.43.30" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h5 id="缺点问题"><a href="#缺点问题" class="headerlink" title="缺点问题"></a>缺点问题</h5><ul>
+<li>测试每一个三角形与光线的交点，找到最接近的交点（即最小t）</li>
+<li>Naive algorithm = #pixels ⨉ # traingles，每一个像素都要遍历场景中所有三角面，慢</li>
+</ul>
+<h4 id="Accelerating-Ray-Surface-Intersection-加速"><a href="#Accelerating-Ray-Surface-Intersection-加速" class="headerlink" title="Accelerating Ray-Surface Intersection 加速"></a>Accelerating Ray-Surface Intersection 加速</h4><h5 id="Ray-Intersection-with-Axis-Aligned-Box"><a href="#Ray-Intersection-with-Axis-Aligned-Box" class="headerlink" title="Ray Intersection with Axis-Aligned Box"></a>Ray Intersection with Axis-Aligned Box</h5><ul>
+<li>Bounding Volumes 包围体积(盒)<ul>
+<li><strong style="color:red;">将复杂物体用简单物体包围，若光线不与包围盒相交，则肯定不会与物体相交</strong></li>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.00.10.png" alt="截屏2023-04-25 20.00.10" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>Axis-Aligned Bounding Box (AABB 轴对⻬包围盒)<ul>
+<li>理解：三个对立面的交集<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.03.53.png" alt="截屏2023-04-25 20.03.53" style="zoom:33%;"></li>
+</ul>
+</li>
+<li><p><strong>光线与AABB求交</strong>：</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.13.40.png" alt="截屏2023-04-25 20.13.40" style="zoom:40%;"></li>
+<li>Key Ideas <ul>
+<li>光线射入AABB：光线<strong>射入所有</strong>对立面</li>
+<li>光线射出AABB：光线<strong>射出任意一个</strong>对立面</li>
+</ul>
+</li>
+<li>计算过程<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.23.43.png" alt="截屏2023-04-25 20.23.43" style="zoom:50%;"></li>
+<li>有交点，当且仅当$t_{enter} &lt; t_{exit}$ &amp;&amp; $t_{exit} &gt;= 0$</li>
+<li>若$t$为负<ul>
+<li>$t_{exit} &lt; 0$：AABB在光线反方向，没有交点</li>
+<li>$t_{enter} &lt; 0$ &amp;&amp; $t_{exit} &gt;= 0$：光线起点在AABB里</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Why Axis-Aligned? - 计算简单</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.33.35.png" alt="截屏2023-04-25 20.33.35" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h1 id="P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><a href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry" class="headerlink" title="P14 Ray Tracing 2 (Acceleration &amp; Radiometry)"></a>P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</h1>
       
     </div>
 
@@ -1070,7 +1177,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">17k</span>
+    <span title="Word count total">18k</span>
   </span>
 </div>
 
