@@ -19,13 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14 Overview">
+    <meta name="description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14&amp;15 Ove">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P13-16 Ray Tracing">
 <meta property="og:url" content="http://example.com/2023/04/23/Games101-P13-16/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14 Overview">
+<meta property="og:description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14&amp;15 Ove">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.00.42.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.58.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.29.34.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2022.54.49.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.15.03.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.23.10.png">
@@ -85,14 +89,40 @@
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.30.51.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.32.50.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/IMG_3138.JPG">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2015.52.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.05.53.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.08.02.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.12.38.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.48.25.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2017.16.16.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.38.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.41.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.45.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.09.26.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.12.26.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.31.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.50.55.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.01.09.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.05.41.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.00.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.27.06.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.29.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.32.52.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.51.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.46.32.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.14.14.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.17.18.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.19.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.35.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.41.57.png">
 <meta property="article:published_time" content="2023-04-23T14:41:02.000Z">
-<meta property="article:modified_time" content="2023-05-03T13:46:14.842Z">
+<meta property="article:modified_time" content="2023-05-04T15:43:38.460Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
 <meta property="article:tag" content="光线追踪">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2022.54.49.png">
+<meta name="twitter:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
 
 
 <link rel="canonical" href="http://example.com/2023/04/23/Games101-P13-16/">
@@ -202,7 +232,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P13-Ray-Tracing-1"><span class="nav-number">1.</span> <span class="nav-text">P13 Ray Tracing 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Ray-Tracing-Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Ray-Tracing Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">1.1.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ray-Casting"><span class="nav-number">1.1.2.</span> <span class="nav-text">Ray Casting</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-Eye-Rays"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Generating Eye Rays</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Whitted-Style-Ray-Tracing"><span class="nav-number">1.1.3.</span> <span class="nav-text">Recursive (Whitted-Style) Ray Tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ray-Surface-Intersection-%E5%85%89%E7%BA%BF%E5%92%8C%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Ray-Surface Intersection 光线和面求交</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E7%90%83%E4%BD%93%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">光线和球体求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E9%9A%90%E5%BC%8F%E8%A1%A8%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">光线和隐式表面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E4%B8%89%E8%A7%92%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.3.</span> <span class="nav-text">与三角面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.1.4.</span> <span class="nav-text">缺点问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accelerating-Ray-Surface-Intersection-%E5%8A%A0%E9%80%9F"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Accelerating Ray-Surface Intersection 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ray-Intersection-with-Axis-Aligned-Box"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">Ray Intersection with Axis-Aligned Box</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><span class="nav-number">2.</span> <span class="nav-text">P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-AABBs-to-accelerate-ray-tracing"><span class="nav-number">2.1.</span> <span class="nav-text">Using AABBs to accelerate ray tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Spatial-Partitions-Grids"><span class="nav-number">2.1.1.</span> <span class="nav-text">Uniform Spatial Partitions (Grids)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spatial-Partitions-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E5%89%8D"><span class="nav-number">2.1.2.</span> <span class="nav-text">Spatial Partitions 空间划分(光线追踪前)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KD-Trees"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">KD-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bounding-Volume-Hierarchy-BVH"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Bounding Volume Hierarchy (BVH)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-radiometry-%E8%BE%90%E5%B0%84%E5%BA%A6%E9%87%8F%E5%AD%A6"><span class="nav-number">2.2.</span> <span class="nav-text">Basic radiometry 辐射度量学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Radiometry"><span class="nav-number">2.2.1.</span> <span class="nav-text">Radiometry</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Radiant-Energy-Q-and-Flux-Power-Phi"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Radiant Energy $Q$ and Flux(Power) $\Phi$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intensity-I"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Intensity $I$</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Angles-and-Solid-Angles-%E7%AB%8B%E4%BD%93%E8%A7%92"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">Angles and Solid Angles 立体角</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Irradiance-E"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Irradiance $E$</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3-Lambert%E2%80%99s-Cosine-Law"><span class="nav-number">2.2.1.3.1.</span> <span class="nav-text">重新理解 Lambert’s Cosine Law</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3-Irradiance-Falloff"><span class="nav-number">2.2.1.3.2.</span> <span class="nav-text">重新理解 Irradiance Falloff</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Radiance-L"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">Radiance $L$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94Irradiance%E3%80%81Intensity%E3%80%81Radiance"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">对比Irradiance、Intensity、Radiance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRDF-Bidirectional-Reflectance-Distribution-Function-%E5%8F%8C%E5%90%91%E5%8F%8D%E5%B0%84%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">BRDF (Bidirectional Reflectance Distribution Function 双向反射分布函数)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BRDF"><span class="nav-number">2.3.1.</span> <span class="nav-text">BRDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection-Equation-%E5%8F%8D%E5%B0%84%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.2.</span> <span class="nav-text">Reflection Equation 反射方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rendering-Equation-%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.3.</span> <span class="nav-text">Rendering Equation 渲染方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-1"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">理解渲染方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%92%E6%B1%82%E8%A7%A3"><span class="nav-number">2.3.3.3.</span> <span class="nav-text">渲染方程的递求解</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P13-Ray-Tracing-1"><span class="nav-number">1.</span> <span class="nav-text">P13 Ray Tracing 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Ray-Tracing-Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Ray-Tracing Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intro"><span class="nav-number">1.1.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ray-Casting"><span class="nav-number">1.1.2.</span> <span class="nav-text">Ray Casting</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generating-Eye-Rays"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Generating Eye Rays</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Whitted-Style-Ray-Tracing"><span class="nav-number">1.1.3.</span> <span class="nav-text">Recursive (Whitted-Style) Ray Tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ray-Surface-Intersection-%E5%85%89%E7%BA%BF%E5%92%8C%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Ray-Surface Intersection 光线和面求交</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E7%90%83%E4%BD%93%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">光线和球体求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%89%E7%BA%BF%E5%92%8C%E9%9A%90%E5%BC%8F%E8%A1%A8%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">光线和隐式表面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E4%B8%89%E8%A7%92%E9%9D%A2%E6%B1%82%E4%BA%A4"><span class="nav-number">1.1.3.1.3.</span> <span class="nav-text">与三角面求交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.3.1.4.</span> <span class="nav-text">缺点问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accelerating-Ray-Surface-Intersection-%E5%8A%A0%E9%80%9F"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Accelerating Ray-Surface Intersection 加速</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Ray-Intersection-with-Axis-Aligned-Box"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">Ray Intersection with Axis-Aligned Box</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P14-amp-15-Ray-Tracing-2-amp-3-Acceleration-amp-Radiometry-amp-BDRF-amp-Probability"><span class="nav-number">2.</span> <span class="nav-text">P14&amp;15 Ray Tracing 2&amp;3 (Acceleration &amp; Radiometry &amp; BDRF &amp; Probability)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-AABBs-to-accelerate-ray-tracing"><span class="nav-number">2.1.</span> <span class="nav-text">Using AABBs to accelerate ray tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Spatial-Partitions-Grids"><span class="nav-number">2.1.1.</span> <span class="nav-text">Uniform Spatial Partitions (Grids)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spatial-Partitions-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E5%89%8D"><span class="nav-number">2.1.2.</span> <span class="nav-text">Spatial Partitions 空间划分(光线追踪前)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KD-Trees"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">KD-Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bounding-Volume-Hierarchy-BVH"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Bounding Volume Hierarchy (BVH)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-radiometry-%E8%BE%90%E5%B0%84%E5%BA%A6%E9%87%8F%E5%AD%A6"><span class="nav-number">2.2.</span> <span class="nav-text">Basic radiometry 辐射度量学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Radiometry"><span class="nav-number">2.2.1.</span> <span class="nav-text">Radiometry</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Radiant-Energy-Q-and-Flux-Power-Phi"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Radiant Energy $Q$ and Flux(Power) $\Phi$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intensity-I"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Intensity $I$</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Angles-and-Solid-Angles-%E7%AB%8B%E4%BD%93%E8%A7%92"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">Angles and Solid Angles 立体角</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Irradiance-E"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Irradiance $E$</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3-Lambert%E2%80%99s-Cosine-Law"><span class="nav-number">2.2.1.3.1.</span> <span class="nav-text">重新理解 Lambert’s Cosine Law</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3-Irradiance-Falloff"><span class="nav-number">2.2.1.3.2.</span> <span class="nav-text">重新理解 Irradiance Falloff</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Radiance-L"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">Radiance $L$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94Irradiance%E3%80%81Intensity%E3%80%81Radiance"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">对比Irradiance、Intensity、Radiance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRDF-Bidirectional-Reflectance-Distribution-Function-%E5%8F%8C%E5%90%91%E5%8F%8D%E5%B0%84%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">BRDF (Bidirectional Reflectance Distribution Function 双向反射分布函数)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BRDF"><span class="nav-number">2.3.1.</span> <span class="nav-text">BRDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection-Equation-%E5%8F%8D%E5%B0%84%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.2.</span> <span class="nav-text">Reflection Equation 反射方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rendering-Equation-%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.3.</span> <span class="nav-text">Rendering Equation 渲染方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro-1"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">理解渲染方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%92%E5%BD%92%E7%AE%80%E5%8C%96%E6%B1%82%E8%A7%A3"><span class="nav-number">2.3.3.3.</span> <span class="nav-text">渲染方程的递归简化求解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%AE%BA%E5%9B%9E%E9%A1%BE-Probability-Review"><span class="nav-number">2.4.</span> <span class="nav-text">概率论回顾 Probability Review</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P16-Ray-Tracing4-Monte-Carlo-Integration-amp-Path-Tracing"><span class="nav-number">3.</span> <span class="nav-text">P16 Ray Tracing4 (Monte Carlo Integration &amp; Path Tracing)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monte-Carlo-Integration-%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%A7%AF%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text">Monte Carlo Integration 蒙特卡洛积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Path-Tracing-%E8%B7%AF%E5%BE%84%E8%BF%BD%E8%B8%AA"><span class="nav-number">3.2.</span> <span class="nav-text">Path Tracing 路径追踪</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94-Whitted-style-ray-tracing"><span class="nav-number">3.2.1.</span> <span class="nav-text">对比 Whitted-style ray tracing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Simple-Monte-Carlo-Solution-to-solve-the-rendering-equation"><span class="nav-number">3.2.2.</span> <span class="nav-text">A Simple Monte Carlo Solution(to solve the rendering equation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Illumination-%E5%BC%95%E5%85%A5%E9%80%92%E5%BD%92"><span class="nav-number">3.2.3.</span> <span class="nav-text">Global Illumination (引入递归)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problems-amp-Solving-Problems-Ray-Generation-amp-Russian-Roulette"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Problems &amp; Solving Problems(Ray Generation &amp; Russian Roulette)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Noise%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">Noise优化</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -303,7 +333,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-03 21:46:14" itemprop="dateModified" datetime="2023-05-03T21:46:14+08:00">2023-05-03</time>
+      <time title="Modified: 2023-05-04 23:43:38" itemprop="dateModified" datetime="2023-05-04T23:43:38+08:00">2023-05-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,7 +351,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>6k</span>
+      <span>8.3k</span>
     </span>
 </div>
 
@@ -344,20 +374,51 @@
 </li>
 </ul>
 </li>
-<li><p>P14 Overview</p>
+<li><p>P14&amp;15 Overview</p>
 <ul>
 <li><p>Using AABBs to accelerate ray tracing</p>
 <ul>
 <li>Uniform grids</li>
 <li>Spatial partitions 空间划分<ul>
 <li>KD-Trees</li>
-<li>BVHs</li>
+<li>BVHs<img src="/2023/04/23/Games101-P13-16/截屏2023-04-26 23.54.20.png" alt="截屏2023-04-26 23.54.20" style="zoom: 33%;"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>Basic radiometry</p>
+<ul>
+<li>Radiant Energy $Q$ and Flux(Power) $\Phi$</li>
+<li>Intensity $I$：power <strong>per projected unit area</strong></li>
+<li>Irradiance $E$：power <strong>per unit area</strong> </li>
+<li>Radiance $L$：power <strong>per unit solid angle</strong> &amp; <strong>per projected unit area</strong><ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom: 33%;"></li>
+</ul>
 </li>
+</ul>
+</li>
+<li><p>BRDF：是针对一个方向，<strong style="color:red;">出射Radiance($dL_r(\omega_r)$)/入射Irradiance($dE(\omega _i)$)</strong>的<strong>比例</strong></p>
+<ul>
+<li><p>反射方程</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.58.58.png" alt="截屏2023-05-03 17.58.58" style="zoom: 33%;"></li>
+</ul>
+</li>
+<li><p>渲染方程</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 18.29.34.png" alt="截屏2023-05-03 18.29.34" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>概率论回顾</p>
+</li>
+</ul>
+</li>
+<li><p>P16 Overview</p>
+<ul>
+<li>Monte Carlo Integration</li>
+<li>Path Tracing</li>
 </ul>
 </li>
 </ul>
@@ -408,13 +469,22 @@
 </ul>
 <h3 id="Recursive-Whitted-Style-Ray-Tracing"><a href="#Recursive-Whitted-Style-Ray-Tracing" class="headerlink" title="Recursive (Whitted-Style) Ray Tracing"></a>Recursive (Whitted-Style) Ray Tracing</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.09.39.png" alt="截屏2023-04-24 10.09.39" style="zoom:33%;"></p>
 <ul>
-<li><p>对于透明物体，发生折射+反射</p>
-<ul>
+<li>对于透明物体，发生折射+反射<ul>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.27.20.png" alt="截屏2023-04-24 10.27.20" style="zoom:50%;"></li>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.31.17.png" alt="截屏2023-04-24 10.31.17" style="zoom:50%;"></li>
 </ul>
 </li>
-<li><p>所有被打到的点（红圈处），都计算着色，最终相加，得出像素最终颜色</p>
+<li><p>过程</p>
+<ul>
+<li><p>生成眼睛到屏幕像素的primary ray</p>
+</li>
+<li><p>形成反射（镜面反射）or折射的多条secondary rays；若打到漫反射物体，反射/折射停止</p>
+</li>
+<li><p>作出shadow rays</p>
+</li>
+<li><p>若shadow rays未被物体遮挡，则计算对应红圈处的点的着色，相叠加，得出屏幕像素最终颜色</p>
+</li>
+</ul>
 </li>
 </ul>
 <h4 id="Ray-Surface-Intersection-光线和面求交"><a href="#Ray-Surface-Intersection-光线和面求交" class="headerlink" title="Ray-Surface Intersection 光线和面求交"></a>Ray-Surface Intersection 光线和面求交</h4><h5 id="光线和球体求交"><a href="#光线和球体求交" class="headerlink" title="光线和球体求交"></a>光线和球体求交</h5><ul>
@@ -497,7 +567,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="P14-Ray-Tracing-2-Acceleration-amp-Radiometry"><a href="#P14-Ray-Tracing-2-Acceleration-amp-Radiometry" class="headerlink" title="P14 Ray Tracing 2 (Acceleration &amp; Radiometry)"></a>P14 Ray Tracing 2 (Acceleration &amp; Radiometry)</h1><h2 id="Using-AABBs-to-accelerate-ray-tracing"><a href="#Using-AABBs-to-accelerate-ray-tracing" class="headerlink" title="Using AABBs to accelerate ray tracing"></a>Using AABBs to accelerate ray tracing</h2><h3 id="Uniform-Spatial-Partitions-Grids"><a href="#Uniform-Spatial-Partitions-Grids" class="headerlink" title="Uniform Spatial Partitions (Grids)"></a>Uniform Spatial Partitions (Grids)</h3><ul>
+<h1 id="P14-amp-15-Ray-Tracing-2-amp-3-Acceleration-amp-Radiometry-amp-BDRF-amp-Probability"><a href="#P14-amp-15-Ray-Tracing-2-amp-3-Acceleration-amp-Radiometry-amp-BDRF-amp-Probability" class="headerlink" title="P14&amp;15 Ray Tracing 2&amp;3 (Acceleration &amp; Radiometry &amp; BDRF &amp; Probability)"></a>P14&amp;15 Ray Tracing 2&amp;3 (Acceleration &amp; Radiometry &amp; BDRF &amp; Probability)</h1><h2 id="Using-AABBs-to-accelerate-ray-tracing"><a href="#Using-AABBs-to-accelerate-ray-tracing" class="headerlink" title="Using AABBs to accelerate ray tracing"></a>Using AABBs to accelerate ray tracing</h2><h3 id="Uniform-Spatial-Partitions-Grids"><a href="#Uniform-Spatial-Partitions-Grids" class="headerlink" title="Uniform Spatial Partitions (Grids)"></a>Uniform Spatial Partitions (Grids)</h3><ul>
 <li><p>思路：将光线与物体求交换为光线与盒子求交</p>
 </li>
 <li><p>场景预处理</p>
@@ -683,7 +753,7 @@
 </li>
 </ul>
 <h4 id="Irradiance-E"><a href="#Irradiance-E" class="headerlink" title="Irradiance $E$"></a>Irradiance $E$</h4><ul>
-<li>Irradiance：辐照度，power per unit area incident on a surface point，单位面积上的功率<ul>
+<li>Irradiance：辐照度，power <strong>per unit area</strong> incident on a surface point，单位面积上的功率<ul>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.32.38.png" alt="截屏2023-05-03 14.32.38" style="zoom:50%;"></li>
 <li>入射光需垂直于面，否则需进行投影</li>
 </ul>
@@ -702,7 +772,7 @@
 <h4 id="Radiance-L"><a href="#Radiance-L" class="headerlink" title="Radiance $L$"></a>Radiance $L$</h4><p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.58.07.png" alt="截屏2023-05-03 14.58.07" style="zoom:50%;"></p>
 <ul>
 <li>为了描述光线在传播过程中能量的度量</li>
-<li>Radiance：power，在单位角per unit solid angle，单位投影面积上per projected unit area，上发射、反射、投射、接受的量<ul>
+<li>Radiance：power，在单位角<strong>per unit solid angle</strong>，单位投影面积上<strong>per projected unit area</strong>，上发射、反射、投射、接受的量<ul>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom:50%;"></li>
 </ul>
 </li>
@@ -767,7 +837,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="渲染方程的递求解"><a href="#渲染方程的递求解" class="headerlink" title="渲染方程的递求解"></a>渲染方程的递求解</h4><ul>
+<h4 id="渲染方程的递归简化求解"><a href="#渲染方程的递归简化求解" class="headerlink" title="渲染方程的递归简化求解"></a>渲染方程的递归简化求解</h4><ul>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.01.10.png" alt="截屏2023-05-03 21.01.10"><ul>
 <li>未知量：入射&amp;出射Radiance</li>
 </ul>
@@ -794,7 +864,7 @@
 </li>
 <li>得到了！<ul>
 <li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.32.50.png" alt="截屏2023-05-03 21.32.50" style="zoom:40%;"></li>
-<li>所有光线弹射（直接+所有间接）相加，得到全局光照</li>
+<li>所有光线弹射（直接+所有间接）相加，得到全局光照（Global illumination，GI）</li>
 <li>注：光栅化一般只能做到直接光照；间接光照光追容易做</li>
 </ul>
 </li>
@@ -803,6 +873,171 @@
 <li><p>对比</p>
 <ul>
 <li><img src="/2023/04/23/Games101-P13-16/IMG_3138.JPG" alt="IMG_3138"></li>
+<li>关于Two - bounce上方的灯为什么是黑色：从摄影机出发的光线，经过两次弹射还无法从灯中射出（两次弹射进入一个玻璃层，再经过两次弹射方可从另一玻璃层射出）</li>
+<li>假设可以做无限次光线弹射：亮度收敛到最大值，不会无限增大（泰勒无限展开，无限逼近）</li>
+</ul>
+</li>
+<li><p>路径追踪是解渲染方程的一种方式</p>
+</li>
+</ul>
+<h2 id="概率论回顾-Probability-Review"><a href="#概率论回顾-Probability-Review" class="headerlink" title="概率论回顾 Probability Review"></a>概率论回顾 Probability Review</h2><p>苍天啊！！！！！！！！</p>
+<ul>
+<li>Random Variables 随机变量<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 15.52.54.png" alt="截屏2023-05-04 15.52.54"></li>
+</ul>
+</li>
+<li>Probabilities<ul>
+<li>$n$ 中情况：$x_i$</li>
+<li>with probability：$p_i$</li>
+<li>满足<ul>
+<li>$p_i\geq 0$</li>
+<li>$\begin{equation<em>}\sum_{i=1}^n p_i\end{equation</em>} = 1$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Expected Value of a Random Variable 期望<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.05.53.png" alt="截屏2023-05-04 16.05.53"></li>
+</ul>
+</li>
+<li>Continuous Case 连续情况下描述变量和分布<ul>
+<li>概率密度函数 <strong style="color:red;">Probability Distribution Function (PDF)</strong><ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.08.02.png" alt="截屏2023-05-04 16.08.02"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Function of a Random Variable 随机变量的函数<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.12.38.png" alt="截屏2023-05-04 16.12.38"></li>
+</ul>
+</li>
+</ul>
+<h1 id="P16-Ray-Tracing4-Monte-Carlo-Integration-amp-Path-Tracing"><a href="#P16-Ray-Tracing4-Monte-Carlo-Integration-amp-Path-Tracing" class="headerlink" title="P16 Ray Tracing4 (Monte Carlo Integration &amp; Path Tracing)"></a>P16 Ray Tracing4 (Monte Carlo Integration &amp; Path Tracing)</h1><h2 id="Monte-Carlo-Integration-蒙特卡洛积分"><a href="#Monte-Carlo-Integration-蒙特卡洛积分" class="headerlink" title="Monte Carlo Integration 蒙特卡洛积分"></a>Monte Carlo Integration 蒙特卡洛积分</h2><ul>
+<li>如何使用：在积分域内，对样本不断随机采样，做平均，<strong>近似函数积分数值</strong><ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.48.25.png" alt="截屏2023-05-04 16.48.25" style="zoom: 33%;"></li>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 17.16.16.png" alt="截屏2023-05-04 17.16.16" style="zoom:33%;"></li>
+</ul>
+</li>
+<li><strong>特例情况：均与采样</strong>（a~b间均匀采样，则采样PDF为常函数）<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.38.54.png" alt="截屏2023-05-04 20.38.54"></li>
+<li>上图已求解出了 $p(x)$ ，带入 $F_N$ <img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.41.54.png" alt="截屏2023-05-04 20.41.54"></li>
+</ul>
+</li>
+<li><strong>通用情况：非均匀采样</strong>（PDF不为常函数）<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.45.43.png" alt="截屏2023-05-04 20.45.43"></li>
+<li>注意<ul>
+<li>样本越多，近似越准确</li>
+<li>在 $x$ 积分，则对应在 $x$ 采样</li>
+<li>除以 $p(X_i)$ 相当于为非均匀的采样加权（上述均匀采样权重相同，因此 $p(X_i)$ 就是常数）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Path-Tracing-路径追踪"><a href="#Path-Tracing-路径追踪" class="headerlink" title="Path Tracing 路径追踪"></a>Path Tracing 路径追踪</h2><h3 id="对比-Whitted-style-ray-tracing"><a href="#对比-Whitted-style-ray-tracing" class="headerlink" title="对比 Whitted-style ray tracing"></a>对比 Whitted-style ray tracing</h3><ul>
+<li>回顾 Whitted-style ray tracing<ul>
+<li>始终执行镜面反射/折射</li>
+<li>在漫反射表面上停止反射</li>
+</ul>
+</li>
+<li><strong>BUT!!!</strong> Whitted-style ray tracing is <strong>not totally based on physics</strong>, which needs to be improved!!!</li>
+<li>Problems of Whitted-style ray tracing<ul>
+<li>只可以镜面反射or折射——无法表现glossy reflection<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.09.26.png" alt="截屏2023-05-04 21.09.26"></li>
+</ul>
+</li>
+<li>遇到漫反射物体，光线停止传播——忽略了漫反射物体间的光线传播(1)；无法表现Color Bleeding(2)<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.12.26.png" alt="截屏2023-05-04 21.12.26"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>But!!! The <strong>rendering equation is correct</strong>!!!<ul>
+<li>需要求出光照，则徐求解渲染方程<img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.31.43.png" alt="截屏2023-05-04 21.31.43" style="zoom:50%;"></li>
+<li>需要解决<ul>
+<li>STEP1: 半球域内的定积分——蒙特卡洛积分</li>
+<li>STEP2: 递归</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="A-Simple-Monte-Carlo-Solution-to-solve-the-rendering-equation"><a href="#A-Simple-Monte-Carlo-Solution-to-solve-the-rendering-equation" class="headerlink" title="A Simple Monte Carlo Solution(to solve the rendering equation)"></a>A Simple Monte Carlo Solution(to solve the rendering equation)</h3><ul>
+<li>假设一种简单情况，即只渲染如图所示一个point<strong>的直接光照</strong><ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.50.55.png" alt="截屏2023-05-04 21.50.55"></li>
+</ul>
+</li>
+<li>直接光照条件下，$L_i$ 只可能来自光源</li>
+<li>利用蒙特卡洛积分（暂且忽略渲染方程的自发光项）<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.01.09.png" alt="截屏2023-05-04 22.01.09"></li>
+<li>$f(X_k)$ ：积分内函数整体</li>
+<li>PDF：假设对半球进行平均的采样，则 $p(X_k)$ 为常数 $1/2\pi$</li>
+</ul>
+</li>
+<li><p>将渲染方程写成蒙特卡洛积分后形式</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.05.41.png" alt="截屏2023-05-04 22.05.41"></li>
+<li>意义：得出一种正确的直接光照算法，可以算出着色点point出射的Radiance</li>
+</ul>
+</li>
+<li><p><strong>只考虑直接光照的</strong>，<strong>path tracing</strong>的，伪代码</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.00.png" alt="截屏2023-05-04 23.13.00"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Global-Illumination-引入递归"><a href="#Global-Illumination-引入递归" class="headerlink" title="Global Illumination (引入递归)"></a>Global Illumination (引入递归)</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.27.06.png" alt="截屏2023-05-04 22.27.06" style="zoom:40%;"></p>
+<ul>
+<li>伪代码<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.29.png" alt="截屏2023-05-04 23.13.29"></li>
+</ul>
+</li>
+</ul>
+<h4 id="Problems-amp-Solving-Problems-Ray-Generation-amp-Russian-Roulette"><a href="#Problems-amp-Solving-Problems-Ray-Generation-amp-Russian-Roulette" class="headerlink" title="Problems &amp; Solving Problems(Ray Generation &amp; Russian Roulette)"></a>Problems &amp; Solving Problems(Ray Generation &amp; Russian Roulette)</h4><ul>
+<li><p>上述解决方法的问题</p>
+<ul>
+<li>Problem1: Explosion of #rays as #bounces go up （N为反射打出的光线数）<img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.32.52.png" alt="截屏2023-05-04 22.32.52" style="zoom:40%;"><ul>
+<li>解决explosion的方法：N = 1（Path Tracing就是N=1时做蒙特卡洛积分）</li>
+<li>伪代码<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.51.png" alt="截屏2023-05-04 23.13.51"></li>
+</ul>
+</li>
+<li>N = 1会引起Noise，不过可以对一个像素trace more paths并求平均进行解决<ul>
+<li>引入<a href="#lable">Ray Generation</a><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.46.32.png" alt="截屏2023-05-04 22.46.32" style="zoom: 40%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Problem2: 递归无法停止<ul>
+<li>真实世界光线无限弹射</li>
+<li>减少弹射次数 == 能量损失，因此不能强制终止</li>
+<li>解决方法：引入<a href="#lable">Russian Roulette (RR)</a>俄罗斯轮盘赌——一定的概率停止继续追踪</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><span id="lable">Ray Generation</span>: 相机如何产生光线路径</p>
+<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.14.14.png" alt="截屏2023-05-04 23.14.14"></li>
+</ul>
+</li>
+<li><span id="lable">Russian Roulette (RR)</span>俄罗斯轮盘赌<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.17.18.png" alt="截屏2023-05-04 23.17.18" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.19.12.png" alt="截屏2023-05-04 23.19.12" style="zoom:40%;"><ul>
+<li>通过计算期望 $E$，最后虽然有Noise，但结果 $L_o$ 一定正确</li>
+</ul>
+</li>
+<li>伪代码<ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.35.12.png" alt="截屏2023-05-04 23.35.12"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Noise优化"><a href="#Noise优化" class="headerlink" title="Noise优化"></a>Noise优化</h4><ul>
+<li>SPP (samples per pixel) <ul>
+<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.41.57.png" alt="截屏2023-05-04 23.41.57"></li>
+<li>目的：提升Low SPP下效果</li>
 </ul>
 </li>
 </ul>
@@ -861,7 +1096,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">23k</span>
+    <span title="Word count total">25k</span>
   </span>
 </div>
 
