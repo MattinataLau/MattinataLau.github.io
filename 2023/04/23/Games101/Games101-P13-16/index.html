@@ -22,111 +22,111 @@
     <meta name="description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14&amp;15 Ove">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P13-16 Ray Tracing">
-<meta property="og:url" content="http://example.com/2023/04/23/Games101-P13-16/index.html">
+<meta property="og:url" content="http://example.com/2023/04/23/Games101/Games101-P13-16/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
 <meta property="og:description" content="P13 Overview Recursive (Whitted-Style) Ray Tracing Ray-Surface Intersection 光线和面求交：球体、隐式表面、三角面，及缺点   Accelerating Ray-Surface Intersection 加速 Ray Intersection with Axis-Aligned Box     P14&amp;15 Ove">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.00.42.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.58.58.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.29.34.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.45.43.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.05.41.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.35.12.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.41.12.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.30.26.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2022.54.49.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.15.03.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.23.10.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.25.16.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.09.39.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.27.20.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.31.17.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.44.35.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.30.30.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.35.58.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.49.32.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.23.25.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.31.08.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.43.30.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.00.10.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.03.53.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.13.40.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.23.43.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.33.35.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.18.54.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.24.21.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/pinjie01.jpg">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.33.59.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.58.33.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2022.50.02.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/IMG_2989.JPG">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.26.58.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.37.58.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.38.25.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.35.43.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.44.55.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.52.20.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.59.36.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.01.32.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.09.39.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.14.44.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.32.38.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.38.40.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.42.41.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.58.07.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.00.42.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.05.15.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.22.59.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.25.47.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.31.40.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.47.01.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.58.58.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.07.18.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.26.00.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.29.34.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/IMG_3131.JPG">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2020.57.57.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.01.10.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.10.29.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.12.55.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.30.51.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.32.50.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/IMG_3138.JPG">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2015.52.54.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.05.53.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.08.02.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.12.38.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.48.25.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2017.16.16.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.38.54.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.41.54.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.45.43.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.09.26.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.12.26.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.31.43.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.50.55.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.01.09.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.05.41.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.00.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.27.06.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.29.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.32.52.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.51.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.46.32.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.14.14.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.17.18.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.19.12.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.35.12.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.41.57.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.26.38.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.37.21.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.41.12.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.02.39.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.18.34.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.25.03.png">
-<meta property="og:image" content="http://example.com/2023/04/23/Games101-P13-16/IMG_3262.JPG">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.00.42.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.58.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.29.34.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.45.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.05.41.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.35.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.41.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.30.26.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2022.54.49.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.15.03.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.23.10.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-23%2023.25.16.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.09.39.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.27.20.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.31.17.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2010.44.35.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.30.30.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.35.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-24%2013.49.32.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.23.25.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.31.08.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2019.43.30.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.00.10.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.03.53.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.13.40.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.23.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2020.33.35.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.18.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.24.21.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/pinjie01.jpg">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.33.59.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-25%2022.58.33.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2022.50.02.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/IMG_2989.JPG">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.26.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.37.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2013.38.25.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.35.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.44.55.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.52.20.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2022.59.36.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.01.32.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.09.39.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-27%2023.14.44.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.32.38.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.38.40.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.42.41.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2014.58.07.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.00.42.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2015.05.15.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.22.59.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.25.47.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.31.40.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.47.01.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2017.58.58.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.07.18.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.26.00.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2018.29.34.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/IMG_3131.JPG">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2020.57.57.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.01.10.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.10.29.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.12.55.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.30.51.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-03%2021.32.50.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/IMG_3138.JPG">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2015.52.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.05.53.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.08.02.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.12.38.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2016.48.25.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2017.16.16.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.38.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.41.54.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2020.45.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.09.26.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.12.26.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.31.43.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2021.50.55.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.01.09.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.05.41.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.00.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.27.06.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.29.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.32.52.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.13.51.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2022.46.32.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.14.14.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.17.18.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.19.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.35.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-04%2023.41.57.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.26.38.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.37.21.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2021.41.12.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.02.39.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.18.34.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.25.03.png">
+<meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/IMG_3262.JPG">
 <meta property="article:published_time" content="2023-04-23T14:41:02.000Z">
 <meta property="article:modified_time" content="2023-05-05T14:55:06.158Z">
 <meta property="article:author" content="SU Wenji">
@@ -134,14 +134,14 @@
 <meta property="article:tag" content="图形学">
 <meta property="article:tag" content="光线追踪">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/04/23/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
+<meta name="twitter:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-04-26%2023.54.20.png">
 
 
-<link rel="canonical" href="http://example.com/2023/04/23/Games101-P13-16/">
+<link rel="canonical" href="http://example.com/2023/04/23/Games101/Games101-P13-16/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/23/Games101-P13-16/","path":"2023/04/23/Games101-P13-16/","title":"Games101-P13-16 Ray Tracing"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/23/Games101/Games101-P13-16/","path":"2023/04/23/Games101/Games101-P13-16/","title":"Games101-P13-16 Ray Tracing"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Games101-P13-16 Ray Tracing | MattinataLau's Blog</title>
@@ -259,7 +259,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -270,7 +270,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -309,7 +309,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/23/Games101-P13-16/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/23/Games101/Games101-P13-16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blog_avatar.JPG">
@@ -393,7 +393,7 @@
 <li>Uniform grids</li>
 <li>Spatial partitions 空间划分<ul>
 <li>KD-Trees</li>
-<li>BVHs<img src="/2023/04/23/Games101-P13-16/截屏2023-04-26 23.54.20.png" alt="截屏2023-04-26 23.54.20" style="zoom: 33%;"></li>
+<li>BVHs<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-26 23.54.20.png" alt="截屏2023-04-26 23.54.20" style="zoom: 33%;"></li>
 </ul>
 </li>
 </ul>
@@ -404,7 +404,7 @@
 <li>Intensity $I$：power <strong>per projected unit area</strong></li>
 <li>Irradiance $E$：power <strong>per unit area</strong> </li>
 <li>Radiance $L$：power <strong>per unit solid angle</strong> &amp; <strong>per projected unit area</strong><ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom: 33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom: 33%;"></li>
 </ul>
 </li>
 </ul>
@@ -413,12 +413,12 @@
 <ul>
 <li><p>反射方程</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.58.58.png" alt="截屏2023-05-03 17.58.58" style="zoom: 33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.58.58.png" alt="截屏2023-05-03 17.58.58" style="zoom: 33%;"></li>
 </ul>
 </li>
 <li><p>渲染方程</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 18.29.34.png" alt="截屏2023-05-03 18.29.34" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 18.29.34.png" alt="截屏2023-05-03 18.29.34" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
@@ -431,14 +431,14 @@
 <ul>
 <li><p>Monte Carlo Integration</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.45.43.png" alt="截屏2023-05-04 20.45.43" style="zoom: 25%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 20.45.43.png" alt="截屏2023-05-04 20.45.43" style="zoom: 25%;"></li>
 </ul>
 </li>
 <li><p>Path Tracing</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.05.41.png" alt="截屏2023-05-04 22.05.41" style="zoom:33%;"><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.35.12.png" alt="截屏2023-05-04 23.35.12" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.05.41.png" alt="截屏2023-05-04 22.05.41" style="zoom:33%;"><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.35.12.png" alt="截屏2023-05-04 23.35.12" style="zoom:33%;"></li>
 <li>PT 优化<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 21.41.12.png" alt="截屏2023-05-05 21.41.12" style="zoom:33%;"><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 22.30.26.png" alt="截屏2023-05-05 22.30.26" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 21.41.12.png" alt="截屏2023-05-05 21.41.12" style="zoom:33%;"><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 22.30.26.png" alt="截屏2023-05-05 22.30.26" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
@@ -450,7 +450,7 @@
 <h1 id="P13-Ray-Tracing-1"><a href="#P13-Ray-Tracing-1" class="headerlink" title="P13 Ray Tracing 1"></a>P13 Ray Tracing 1</h1><ul>
 <li>Why ray tracing?<ul>
 <li>光栅化渲染不能完美诠释global effects(下图都算global effect)<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 22.54.49.png" alt="截屏2023-04-23 22.54.49" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-23 22.54.49.png" alt="截屏2023-04-23 22.54.49" style="zoom:50%;"></li>
 </ul>
 </li>
 <li>光栅化速度快，可实现近似，但质量较低</li>
@@ -471,7 +471,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Ray-Casting"><a href="#Ray-Casting" class="headerlink" title="Ray Casting"></a>Ray Casting</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.15.03.png" alt="截屏2023-04-23 23.15.03" style="zoom:50%;"></p>
+<h3 id="Ray-Casting"><a href="#Ray-Casting" class="headerlink" title="Ray Casting"></a>Ray Casting</h3><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-23 23.15.03.png" alt="截屏2023-04-23 23.15.03" style="zoom:50%;"></p>
 <ul>
 <li>概述<ul>
 <li>摄像机与屏幕像素连线，并穿透屏幕并打在红圈处</li>
@@ -482,20 +482,20 @@
 </ul>
 <h4 id="Generating-Eye-Rays"><a href="#Generating-Eye-Rays" class="headerlink" title="Generating Eye Rays"></a>Generating Eye Rays</h4><ul>
 <li>Pinhole Camera Model 针孔相机模型<ul>
-<li>Step1: 每一个像素的光线射入，与场景相交，求出最近交点<img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.23.10.png" alt="截屏2023-04-23 23.23.10" style="zoom: 40%;"><ul>
+<li>Step1: 每一个像素的光线射入，与场景相交，求出最近交点<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-23 23.23.10.png" alt="截屏2023-04-23 23.23.10" style="zoom: 40%;"><ul>
 <li>对于光线和多个物体相交的情况：因遮挡，只考虑最近（直接避免光追中的深度测试）</li>
 </ul>
 </li>
-<li>Step2: 交点与光源连线，若不在阴影中就计算着色<img src="/2023/04/23/Games101-P13-16/截屏2023-04-23 23.25.16.png" alt="截屏2023-04-23 23.25.16" style="zoom:40%;"></li>
+<li>Step2: 交点与光源连线，若不在阴影中就计算着色<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-23 23.25.16.png" alt="截屏2023-04-23 23.25.16" style="zoom:40%;"></li>
 <li>Step3: 写入对应像素</li>
 </ul>
 </li>
 </ul>
-<h3 id="Recursive-Whitted-Style-Ray-Tracing"><a href="#Recursive-Whitted-Style-Ray-Tracing" class="headerlink" title="Recursive (Whitted-Style) Ray Tracing"></a>Recursive (Whitted-Style) Ray Tracing</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.09.39.png" alt="截屏2023-04-24 10.09.39" style="zoom:33%;"></p>
+<h3 id="Recursive-Whitted-Style-Ray-Tracing"><a href="#Recursive-Whitted-Style-Ray-Tracing" class="headerlink" title="Recursive (Whitted-Style) Ray Tracing"></a>Recursive (Whitted-Style) Ray Tracing</h3><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 10.09.39.png" alt="截屏2023-04-24 10.09.39" style="zoom:33%;"></p>
 <ul>
 <li>对于透明物体，发生折射+反射<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.27.20.png" alt="截屏2023-04-24 10.27.20" style="zoom:50%;"></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.31.17.png" alt="截屏2023-04-24 10.31.17" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 10.27.20.png" alt="截屏2023-04-24 10.27.20" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 10.31.17.png" alt="截屏2023-04-24 10.31.17" style="zoom:50%;"></li>
 </ul>
 </li>
 <li><p>过程</p>
@@ -513,23 +513,23 @@
 </ul>
 <h4 id="Ray-Surface-Intersection-光线和面求交"><a href="#Ray-Surface-Intersection-光线和面求交" class="headerlink" title="Ray-Surface Intersection 光线和面求交"></a>Ray-Surface Intersection 光线和面求交</h4><h5 id="光线和球体求交"><a href="#光线和球体求交" class="headerlink" title="光线和球体求交"></a>光线和球体求交</h5><ul>
 <li>光线：起点+方向<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 10.44.35.png" alt="截屏2023-04-24 10.44.35" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 10.44.35.png" alt="截屏2023-04-24 10.44.35" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>联立方程求交点：<ul>
 <li>光线：$r(t) = \boldsymbol o+t \boldsymbol d , (0 \leq t &lt; \infty)$</li>
 <li>球：$\boldsymbol p: (\boldsymbol{p} -c)^2 - R^2 = 0$</li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.30.30.png" alt="截屏2023-04-24 13.30.30" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 13.30.30.png" alt="截屏2023-04-24 13.30.30" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
 <h5 id="光线和隐式表面求交"><a href="#光线和隐式表面求交" class="headerlink" title="光线和隐式表面求交"></a>光线和隐式表面求交</h5><ul>
 <li>将光线函数表示带入隐式表面公式<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.35.58.png" alt="截屏2023-04-24 13.35.58" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 13.35.58.png" alt="截屏2023-04-24 13.35.58" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
-<h5 id="与三角面求交"><a href="#与三角面求交" class="headerlink" title="与三角面求交"></a>与三角面求交</h5><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-24 13.49.32.png" alt="截屏2023-04-24 13.49.32"></p>
+<h5 id="与三角面求交"><a href="#与三角面求交" class="headerlink" title="与三角面求交"></a>与三角面求交</h5><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-24 13.49.32.png" alt="截屏2023-04-24 13.49.32"></p>
 <ul>
 <li>补：<strong>判断空间中任意点是否在（封闭）物体内</strong>：<ul>
 <li>从该点向任意方向做一条光线，检测光线和该物体交点个数</li>
@@ -539,15 +539,15 @@
 <li><strong style="color:red;"><strong>光线与三角面求交计算过程</strong></strong><ul>
 <li>光线和三角形所在面求交<ul>
 <li>平面的定义：法向量$\boldsymbol N$+一个点$p’$</li>
-<li>平面上的点$\boldsymbol p$和法线$\boldsymbol N$满足向量$\boldsymbol{p’p}\perp \boldsymbol N$，则点乘为0：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.23.25.png" alt="截屏2023-04-25 19.23.25"></li>
-<li>联立光线&amp;平面方程求交：<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.31.08.png" alt="截屏2023-04-25 19.31.08" style="zoom:33%;"></li>
+<li>平面上的点$\boldsymbol p$和法线$\boldsymbol N$满足向量$\boldsymbol{p’p}\perp \boldsymbol N$，则点乘为0：<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 19.23.25.png" alt="截屏2023-04-25 19.23.25"></li>
+<li>联立光线&amp;平面方程求交：<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 19.31.08.png" alt="截屏2023-04-25 19.31.08" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>判断交点在不在三角形内（叉乘）</li>
 </ul>
 </li>
 <li>Möller Trumbore Algorithm：光线方程 = 重心坐标方程（可表示三角形平面内任意一点）<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 19.43.30.png" alt="截屏2023-04-25 19.43.30" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 19.43.30.png" alt="截屏2023-04-25 19.43.30" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
@@ -558,23 +558,23 @@
 <h4 id="Accelerating-Ray-Surface-Intersection-加速"><a href="#Accelerating-Ray-Surface-Intersection-加速" class="headerlink" title="Accelerating Ray-Surface Intersection 加速"></a>Accelerating Ray-Surface Intersection 加速</h4><h5 id="Ray-Intersection-with-Axis-Aligned-Box"><a href="#Ray-Intersection-with-Axis-Aligned-Box" class="headerlink" title="Ray Intersection with Axis-Aligned Box"></a>Ray Intersection with Axis-Aligned Box</h5><ul>
 <li>Bounding Volumes 包围体积(盒)<ul>
 <li>思路：<strong style="color:red;">将复杂物体用简单物体包围，若光线不与包围盒相交，则肯定不会与物体相交</strong></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.00.10.png" alt="截屏2023-04-25 20.00.10" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.00.10.png" alt="截屏2023-04-25 20.00.10" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>Axis-Aligned Bounding Box (AABB 轴对⻬包围盒)<ul>
-<li>理解：三个对立面的交集<img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.03.53.png" alt="截屏2023-04-25 20.03.53" style="zoom:33%;"></li>
+<li>理解：三个对立面的交集<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.03.53.png" alt="截屏2023-04-25 20.03.53" style="zoom:33%;"></li>
 </ul>
 </li>
 <li><p><strong style="color:red;"><strong>光线与AABB求交</strong></strong></p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.13.40.png" alt="截屏2023-04-25 20.13.40" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.13.40.png" alt="截屏2023-04-25 20.13.40" style="zoom:40%;"></li>
 <li>Key Ideas <ul>
 <li>光线射入AABB：光线<strong>射入所有</strong>对立面</li>
 <li>光线射出AABB：光线<strong>射出任意一个</strong>对立面</li>
 </ul>
 </li>
 <li>计算过程<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.23.43.png" alt="截屏2023-04-25 20.23.43" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.23.43.png" alt="截屏2023-04-25 20.23.43" style="zoom:50%;"></li>
 <li>有交点，当且仅当$t_{enter} &lt; t_{exit}$ &amp;&amp; $t_{exit} &gt;= 0$</li>
 <li>若$t$为负<ul>
 <li>$t_{exit} &lt; 0$：AABB在光线反方向，没有交点</li>
@@ -587,7 +587,7 @@
 </li>
 <li><p>Why Axis-Aligned? - 计算简单</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 20.33.35.png" alt="截屏2023-04-25 20.33.35" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.33.35.png" alt="截屏2023-04-25 20.33.35" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
@@ -596,12 +596,12 @@
 </li>
 <li><p>场景预处理</p>
 <ul>
-<li><p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.18.54.png" alt="截屏2023-04-25 22.18.54" style="zoom:50%;"></p>
+<li><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 22.18.54.png" alt="截屏2023-04-25 22.18.54" style="zoom:50%;"></p>
 </li>
-<li><p>进行<strong>光线追踪</strong><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.24.21.png" alt="截屏2023-04-25 22.24.21" style="zoom:50%;"></p>
+<li><p>进行<strong>光线追踪</strong><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 22.24.21.png" alt="截屏2023-04-25 22.24.21" style="zoom:50%;"></p>
 </li>
-<li><p>效率问题：寻找合适的格子数<img src="/2023/04/23/Games101-P13-16/pinjie01.jpg" alt="pinjie01"></p>
-<p><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.33.59.png" alt="截屏2023-04-25 22.33.59" style="zoom:40%;"></p>
+<li><p>效率问题：寻找合适的格子数<img src="/2023/04/23/Games101/Games101-P13-16/pinjie01.jpg" alt="pinjie01"></p>
+<p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 22.33.59.png" alt="截屏2023-04-25 22.33.59" style="zoom:40%;"></p>
 </li>
 </ul>
 </li>
@@ -614,7 +614,7 @@
 <h3 id="Spatial-Partitions-空间划分-光线追踪前"><a href="#Spatial-Partitions-空间划分-光线追踪前" class="headerlink" title="Spatial Partitions 空间划分(光线追踪前)"></a>Spatial Partitions 空间划分(光线追踪前)</h3><ul>
 <li>解决物体分布不均导致的格子需求不同的问题</li>
 <li>Spatial Partitioning Examples<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-25 22.58.33.png" alt="截屏2023-04-25 22.58.33" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 22.58.33.png" alt="截屏2023-04-25 22.58.33" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
@@ -622,7 +622,7 @@
 <ul>
 <li><p>预处理：对空间进行划分，每个子空间每次只划分一次，横竖交替（1、2、3的划分在下图中省略）</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-26 22.50.02.png" alt="截屏2023-04-26 22.50.02" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-26 22.50.02.png" alt="截屏2023-04-26 22.50.02" style="zoom:50%;"></li>
 <li>停止划分：划分出区域与光线无交点</li>
 </ul>
 </li>
@@ -640,7 +640,7 @@
 </li>
 <li><p>计算过程（思路：判断光线是否与格子有交点，若无，则无后续操作；若有，则光线可能与其子节点有交点，继续划分，直到打到叶子节点，若有交点，再与叶子节点中所有三角面求交）</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/IMG_2989.JPG" alt="IMG_2989"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/IMG_2989.JPG" alt="IMG_2989"></li>
 <li>Step1：判断光线与包围盒A相交，需对A划分</li>
 <li>STEP2：针对划分后A。判断光线与叶子节点1相交（这里把1、2、3看成叶子节点），则光线与1中所有object求交；判断光线与B相交，需对B划分</li>
 <li>STEP3：针对划分后B。判断光线与叶子节点2相交，则光线与2中所有object求交；判断光线与C相交，需对C划分</li>
@@ -672,7 +672,7 @@
 </li>
 <li><p>过程</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-26 23.54.20.png" alt="截屏2023-04-26 23.54.20" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-26 23.54.20.png" alt="截屏2023-04-26 23.54.20" style="zoom:50%;"></li>
 <li>计算包围盒</li>
 <li>递归地，将一个包围盒分成两部分，并同步将其内部objects也分成两部分</li>
 <li>重新计算两部分的包围盒</li>
@@ -723,17 +723,17 @@
 </li>
 </ul>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 13.26.58.png" alt="截屏2023-04-27 13.26.58" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 13.26.58.png" alt="截屏2023-04-27 13.26.58" style="zoom:50%;"></li>
 </ul>
 <ul>
 <li><p>Spatial vs Object Partitions</p>
 <ul>
-<li>Spatial partition (e.g.KD-tree)<img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 13.37.58.png" alt="截屏2023-04-27 13.37.58" style="zoom: 33%;"><ul>
+<li>Spatial partition (e.g.KD-tree)<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 13.37.58.png" alt="截屏2023-04-27 13.37.58" style="zoom: 33%;"><ul>
 <li>划分区域在空间上不相交</li>
 <li>一个object可能被划分进多个子节点</li>
 </ul>
 </li>
-<li>Object partition (e.g. BVH)<img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 13.38.25.png" alt="截屏2023-04-27 13.38.25" style="zoom:33%;"><ul>
+<li>Object partition (e.g. BVH)<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 13.38.25.png" alt="截屏2023-04-27 13.38.25" style="zoom:33%;"><ul>
 <li>Bounding box在空间上可能重叠</li>
 <li>object不会出现在多个包围盒中，也不用计算object和包围盒如何相交</li>
 </ul>
@@ -749,68 +749,68 @@
 </li>
 <li><p>Important Light Measurements of Interest</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 22.35.43.png" alt="截屏2023-04-27 22.35.43"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 22.35.43.png" alt="截屏2023-04-27 22.35.43"></li>
 </ul>
 </li>
 </ul>
 <h4 id="Intensity-I"><a href="#Intensity-I" class="headerlink" title="Intensity $I$"></a>Intensity $I$</h4><ul>
 <li>Intensity：辐射强度，单位立体角所包含的辐射通量/功率(针对立体角的方向上)。单位是 $cd$ 坎德拉<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 22.44.55.png" alt="截屏2023-04-27 22.44.55" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 22.44.55.png" alt="截屏2023-04-27 22.44.55" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
 <h5 id="Angles-and-Solid-Angles-立体角"><a href="#Angles-and-Solid-Angles-立体角" class="headerlink" title="Angles and Solid Angles 立体角"></a>Angles and Solid Angles 立体角</h5><ul>
 <li>单位立体角定义：在半径 $r$ 的球面上面积为 $r^2$ 的面元对球心的张角为 $1sr$ ，因为球面的面积是 $4 \pi r^2$ ，所以整个球面的立体角为 $4\pi sr$</li>
 <li>立体角<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 22.52.20.png" alt="截屏2023-04-27 22.52.20" style="zoom: 33%;"></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 22.59.36.png" alt="截屏2023-04-27 22.59.36" style="zoom:33%;"></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 23.01.32.png" alt="截屏2023-04-27 23.01.32" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 22.52.20.png" alt="截屏2023-04-27 22.52.20" style="zoom: 33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 22.59.36.png" alt="截屏2023-04-27 22.59.36" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 23.01.32.png" alt="截屏2023-04-27 23.01.32" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>辐射度量学中， $\omega$ 通常被用来表示三维空间中方向，由 $\theta$ 和 $\phi$ 来表示具体方向，并可进一步计算出单位立体角<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 23.09.39.png" alt="截屏2023-04-27 23.09.39" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 23.09.39.png" alt="截屏2023-04-27 23.09.39" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>若空间中点光源，向四周均匀辐射能量，则辐射强度 $I$ 计算如下<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-04-27 23.14.44.png" alt="截屏2023-04-27 23.14.44" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-27 23.14.44.png" alt="截屏2023-04-27 23.14.44" style="zoom:33%;"></li>
 </ul>
 </li>
 </ul>
 <h4 id="Irradiance-E"><a href="#Irradiance-E" class="headerlink" title="Irradiance $E$"></a>Irradiance $E$</h4><ul>
 <li>Irradiance：辐照度，power <strong>per unit area</strong> incident on a surface point，单位面积上的功率<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.32.38.png" alt="截屏2023-05-03 14.32.38" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 14.32.38.png" alt="截屏2023-05-03 14.32.38" style="zoom:50%;"></li>
 <li>入射光需垂直于面，否则需进行投影</li>
 </ul>
 </li>
 </ul>
 <h5 id="重新理解-Lambert’s-Cosine-Law"><a href="#重新理解-Lambert’s-Cosine-Law" class="headerlink" title="重新理解 Lambert’s Cosine Law"></a>重新理解 Lambert’s Cosine Law</h5><ul>
 <li>表面处的辐照度，与光方向和表面法线之间的夹角的余弦值成正比<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.38.40.png" alt="截屏2023-05-03 14.38.40" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 14.38.40.png" alt="截屏2023-05-03 14.38.40" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
 <h5 id="重新理解-Irradiance-Falloff"><a href="#重新理解-Irradiance-Falloff" class="headerlink" title="重新理解 Irradiance Falloff"></a>重新理解 Irradiance Falloff</h5><ul>
 <li>在Blin-Phong模型中用到的光线强度随 r2 的衰减的正确理解：光线在传播过程中，irradiance衰减(面积增加)，intensity不变(立体角没变)</li>
 </ul>
-<p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.42.41.png" alt="截屏2023-05-03 14.42.41" style="zoom:50%;"></p>
-<h4 id="Radiance-L"><a href="#Radiance-L" class="headerlink" title="Radiance $L$"></a>Radiance $L$</h4><p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 14.58.07.png" alt="截屏2023-05-03 14.58.07" style="zoom:50%;"></p>
+<p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 14.42.41.png" alt="截屏2023-05-03 14.42.41" style="zoom:50%;"></p>
+<h4 id="Radiance-L"><a href="#Radiance-L" class="headerlink" title="Radiance $L$"></a>Radiance $L$</h4><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 14.58.07.png" alt="截屏2023-05-03 14.58.07" style="zoom:50%;"></p>
 <ul>
 <li>为了描述光线在传播过程中能量的度量</li>
 <li>Radiance：power，在单位角<strong>per unit solid angle</strong>，单位投影面积上<strong>per projected unit area</strong>，上发射、反射、投射、接受的量<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 15.00.42.png" alt="截屏2023-05-03 15.00.42" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="对比Irradiance、Intensity、Radiance"><a href="#对比Irradiance、Intensity、Radiance" class="headerlink" title="对比Irradiance、Intensity、Radiance"></a>对比Irradiance、Intensity、Radiance</h4><p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 15.05.15.png" alt="截屏2023-05-03 15.05.15" style="zoom:50%;"></p>
+<h4 id="对比Irradiance、Intensity、Radiance"><a href="#对比Irradiance、Intensity、Radiance" class="headerlink" title="对比Irradiance、Intensity、Radiance"></a>对比Irradiance、Intensity、Radiance</h4><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 15.05.15.png" alt="截屏2023-05-03 15.05.15" style="zoom:50%;"></p>
 <ul>
 <li>Incident Radiance 入射<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.22.59.png" alt="截屏2023-05-03 17.22.59" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.22.59.png" alt="截屏2023-05-03 17.22.59" style="zoom:50%;"></li>
 <li>Incident radiance is the irradiance per unit solid angle arriving at the surface</li>
 <li>是沿着给定光线（表面点和入射方向）到达表面的光</li>
 </ul>
 </li>
 <li>Exiting Radiance<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.25.47.png" alt="截屏2023-05-03 17.25.47" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.25.47.png" alt="截屏2023-05-03 17.25.47" style="zoom:50%;"></li>
 <li>Exiting surface radiance is the intensity per unit projected area leaving the surface.</li>
 <li>对于区域光，它是沿给定光线（表面上的点和出口方向）发射的光</li>
 </ul>
@@ -818,7 +818,7 @@
 <li>Irradiance vs. Radiance<ul>
 <li>Irradiance $E$ ：$dA$ 收到的所能量</li>
 <li>Radiance $L$ ：针对Irradiance作出特定方向立体角 $d\omega$ 的限制</li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.31.40.png" alt="截屏2023-05-03 17.31.40" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.31.40.png" alt="截屏2023-05-03 17.31.40" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
@@ -826,9 +826,9 @@
 <ul>
 <li>Reflection at a Point<ul>
 <li>来自direction $\omega _i$方向的Radiance变成了 $dA$ 吸收的power $E$ ；而后power $E$ 变成了向 direction $\omega$ 的辐射的Radiance</li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.47.01.png" alt="截屏2023-05-03 17.47.01"><h3 id="BRDF"><a href="#BRDF" class="headerlink" title="BRDF"></a>BRDF</h3></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.47.01.png" alt="截屏2023-05-03 17.47.01"><h3 id="BRDF"><a href="#BRDF" class="headerlink" title="BRDF"></a>BRDF</h3></li>
 <li>是针对一个方向，<strong style="color:red;">出射Radiance($dL_r(\omega_r)$)/入射Irradiance($dE(\omega _i)$)</strong>的<strong>比例</strong>。作用是将接收到的 $dE(\omega _i)$ <strong>分配</strong>到不同的立体角</li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 17.58.58.png" alt="截屏2023-05-03 17.58.58" style="zoom: 40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 17.58.58.png" alt="截屏2023-05-03 17.58.58" style="zoom: 40%;"></li>
 <li>用于定义不同材质</li>
 </ul>
 </li>
@@ -836,43 +836,43 @@
 <h3 id="Reflection-Equation-反射方程"><a href="#Reflection-Equation-反射方程" class="headerlink" title="Reflection Equation 反射方程"></a>Reflection Equation 反射方程</h3><ul>
 <li>考虑任何一个方向的入射光，对观察点反射光的贡献，叠加所有方向光的贡献，得到该点最终渲染效果</li>
 <li>对每个方向的入射irradiance $dE(\omega _i)$ （也就是 $L_i(p,\omega_i)cos\theta_i d\omega_i$ ）都乘BRDF，而后对方向积分，得到出射Radiance $L_r(p,\omega_r)$ ，进而得出最终的观察结果<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 18.07.18.png" alt="截屏2023-05-03 18.07.18" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 18.07.18.png" alt="截屏2023-05-03 18.07.18" style="zoom:40%;"></li>
 </ul>
 </li>
 <li>Challenge: Recursive Equation 递归方程<ul>
 <li>入射的Irradiance不只来自光源，也来自其他物体的反射（递归）</li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 18.26.00.png" alt="截屏2023-05-03 18.26.00" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 18.26.00.png" alt="截屏2023-05-03 18.26.00" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
 <h3 id="Rendering-Equation-渲染方程"><a href="#Rendering-Equation-渲染方程" class="headerlink" title="Rendering Equation 渲染方程"></a>Rendering Equation 渲染方程</h3><h4 id="Intro-1"><a href="#Intro-1" class="headerlink" title="Intro"></a>Intro</h4><ul>
 <li>上述Reflection Equation忽略了自发光，Rendering Equation添加了自发光项，可用于所有类型的光线传播</li>
 </ul>
-<p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 18.29.34.png" alt="截屏2023-05-03 18.29.34" style="zoom:40%;"></p>
+<p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 18.29.34.png" alt="截屏2023-05-03 18.29.34" style="zoom:40%;"></p>
 <h4 id="理解渲染方程"><a href="#理解渲染方程" class="headerlink" title="理解渲染方程"></a>理解渲染方程</h4><ul>
 <li><p>一个方向的光$\rightarrow$多个方向的光：累加</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/IMG_3131.JPG" alt="IMG_3131"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/IMG_3131.JPG" alt="IMG_3131"></li>
 </ul>
 </li>
 <li><p>引入面光源：积分面光源所占的立体角</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 20.57.57.png" alt="截屏2023-05-03 20.57.57" style="zoom:50%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 20.57.57.png" alt="截屏2023-05-03 20.57.57" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
 <h4 id="渲染方程的递归简化求解"><a href="#渲染方程的递归简化求解" class="headerlink" title="渲染方程的递归简化求解"></a>渲染方程的递归简化求解</h4><ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.01.10.png" alt="截屏2023-05-03 21.01.10"><ul>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 21.01.10.png" alt="截屏2023-05-03 21.01.10"><ul>
 <li>未知量：入射&amp;出射Radiance</li>
 </ul>
 </li>
 <li>渲染方程的简化<ul>
 <li>用 $l$ 表示不同位置辐射的Radiance，$u \&amp; v$ 表示不同位置，简化为线性积分<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.10.29.png" alt="截屏2023-05-03 21.10.29" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 21.10.29.png" alt="截屏2023-05-03 21.10.29" style="zoom:40%;"></li>
 </ul>
 </li>
 <li>线性积分进一步简化<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.12.55.png" alt="截屏2023-05-03 21.12.55" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 21.12.55.png" alt="截屏2023-05-03 21.12.55" style="zoom:40%;"></li>
 <li>简化为了求解渲染方程，即求解 $L$</li>
 <li>$K$ 为反射算子，是矩阵形式</li>
 </ul>
@@ -883,11 +883,11 @@
 <ul>
 <li>其中 $I$ 为identity单位矩阵</li>
 <li>通过一些类似泰勒展开的操作进行近似 $(1+x)^\alpha = 1+\alpha x + \frac{\alpha(\alpha -1)}{2!}x^2+\frac{\alpha(\alpha -1)(\alpha -2)}{3!}x^3+…$ （矩阵居然也可以！？？！）<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.30.51.png" alt="截屏2023-05-03 21.30.51" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 21.30.51.png" alt="截屏2023-05-03 21.30.51" style="zoom:40%;"></li>
 </ul>
 </li>
 <li>得到了！<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-03 21.32.50.png" alt="截屏2023-05-03 21.32.50" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-03 21.32.50.png" alt="截屏2023-05-03 21.32.50" style="zoom:40%;"></li>
 <li>所有光线弹射（直接+所有间接）相加，得到全局光照（Global illumination，GI）</li>
 <li>注：光栅化一般只能做到直接光照；间接光照光追容易做</li>
 </ul>
@@ -896,7 +896,7 @@
 </li>
 <li><p>对比</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/IMG_3138.JPG" alt="IMG_3138"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/IMG_3138.JPG" alt="IMG_3138"></li>
 <li>关于Two - bounce上方的灯为什么是黑色：从摄影机出发的光线，经过两次弹射还无法从灯中射出（两次弹射进入一个玻璃层，再经过两次弹射方可从另一玻璃层射出）</li>
 <li>假设可以做无限次光线弹射：亮度收敛到最大值，不会无限增大（泰勒无限展开，无限逼近）</li>
 </ul>
@@ -907,7 +907,7 @@
 <h2 id="概率论回顾-Probability-Review"><a href="#概率论回顾-Probability-Review" class="headerlink" title="概率论回顾 Probability Review"></a>概率论回顾 Probability Review</h2><p>苍天啊！！！！！！！！</p>
 <ul>
 <li>Random Variables 随机变量<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 15.52.54.png" alt="截屏2023-05-04 15.52.54"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 15.52.54.png" alt="截屏2023-05-04 15.52.54"></li>
 </ul>
 </li>
 <li>Probabilities<ul>
@@ -921,34 +921,34 @@
 </ul>
 </li>
 <li>Expected Value of a Random Variable 期望<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.05.53.png" alt="截屏2023-05-04 16.05.53"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 16.05.53.png" alt="截屏2023-05-04 16.05.53"></li>
 </ul>
 </li>
 <li>Continuous Case 连续情况下描述变量和分布<ul>
 <li>概率密度函数 <strong style="color:red;">Probability Distribution Function (PDF)</strong><ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.08.02.png" alt="截屏2023-05-04 16.08.02"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 16.08.02.png" alt="截屏2023-05-04 16.08.02"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Function of a Random Variable 随机变量的函数<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.12.38.png" alt="截屏2023-05-04 16.12.38"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 16.12.38.png" alt="截屏2023-05-04 16.12.38"></li>
 </ul>
 </li>
 </ul>
 <h1 id="P16-Ray-Tracing4-Monte-Carlo-Integration-amp-Path-Tracing"><a href="#P16-Ray-Tracing4-Monte-Carlo-Integration-amp-Path-Tracing" class="headerlink" title="P16 Ray Tracing4 (Monte Carlo Integration &amp; Path Tracing)"></a>P16 Ray Tracing4 (Monte Carlo Integration &amp; <strong style="color:red;">Path Tracing</strong>)</h1><h2 id="Monte-Carlo-Integration-蒙特卡洛积分"><a href="#Monte-Carlo-Integration-蒙特卡洛积分" class="headerlink" title="Monte Carlo Integration 蒙特卡洛积分"></a>Monte Carlo Integration 蒙特卡洛积分</h2><ul>
 <li>如何使用：在积分域内，对样本不断随机采样，做平均，<strong>近似函数积分数值</strong><ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 16.48.25.png" alt="截屏2023-05-04 16.48.25" style="zoom: 33%;"></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 17.16.16.png" alt="截屏2023-05-04 17.16.16" style="zoom:33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 16.48.25.png" alt="截屏2023-05-04 16.48.25" style="zoom: 33%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 17.16.16.png" alt="截屏2023-05-04 17.16.16" style="zoom:33%;"></li>
 </ul>
 </li>
 <li><strong>特例情况：均与采样</strong>（a~b间均匀采样，则采样PDF为常函数）<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.38.54.png" alt="截屏2023-05-04 20.38.54"></li>
-<li>上图已求解出了 $p(x)$ ，带入 $F_N$ <img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.41.54.png" alt="截屏2023-05-04 20.41.54"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 20.38.54.png" alt="截屏2023-05-04 20.38.54"></li>
+<li>上图已求解出了 $p(x)$ ，带入 $F_N$ <img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 20.41.54.png" alt="截屏2023-05-04 20.41.54"></li>
 </ul>
 </li>
 <li><strong>通用情况：非均匀采样</strong>（PDF不为常函数）<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 20.45.43.png" alt="截屏2023-05-04 20.45.43"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 20.45.43.png" alt="截屏2023-05-04 20.45.43"></li>
 <li>注意<ul>
 <li>样本越多，近似越准确</li>
 <li>在 $x$ 积分，则对应在 $x$ 采样</li>
@@ -967,17 +967,17 @@
 <li><strong>BUT!!!</strong> Whitted-style ray tracing is <strong>not totally based on physics</strong>, which needs to be improved!!!</li>
 <li>Problems of Whitted-style ray tracing<ul>
 <li>只可以镜面反射or折射——无法表现glossy reflection<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.09.26.png" alt="截屏2023-05-04 21.09.26"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.09.26.png" alt="截屏2023-05-04 21.09.26"></li>
 </ul>
 </li>
 <li>遇到漫反射物体，光线停止传播——忽略了漫反射物体间的光线传播(1)；无法表现Color Bleeding(2)<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.12.26.png" alt="截屏2023-05-04 21.12.26"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.12.26.png" alt="截屏2023-05-04 21.12.26"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>But!!! The <strong>rendering equation is correct</strong>!!!<ul>
-<li>需要求出光照，则徐求解渲染方程<img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.31.43.png" alt="截屏2023-05-04 21.31.43" style="zoom:50%;"></li>
+<li>需要求出光照，则徐求解渲染方程<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.31.43.png" alt="截屏2023-05-04 21.31.43" style="zoom:50%;"></li>
 <li>需要解决<ul>
 <li>STEP1: 半球域内的定积分——蒙特卡洛积分</li>
 <li>STEP2: 递归</li>
@@ -988,46 +988,46 @@
 </ul>
 <h3 id="A-Simple-Monte-Carlo-Solution-to-solve-the-rendering-equation"><a href="#A-Simple-Monte-Carlo-Solution-to-solve-the-rendering-equation" class="headerlink" title="A Simple Monte Carlo Solution(to solve the rendering equation)"></a>A Simple Monte Carlo Solution(to solve the rendering equation)</h3><ul>
 <li>假设一种简单情况，即只渲染如图所示一个point<strong>的直接光照</strong><ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 21.50.55.png" alt="截屏2023-05-04 21.50.55"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.50.55.png" alt="截屏2023-05-04 21.50.55"></li>
 </ul>
 </li>
 <li>直接光照条件下，$L_i$ 只可能来自光源</li>
 <li>利用蒙特卡洛积分（暂且忽略渲染方程的自发光项）<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.01.09.png" alt="截屏2023-05-04 22.01.09"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.01.09.png" alt="截屏2023-05-04 22.01.09"></li>
 <li>$f(X_k)$ ：积分内函数整体</li>
 <li>PDF：假设对半球进行平均的采样，则 $p(X_k)$ 为常数 $1/2\pi$</li>
 </ul>
 </li>
 <li><p>将渲染方程写成蒙特卡洛积分后形式</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.05.41.png" alt="截屏2023-05-04 22.05.41"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.05.41.png" alt="截屏2023-05-04 22.05.41"></li>
 <li>意义：得出一种正确的直接光照算法，可以算出着色点point出射的Radiance</li>
 </ul>
 </li>
 <li><p><strong>只考虑直接光照的</strong>，<strong>path tracing</strong>的，$shade(p,wo)$ 伪代码</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.00.png" alt="截屏2023-05-04 23.13.00"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.13.00.png" alt="截屏2023-05-04 23.13.00"></li>
 </ul>
 </li>
 </ul>
-<h3 id="Global-Illumination-引入递归"><a href="#Global-Illumination-引入递归" class="headerlink" title="Global Illumination (引入递归)"></a>Global Illumination (引入递归)</h3><p><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.27.06.png" alt="截屏2023-05-04 22.27.06" style="zoom:40%;"></p>
+<h3 id="Global-Illumination-引入递归"><a href="#Global-Illumination-引入递归" class="headerlink" title="Global Illumination (引入递归)"></a>Global Illumination (引入递归)</h3><p><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.27.06.png" alt="截屏2023-05-04 22.27.06" style="zoom:40%;"></p>
 <ul>
 <li>$shade(p,wo)$ 伪代码<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.29.png" alt="截屏2023-05-04 23.13.29"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.13.29.png" alt="截屏2023-05-04 23.13.29"></li>
 </ul>
 </li>
 </ul>
 <h4 id="Problems-amp-Solving-Problems-Ray-Generation-amp-Russian-Roulette"><a href="#Problems-amp-Solving-Problems-Ray-Generation-amp-Russian-Roulette" class="headerlink" title="Problems &amp; Solving Problems(Ray Generation &amp; Russian Roulette)"></a>Problems &amp; Solving Problems(Ray Generation &amp; Russian Roulette)</h4><ul>
 <li><p>上述解决方法的问题</p>
 <ul>
-<li>Problem1: Explosion of #rays as #bounces go up （N为反射打出的光线数）<img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.32.52.png" alt="截屏2023-05-04 22.32.52" style="zoom:40%;"><ul>
+<li>Problem1: Explosion of #rays as #bounces go up （N为反射打出的光线数）<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.32.52.png" alt="截屏2023-05-04 22.32.52" style="zoom:40%;"><ul>
 <li>解决explosion的方法：N = 1（Path Tracing就是N=1时做蒙特卡洛积分）</li>
 <li>$shade(p,wo)$ 伪代码<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.13.51.png" alt="截屏2023-05-04 23.13.51"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.13.51.png" alt="截屏2023-05-04 23.13.51"></li>
 </ul>
 </li>
 <li>N = 1会引起Noise，不过可以对一个像素trace more paths并求平均进行解决<ul>
-<li>引入<a href="#lable">Ray Generation</a><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 22.46.32.png" alt="截屏2023-05-04 22.46.32" style="zoom: 40%;"></li>
+<li>引入<a href="#lable">Ray Generation</a><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 22.46.32.png" alt="截屏2023-05-04 22.46.32" style="zoom: 40%;"></li>
 </ul>
 </li>
 </ul>
@@ -1042,17 +1042,17 @@
 </li>
 <li><p><span id="lable">Ray Generation</span>: 相机如何产生光线路径</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.14.14.png" alt="截屏2023-05-04 23.14.14"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.14.14.png" alt="截屏2023-05-04 23.14.14"></li>
 </ul>
 </li>
 <li><span id="lable">Russian Roulette (RR)</span>俄罗斯轮盘赌<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.17.18.png" alt="截屏2023-05-04 23.17.18" style="zoom:40%;"></li>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.19.12.png" alt="截屏2023-05-04 23.19.12" style="zoom:40%;"><ul>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.17.18.png" alt="截屏2023-05-04 23.17.18" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.19.12.png" alt="截屏2023-05-04 23.19.12" style="zoom:40%;"><ul>
 <li>通过计算期望 $E$，最后虽然有Noise，但结果 $L_o$ 一定正确</li>
 </ul>
 </li>
 <li>$shade(p,wo)$ 伪代码<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.35.12.png" alt="截屏2023-05-04 23.35.12"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.35.12.png" alt="截屏2023-05-04 23.35.12"></li>
 </ul>
 </li>
 </ul>
@@ -1061,24 +1061,24 @@
 <h4 id="Path-Tracing-优化"><a href="#Path-Tracing-优化" class="headerlink" title="Path Tracing 优化"></a>Path Tracing 优化</h4><ul>
 <li><p>SPP (samples per pixel) </p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-04 23.41.57.png" alt="截屏2023-05-04 23.41.57"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 23.41.57.png" alt="截屏2023-05-04 23.41.57"></li>
 <li>目的：提升Low SPP下效率</li>
 </ul>
 </li>
 <li><p>效率低的原因：光源小、PDF为常数（均匀采样）时，假设每50000根光线才有1根达到光源，许多光线被浪费</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 21.26.38.png" alt="截屏2023-05-05 21.26.38"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 21.26.38.png" alt="截屏2023-05-05 21.26.38"></li>
 </ul>
 </li>
 <li><p><strong style="color:red;">优化思路：Sampling the light</strong>（针对伪代码中“hit the light”的判断）</p>
 <ul>
 <li>采样的光路全分布在光源表面；对渲染方程的积分换元（改变积分域），从 $d\omega$ 换成光源面积 $dA$，<strong>PDF = 1/A</strong></li>
 <li>注⚠️：该方法不好算点光源，建议将点光源换成小面光<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 21.37.21.png" alt="截屏2023-05-05 21.37.21"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 21.37.21.png" alt="截屏2023-05-05 21.37.21"></li>
 </ul>
 </li>
 <li>找到 $d\omega$ 和 $dA$ 的关系，并重写渲染方程<ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 21.41.12.png" alt="截屏2023-05-05 21.41.12"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 21.41.12.png" alt="截屏2023-05-05 21.41.12"></li>
 </ul>
 </li>
 </ul>
@@ -1088,7 +1088,7 @@
 <li><p>将光源分成直接光照 &amp; 间接光照，分开计算（此处未考虑<a href="#lable">遮挡</a>）</p>
 <ul>
 <li><strong style="color:orange;">light source</strong> (direct直接光照, no need to have RR)</li>
-<li><strong style="color:blue;">other reflectors</strong> (indirect间接光照, RR)<img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 22.02.39.png" alt="截屏2023-05-05 22.02.39" style="zoom:33%;"></li>
+<li><strong style="color:blue;">other reflectors</strong> (indirect间接光照, RR)<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 22.02.39.png" alt="截屏2023-05-05 22.02.39" style="zoom:33%;"></li>
 </ul>
 </li>
 <li><pre><code class="lang-c++">shade(p, wo)
@@ -1108,21 +1108,21 @@
 </li>
 <li><p>若光源到 $p$ 有<span id="lable">遮挡</span>：作出 $x’$ 到 $p$ 线，判断直接光照有无遮挡</p>
 <ul>
-<li><img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 22.18.34.png" alt="截屏2023-05-05 22.18.34" style="zoom:40%;"></li>
+<li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 22.18.34.png" alt="截屏2023-05-05 22.18.34" style="zoom:40%;"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>PATH TRACING is AWESOME</p>
 <ul>
-<li>PT vs. Photo <img src="/2023/04/23/Games101-P13-16/截屏2023-05-05 22.25.03.png" alt="截屏2023-05-05 22.25.03"></li>
+<li>PT vs. Photo <img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-05 22.25.03.png" alt="截屏2023-05-05 22.25.03"></li>
 <li>The Cornell box — <a target="_blank" rel="noopener" href="http://www.graphics.cornell.edu/online/box/compare.html">http://www.graphics.cornell.edu/online/box/compare.html</a></li>
 </ul>
 </li>
 <li><p>Further</p>
 </li>
 </ul>
-<p><img src="/2023/04/23/Games101-P13-16/IMG_3262.JPG" alt="IMG_3262" style="zoom:40%;"></p>
+<p><img src="/2023/04/23/Games101/Games101-P13-16/IMG_3262.JPG" alt="IMG_3262" style="zoom:40%;"></p>
 
     </div>
 
@@ -1141,11 +1141,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/04/15/Games101-P10-12/" rel="prev" title="Games101-P10-12 Geometry">
+                <a href="/2023/04/15/Games101/Games101-P10-12/" rel="prev" title="Games101-P10-12 Geometry">
                   <i class="fa fa-chevron-left"></i> Games101-P10-12 Geometry
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/05/05/Games101/Games101-P17/" rel="next" title="Games101-P17 Material">
+                  Games101-P17 Material <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
