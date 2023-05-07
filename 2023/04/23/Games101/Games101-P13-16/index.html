@@ -128,7 +128,7 @@
 <meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/%E6%88%AA%E5%B1%8F2023-05-05%2022.25.03.png">
 <meta property="og:image" content="http://example.com/2023/04/23/Games101/Games101-P13-16/IMG_3262.JPG">
 <meta property="article:published_time" content="2023-04-23T14:41:02.000Z">
-<meta property="article:modified_time" content="2023-05-05T14:55:06.158Z">
+<meta property="article:modified_time" content="2023-05-07T07:02:58.859Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -259,18 +259,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -345,7 +345,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-05 22:55:06" itemprop="dateModified" datetime="2023-05-05T22:55:06+08:00">2023-05-05</time>
+      <time title="Modified: 2023-05-07 15:02:58" itemprop="dateModified" datetime="2023-05-07T15:02:58+08:00">2023-05-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -569,8 +569,8 @@
 <ul>
 <li><img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-04-25 20.13.40.png" alt="截屏2023-04-25 20.13.40" style="zoom:40%;"></li>
 <li>Key Ideas <ul>
-<li>光线射入AABB：光线<strong>射入所有</strong>对立面</li>
-<li>光线射出AABB：光线<strong>射出任意一个</strong>对立面</li>
+<li><strong style="color:red;">光线射入AABB：光线<strong>射入所有</strong>对立面</strong></li>
+<li><strong style="color:red;">光线射出AABB：光线<strong>射出任意一个</strong>对立面</strong></li>
 </ul>
 </li>
 <li>计算过程<ul>
@@ -915,7 +915,7 @@
 <li>with probability：$p_i$</li>
 <li>满足<ul>
 <li>$p_i\geq 0$</li>
-<li>$\begin{equation<em>}\sum_{i=1}^n p_i\end{equation</em>} = 1$</li>
+<li>$\sum_{i=1}^n p_i = 1$</li>
 </ul>
 </li>
 </ul>
@@ -977,7 +977,7 @@
 </ul>
 </li>
 <li>But!!! The <strong>rendering equation is correct</strong>!!!<ul>
-<li>需要求出光照，则徐求解渲染方程<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.31.43.png" alt="截屏2023-05-04 21.31.43" style="zoom:50%;"></li>
+<li>需要求出光照，则需求解渲染方程<img src="/2023/04/23/Games101/Games101-P13-16/截屏2023-05-04 21.31.43.png" alt="截屏2023-05-04 21.31.43" style="zoom:50%;"></li>
 <li>需要解决<ul>
 <li>STEP1: 半球域内的定积分——蒙特卡洛积分</li>
 <li>STEP2: 递归</li>
