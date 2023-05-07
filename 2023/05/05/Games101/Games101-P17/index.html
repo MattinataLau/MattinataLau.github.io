@@ -17,22 +17,40 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+    <meta name="description" content="P17 Materials &amp; Appearances外观 &#x3D; 光线 + 材质；研究光照和材质的作用方式 Material &#x3D;&#x3D; BDRF Diffuse &#x2F; Lambertian Material  该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设无能量吸收，由于能量守恒，则 $Iradiance_{入射} &#x3D; Irradiance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P17 Material">
 <meta property="og:url" content="http://example.com/2023/05/05/Games101/Games101-P17/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+<meta property="og:description" content="P17 Materials &amp; Appearances外观 &#x3D; 光线 + 材质；研究光照和材质的作用方式 Material &#x3D;&#x3D; BDRF Diffuse &#x2F; Lambertian Material  该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设无能量吸收，由于能量守恒，则 $Iradiance_{入射} &#x3D; Irradiance">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.20.18.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.29.48.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.36.33.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.39.11.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.45.43.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.02.10.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.09.09.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.12.39.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.17.42.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.39.21.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.39.33.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.50.07.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2023.55.15.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.08.14.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.14.34.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.17.18.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.22.11.png">
 <meta property="article:published_time" content="2023-05-05T14:57:07.000Z">
-<meta property="article:modified_time" content="2023-05-05T14:58:01.675Z">
+<meta property="article:modified_time" content="2023-05-07T16:37:40.693Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
 <meta property="article:tag" content="材质">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.20.18.png">
 
 
 <link rel="canonical" href="http://example.com/2023/05/05/Games101/Games101-P17/">
@@ -129,7 +147,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P17-Materials-amp-Appearances"><span class="nav-number">1.</span> <span class="nav-text">P17 Materials &amp; Appearances</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffuse-Lambertian-Material"><span class="nav-number">1.1.</span> <span class="nav-text">Diffuse &#x2F; Lambertian Material</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glossy-material-BRDF"><span class="nav-number">1.2.</span> <span class="nav-text">Glossy material (BRDF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ideal-reflective-refractive-material-BSDF"><span class="nav-number">1.3.</span> <span class="nav-text">Ideal reflective &#x2F; refractive material (BSDF*)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%B0%84"><span class="nav-number">1.3.2.</span> <span class="nav-text">折射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresnel-Reflection-Term-%E8%8F%B2%E6%B6%85%E5%B0%94%E9%A1%B9"><span class="nav-number">1.3.3.</span> <span class="nav-text">Fresnel Reflection &#x2F; Term 菲涅尔项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Microfacet-Material-%E5%BE%AE%E8%A1%A8%E9%9D%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Microfacet Material 微表面模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Microfacet-BRDF"><span class="nav-number">1.4.1.</span> <span class="nav-text">Microfacet BRDF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Isotropic-Anisotropic-Materials-BRDFs"><span class="nav-number">1.5.</span> <span class="nav-text">Isotropic &#x2F; Anisotropic Materials (BRDFs)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,9 +253,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-05-05 22:57:07 / Modified: 22:58:01" itemprop="dateCreated datePublished" datetime="2023-05-05T22:57:07+08:00">2023-05-05</time>
+      <time title="Created: 2023-05-05 22:57:07" itemprop="dateCreated datePublished" datetime="2023-05-05T22:57:07+08:00">2023-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-08 00:37:40" itemprop="dateModified" datetime="2023-05-08T00:37:40+08:00">2023-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,7 +279,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>0</span>
+      <span>1.1k</span>
     </span>
 </div>
 
@@ -265,7 +290,109 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="P17-Materials-amp-Appearances"><a href="#P17-Materials-amp-Appearances" class="headerlink" title="P17 Materials &amp; Appearances"></a>P17 Materials &amp; Appearances</h1><p>外观 = 光线 + 材质；研究光照和材质的作用方式</p>
+<p><strong>Material == BDRF</strong></p>
+<h2 id="Diffuse-Lambertian-Material"><a href="#Diffuse-Lambertian-Material" class="headerlink" title="Diffuse / Lambertian Material"></a>Diffuse / Lambertian Material</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.20.18.png" alt="截屏2023-05-07 16.20.18"></p>
+<ul>
+<li>该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设<strong>无能量吸收</strong>，由于能量守恒，则 $Iradiance_{入射} = Irradiance_{出射}$ ，进而可得出 $Radiance_{入射} = Radiance_{出射}$ （即 $L_O = Li$，进而得出 $f_r = \frac{1}{\pi}$ ）<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.29.48.png" alt="截屏2023-05-07 16.29.48"><ul>
+<li>定义albedo（反射率）来引入不同颜色的diffuse BRDF</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Glossy-material-BRDF"><a href="#Glossy-material-BRDF" class="headerlink" title="Glossy material (BRDF)"></a>Glossy material (BRDF)</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.36.33.png" alt="截屏2023-05-07 16.36.33"></p>
+<h2 id="Ideal-reflective-refractive-material-BSDF"><a href="#Ideal-reflective-refractive-material-BSDF" class="headerlink" title="Ideal reflective / refractive material (BSDF*)"></a>Ideal reflective / refractive material (BSDF*)</h2><p>(BSDF，S表示散射)</p>
+<p><strong>BSDF = BR(Reflect反射)DF + BT(Transmit折射)DF</strong></p>
+<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.39.11.png" alt="截屏2023-05-07 16.39.11"></p>
+<ul>
+<li><strong>计算镜面反射</strong>出射光 $w_o$：计算出 $\theta$ 和 $\phi$ 即可（方位角）<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.45.43.png" alt="截屏2023-05-07 16.45.43" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="折射"><a href="#折射" class="headerlink" title="折射"></a>折射</h3><ul>
+<li>折射（表现：色散、caustics）</li>
+</ul>
+<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.02.10.png" alt="截屏2023-05-07 23.02.10" style="zoom:40%;"></p>
+<ul>
+<li>caustics成因：光经海水表面折射，光线聚焦（渲染灾难）</li>
+<li><p>Snell’s Law 斯内尔定律</p>
+<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.09.09.png" alt="截屏2023-05-07 23.09.09" style="zoom:40%;"></li>
+<li>全反射发生条件：<img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.12.39.png" alt="截屏2023-05-07 23.12.39" style="zoom:40%;"></li>
+</ul>
+</li>
+<li><p>Snell’s Window / Circle</p>
+<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.17.42.png" alt="截屏2023-05-07 23.17.42" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Fresnel-Reflection-Term-菲涅尔项"><a href="#Fresnel-Reflection-Term-菲涅尔项" class="headerlink" title="Fresnel Reflection / Term 菲涅尔项"></a>Fresnel Reflection / Term 菲涅尔项</h3><p>（解释能量分别发生多少反射/折射）</p>
+<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.39.21.png" alt="截屏2023-05-07 23.39.21"></p>
+<ul>
+<li><p>绝缘体</p>
+<ul>
+<li><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.39.33.png" alt="截屏2023-05-07 23.39.33" style="zoom:40%;"></p>
+</li>
+<li><p>上图</p>
+<ul>
+<li>红：菲涅尔效应</li>
+<li>蓝、绿：光极化（偏振）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>导体（折射率是复数）</p>
+</li>
+</ul>
+<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.50.07.png" alt="截屏2023-05-07 23.50.07" style="zoom:40%;"></p>
+<ul>
+<li>计算菲涅尔项<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.55.15.png" alt="截屏2023-05-07 23.55.15"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Microfacet-Material-微表面模型"><a href="#Microfacet-Material-微表面模型" class="headerlink" title="Microfacet Material 微表面模型"></a>Microfacet Material 微表面模型</h2><p>Microfacet Material是基于物理的；被PBR所使用；可描述的材质很多</p>
+<ul>
+<li>如图：图中出现了一块完美的较光滑高光，而看不到地表的细节结构。说明从足够远处看，看不到表面的具体微小细节，只能观察到这些细节对光线作用后给表面带来的整体影响。<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.08.14.png" alt="截屏2023-05-08 00.08.14"></li>
+</ul>
+</li>
+<li>Microfacet Theory<ul>
+<li>远看材质，近看几何</li>
+<li><strong>每一个Microfacet都发生镜面反射，每一个Microfacet都有法线</strong></li>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.14.34.png" alt="截屏2023-05-08 00.14.34" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Microfacet-BRDF"><a href="#Microfacet-BRDF" class="headerlink" title="Microfacet BRDF"></a>Microfacet BRDF</h3><ul>
+<li><p>关键：微表面的法线分布</p>
+<ul>
+<li>通过微表面发现分布，来表示材质粗糙程度</li>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.17.18.png" alt="截屏2023-05-08 00.17.18" style="zoom:40%;"></li>
+</ul>
+</li>
+<li><p><strong style="color:red;">Microfacet BRDF</strong></p>
+<ul>
+<li>$F(i, h)$：菲涅尔项，用于<strong>表示总共多少量被反射</strong></li>
+<li>$D(h)$：法线分布，用于<strong>查询什么样的微表面才能将光线反射到某一特定方向</strong><ul>
+<li>考虑half vector $h$ ，因为微表面发生镜面反射 </li>
+</ul>
+</li>
+<li>$G(i,o,h)$：几何项，用于<strong>修护边界处因忽略遮挡导致的过亮 </strong>(决定性作用)<ul>
+<li>考虑微表面间遮挡&amp;互相形成阴影，导致部分微表面失去作用</li>
+<li>$i$ or $o$ 接近Grazing Angle(光几乎平行表面)时，易发生</li>
+</ul>
+</li>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.22.11.png" alt="截屏2023-05-08 00.22.11" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Isotropic-Anisotropic-Materials-BRDFs"><a href="#Isotropic-Anisotropic-Materials-BRDFs" class="headerlink" title="Isotropic / Anisotropic Materials (BRDFs)"></a>Isotropic / Anisotropic Materials (BRDFs)</h2><p>一种区分材质的方式</p>
+
     </div>
 
     
@@ -323,7 +450,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">26k</span>
+    <span title="Word count total">27k</span>
   </span>
 </div>
 
@@ -353,9 +480,6 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
