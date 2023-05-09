@@ -236,7 +236,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-09 18:01:01" itemprop="dateModified" datetime="2023-05-09T18:01:01+08:00">2023-05-09</time>
+      <time title="Modified: 2023-05-09 18:10:16" itemprop="dateModified" datetime="2023-05-09T18:10:16+08:00">2023-05-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,111 +268,15 @@
           <ul>
 <li>P18 Overview</li>
 </ul>
-<h1 id="P18-Advanced-Topics-in-Rendering"><a href="#P18-Advanced-Topics-in-Rendering" class="headerlink" title="P18 Advanced Topics in Rendering"></a>P18 Advanced Topics in Rendering</h1><h2 id="Advanced-Light-Transport"><a href="#Advanced-Light-Transport" class="headerlink" title="Advanced Light Transport"></a>Advanced Light Transport</h2><ul>
-<li>概述<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.32.40.png" alt="截屏2023-05-08 13.32.40" style="zoom:40%;"></li>
-<li>Unbiased 无偏的</li>
-</ul>
-</li>
-</ul>
-<h3 id="Biased-vs-Unbiased-Monte-Carlo-Estimators"><a href="#Biased-vs-Unbiased-Monte-Carlo-Estimators" class="headerlink" title="Biased vs. Unbiased Monte Carlo Estimators"></a>Biased vs. Unbiased Monte Carlo Estimators</h3><ul>
-<li>对比<ul>
-<li>Unbiased 无偏：无论使用多少样本，无偏估计量的期望值总是正确</li>
-<li>否则，为Biased有偏的（一种特殊情况，样本数无限多，期望值收敛于正确的值，这种情况称作consistent）</li>
-</ul>
-</li>
-</ul>
-<h3 id="Bidirectional-Path-Tracing-BDPT"><a href="#Bidirectional-Path-Tracing-BDPT" class="headerlink" title="Bidirectional Path Tracing (BDPT)"></a>Bidirectional Path Tracing (BDPT)</h3><p>跟踪来自照相机和光线的子路径，从两个子路径中连接端点</p>
-<p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.50.19.png" alt="截屏2023-05-08 13.50.19" style="zoom:50%;"></p>
-<ul>
-<li>应用场景：在光源由漫反射形成的场景中效果较好<ul>
-<li>从相机出发的光线若为漫反射，则不容易达到光源处，因而BDPT效果会好</li>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.55.09.png" alt="截屏2023-05-08 13.55.09" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Metropolis-Light-Transport-MLT"><a href="#Metropolis-Light-Transport-MLT" class="headerlink" title="Metropolis Light Transport (MLT)"></a>Metropolis Light Transport (MLT)</h3><ul>
-<li><p>思想：利用统计学采样工具“马尔可夫链” + 蒙特卡洛积分，生成与被积分函数形状一致的函数为PDF进行采样（当PDF函数和被采样函数形状一致时，采样方差最小）</p>
-</li>
-<li><p>局部的操作，采样（产生路径）时，通过一定的概率扰动路径的传播，以已有路径作为种子，生成与已有路径相似的路径</p>
-</li>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.05.38.png" alt="截屏2023-05-08 14.05.38" style="zoom:40%;"></li>
-<li><p>优：适用于光线复杂的场景</p>
-<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.14.44.png" alt="截屏2023-05-08 14.14.44" style="zoom:40%;"></li>
-</ul>
-</li>
-<li><p>劣：难以理论分析收敛（渲染完成的）速度；画面效果可能比较脏</p>
-<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.20.35.png" alt="截屏2023-05-08 14.20.35" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Photon-Mapping-光子映射"><a href="#Photon-Mapping-光子映射" class="headerlink" title="Photon Mapping 光子映射"></a>Photon Mapping 光子映射</h3><p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.21.49.png" alt="截屏2023-05-08 14.21.49" style="zoom:40%;"></p>
-<ul>
-<li>步骤<ul>
-<li>STEP1: 光线向各个方向出射光子，进行反射/折射，直到打到Diffuse的表面才停止</li>
-<li>STEP2: 从相机出发，进行反射/折射，直到打到Diffuse的表面才停止</li>
-<li>STEP3: 局部密度估算<ul>
-<li>想法：有更多光子的区域应该会更亮</li>
-<li>对于每个着色点，找到最近的 $N$ 个光子。取这 $N$ 个光子所占的表面积 $S$</li>
-<li>计算密度（$N/S$）</li>
-</ul>
-</li>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.34.46.png" alt="截屏2023-05-08 14.34.46"></li>
-</ul>
-</li>
-<li>问题：光子数少，Noise明显；光子数大，画面模糊</li>
-<li>Why biased？<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.40.22.png" alt="截屏2023-05-08 14.40.22" style="zoom:40%;"></li>
-<li>But consistent: 射出光子无限多，无限趋向于真实</li>
-</ul>
-</li>
-</ul>
-<h3 id="Vertex-Connection-and-Merging-VCM"><a href="#Vertex-Connection-and-Merging-VCM" class="headerlink" title="Vertex Connection and Merging (VCM)"></a>Vertex Connection and Merging (VCM)</h3><ul>
-<li>是BDPT和光子映射的结合<ul>
-<li>两端使用BDPT后，对邻近的断点使用光子映射</li>
-</ul>
-</li>
-<li>电影制作中广泛应用</li>
-</ul>
-<p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.31.04.png" alt="截屏2023-05-08 18.31.04"></p>
-<h3 id="Instant-Radiosity-IR-实时辐射度算法"><a href="#Instant-Radiosity-IR-实时辐射度算法" class="headerlink" title="Instant Radiosity (IR) 实时辐射度算法"></a>Instant Radiosity (IR) 实时辐射度算法</h3><ul>
-<li>思想<ul>
-<li>认为已经被照亮的面，都是光源</li>
-<li>针对一个着色点，认为其被其他“光源”照亮——利用直接光照的方法，获取间接光照的结果</li>
-</ul>
-</li>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.41.02.png" alt="截屏2023-05-08 18.41.02"></li>
-<li>优劣<ul>
-<li>优：fast and usually gives good results on diffuse scenes</li>
-<li>劣<ul>
-<li>缝隙处出现亮点（原因：对渲染方程的积分换元时，从换成 $d\omega$ 光源面积 $dA$ ，分母出现 $|x’ - x|^2$ 。因此两点间距离极小时， $L_o$ 极大）</li>
-<li>做不出glossy</li>
-</ul>
-</li>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.52.15.png" alt="截屏2023-05-08 18.52.15"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Advanced-Appearance-Modeling"><a href="#Advanced-Appearance-Modeling" class="headerlink" title="Advanced Appearance Modeling"></a>Advanced Appearance Modeling</h2><ul>
-<li>概述<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.54.53.png" alt="截屏2023-05-08 18.54.53" style="zoom:50%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Non-Surface-Models"><a href="#Non-Surface-Models" class="headerlink" title="Non-Surface Models"></a>Non-Surface Models</h3><h4 id="Participating-Media-散射介质"><a href="#Participating-Media-散射介质" class="headerlink" title="Participating Media 散射介质"></a>Participating Media 散射介质</h4><ul>
-<li>光在行进过程中，穿过散射介质时，会发生吸收、散射<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.59.12.png" alt="截屏2023-05-08 18.59.12"></li>
-</ul>
-</li>
-<li>Phase Function 相位函数：决定光线如何散射的函数<ul>
-<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 19.01.01.png" alt="截屏2023-05-08 19.01.01"></li>
-</ul>
-</li>
-<li>散射介质的渲染</li>
-</ul>
-
+<h2 id><a href="#" class="headerlink" title></a></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/08/Games101/Games101-P18/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
