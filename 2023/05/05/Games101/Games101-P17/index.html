@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P17 Materials &amp; Appearances外观 &#x3D; 光线 + 材质；研究光照和材质的作用方式 Material &#x3D;&#x3D; BDRF Diffuse &#x2F; Lambertian Material  该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设无能量吸收，由于能量守恒，则 $Iradiance_{入射} &#x3D; Irradiance">
+    <meta name="description" content="P17 Overview (Materials &amp; Appearances) Diffuse &#x2F; Lambertian Material Glossy material (BRDF) Ideal reflective &#x2F; refractive material (BSDF*) Fresnel Reflection &#x2F; Term 菲涅尔项   Microfacet Material 微表面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P17 Material">
 <meta property="og:url" content="http://example.com/2023/05/05/Games101/Games101-P17/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P17 Materials &amp; Appearances外观 &#x3D; 光线 + 材质；研究光照和材质的作用方式 Material &#x3D;&#x3D; BDRF Diffuse &#x2F; Lambertian Material  该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设无能量吸收，由于能量守恒，则 $Iradiance_{入射} &#x3D; Irradiance">
+<meta property="og:description" content="P17 Overview (Materials &amp; Appearances) Diffuse &#x2F; Lambertian Material Glossy material (BRDF) Ideal reflective &#x2F; refractive material (BSDF*) Fresnel Reflection &#x2F; Term 菲涅尔项   Microfacet Material 微表面">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.20.18.png">
 <meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-07%2016.29.48.png">
@@ -43,8 +43,18 @@
 <meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.14.34.png">
 <meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.17.18.png">
 <meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2000.22.11.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.21.20.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.22.44.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.29.51.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.39.38.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.40.38.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.42.17.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.43.22.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.45.51.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2012.59.23.png">
+<meta property="og:image" content="http://example.com/2023/05/05/Games101/Games101-P17/%E6%88%AA%E5%B1%8F2023-05-08%2013.00.09.png">
 <meta property="article:published_time" content="2023-05-05T14:57:07.000Z">
-<meta property="article:modified_time" content="2023-05-07T16:37:40.693Z">
+<meta property="article:modified_time" content="2023-05-08T05:29:20.167Z">
 <meta property="article:author" content="SU Wenji">
 <meta property="article:tag" content="Games101">
 <meta property="article:tag" content="图形学">
@@ -160,7 +170,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P17-Materials-amp-Appearances"><span class="nav-number">1.</span> <span class="nav-text">P17 Materials &amp; Appearances</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffuse-Lambertian-Material"><span class="nav-number">1.1.</span> <span class="nav-text">Diffuse &#x2F; Lambertian Material</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glossy-material-BRDF"><span class="nav-number">1.2.</span> <span class="nav-text">Glossy material (BRDF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ideal-reflective-refractive-material-BSDF"><span class="nav-number">1.3.</span> <span class="nav-text">Ideal reflective &#x2F; refractive material (BSDF*)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%B0%84"><span class="nav-number">1.3.2.</span> <span class="nav-text">折射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresnel-Reflection-Term-%E8%8F%B2%E6%B6%85%E5%B0%94%E9%A1%B9"><span class="nav-number">1.3.3.</span> <span class="nav-text">Fresnel Reflection &#x2F; Term 菲涅尔项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Microfacet-Material-%E5%BE%AE%E8%A1%A8%E9%9D%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Microfacet Material 微表面模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Microfacet-BRDF"><span class="nav-number">1.4.1.</span> <span class="nav-text">Microfacet BRDF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Isotropic-Anisotropic-Materials-BRDFs"><span class="nav-number">1.5.</span> <span class="nav-text">Isotropic &#x2F; Anisotropic Materials (BRDFs)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P17-Materials-amp-Appearances"><span class="nav-number">1.</span> <span class="nav-text">P17 Materials &amp; Appearances</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffuse-Lambertian-Material"><span class="nav-number">1.1.</span> <span class="nav-text">Diffuse &#x2F; Lambertian Material</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glossy-material-BRDF"><span class="nav-number">1.2.</span> <span class="nav-text">Glossy material (BRDF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ideal-reflective-refractive-material-BSDF"><span class="nav-number">1.3.</span> <span class="nav-text">Ideal reflective &#x2F; refractive material (BSDF*)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84"><span class="nav-number">1.3.1.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%B0%84"><span class="nav-number">1.3.2.</span> <span class="nav-text">折射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresnel-Reflection-Term-%E8%8F%B2%E6%B6%85%E5%B0%94%E9%A1%B9"><span class="nav-number">1.3.3.</span> <span class="nav-text">Fresnel Reflection &#x2F; Term 菲涅尔项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Microfacet-Material-%E5%BE%AE%E8%A1%A8%E9%9D%A2%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Microfacet Material 微表面模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Microfacet-BRDF"><span class="nav-number">1.4.1.</span> <span class="nav-text">Microfacet BRDF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Isotropic-Anisotropic-Materials-BRDFs"><span class="nav-number">1.5.</span> <span class="nav-text">Isotropic &#x2F; Anisotropic Materials (BRDFs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anisotropic-BRDFs"><span class="nav-number">1.5.1.</span> <span class="nav-text">Anisotropic BRDFs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRDF%E6%80%A7%E8%B4%A8"><span class="nav-number">1.6.</span> <span class="nav-text">BRDF性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Measuring-BRDFs-%E6%B5%8B%E9%87%8FBRDF"><span class="nav-number">1.7.</span> <span class="nav-text">Measuring BRDFs 测量BRDF</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +185,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +271,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-08 00:37:40" itemprop="dateModified" datetime="2023-05-08T00:37:40+08:00">2023-05-08</time>
+      <time title="Modified: 2023-05-08 13:29:20" itemprop="dateModified" datetime="2023-05-08T13:29:20+08:00">2023-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,7 +289,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.1k</span>
+      <span>1.7k</span>
     </span>
 </div>
 
@@ -290,7 +300,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="P17-Materials-amp-Appearances"><a href="#P17-Materials-amp-Appearances" class="headerlink" title="P17 Materials &amp; Appearances"></a>P17 Materials &amp; Appearances</h1><p>外观 = 光线 + 材质；研究光照和材质的作用方式</p>
+        <ul>
+<li>P17 Overview (Materials &amp; Appearances)<ul>
+<li>Diffuse / Lambertian Material</li>
+<li>Glossy material (BRDF)</li>
+<li>Ideal reflective / refractive material (BSDF*)<ul>
+<li>Fresnel Reflection / Term 菲涅尔项</li>
+</ul>
+</li>
+<li>Microfacet Material 微表面模型<ul>
+<li>Microfacet BRDF</li>
+</ul>
+</li>
+<li>Isotropic / Anisotropic Materials (BRDFs) 各向同性/各向异性</li>
+<li>BRDF性质</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="P17-Materials-amp-Appearances"><a href="#P17-Materials-amp-Appearances" class="headerlink" title="P17 Materials &amp; Appearances"></a>P17 Materials &amp; Appearances</h1><p>外观 = 光线 + 材质；研究光照和材质的作用方式</p>
 <p><strong>Material == BDRF</strong></p>
 <h2 id="Diffuse-Lambertian-Material"><a href="#Diffuse-Lambertian-Material" class="headerlink" title="Diffuse / Lambertian Material"></a>Diffuse / Lambertian Material</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.20.18.png" alt="截屏2023-05-07 16.20.18"></p>
 <ul>
@@ -391,7 +419,63 @@
 </ul>
 </li>
 </ul>
-<h2 id="Isotropic-Anisotropic-Materials-BRDFs"><a href="#Isotropic-Anisotropic-Materials-BRDFs" class="headerlink" title="Isotropic / Anisotropic Materials (BRDFs)"></a>Isotropic / Anisotropic Materials (BRDFs)</h2><p>一种区分材质的方式</p>
+<h2 id="Isotropic-Anisotropic-Materials-BRDFs"><a href="#Isotropic-Anisotropic-Materials-BRDFs" class="headerlink" title="Isotropic / Anisotropic Materials (BRDFs)"></a>Isotropic / Anisotropic Materials (BRDFs)</h2><p>各向同性/各向异性材质</p>
+<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.21.20.png" alt="截屏2023-05-08 12.21.20" style="zoom:35%;"></p>
+<ul>
+<li>Isotropic vs. Anisotropic<ul>
+<li>关键：微表面的方向性<ul>
+<li>各向同性材质微表面方向性弱</li>
+</ul>
+</li>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.22.44.png" alt="截屏2023-05-08 12.22.44" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Anisotropic-BRDFs"><a href="#Anisotropic-BRDFs" class="headerlink" title="Anisotropic BRDFs"></a>Anisotropic BRDFs</h3><ul>
+<li>各向异性BRDF：不满足方位角旋转，受绝对方位角影响<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.29.51.png" alt="截屏2023-05-08 12.29.51"></li>
+</ul>
+</li>
+<li>例如：尼龙、天鹅绒</li>
+</ul>
+<h2 id="BRDF性质"><a href="#BRDF性质" class="headerlink" title="BRDF性质"></a>BRDF性质</h2><ul>
+<li>非负<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.39.38.png" alt="截屏2023-05-08 12.39.38" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>线性<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.40.38.png" alt="截屏2023-05-08 12.40.38" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>可逆<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.42.17.png" alt="截屏2023-05-08 12.42.17" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>能量守恒<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.43.22.png" alt="截屏2023-05-08 12.43.22" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>各向同性/各向异性<ul>
+<li>各向同性只用考虑方位角相对值</li>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.45.51.png" alt="截屏2023-05-08 12.45.51" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Measuring-BRDFs-测量BRDF"><a href="#Measuring-BRDFs-测量BRDF" class="headerlink" title="Measuring BRDFs 测量BRDF"></a>Measuring BRDFs 测量BRDF</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 12.59.23.png" alt="截屏2023-05-08 12.59.23" style="zoom:50%;"></p>
+<ul>
+<li>针对每一个入射、出射方向，都进行测量</li>
+<li>实现方法：2D * 2D遍历<ul>
+<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 13.00.09.png" alt="截屏2023-05-08 13.00.09" style="zoom:50%;"></li>
+</ul>
+</li>
+<li>提升效率<ul>
+<li>各向同性，减少一维 from <strong>4D to 3D</strong></li>
+<li>可逆性 reduces # of measurements by <strong>half</strong></li>
+<li>Clever optical systems…</li>
+</ul>
+</li>
+<li>MERL BRDF Database：记录BRDF测量值的数据库</li>
+</ul>
 
     </div>
 
@@ -450,7 +534,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">27k</span>
+    <span title="Word count total">29k</span>
   </span>
 </div>
 

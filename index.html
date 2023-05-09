@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,6 +191,204 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/08/Games101/Games101-P18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_avatar.JPG">
+      <meta itemprop="name" content="SU Wenji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MattinataLau's Blog">
+      <meta itemprop="description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | MattinataLau's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/08/Games101/Games101-P18/" class="post-title-link" itemprop="url">Games101-P18 Advanced Topics in Rendering</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-05-08 13:30:25" itemprop="dateCreated datePublished" datetime="2023-05-08T13:30:25+08:00">2023-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-09 18:01:01" itemprop="dateModified" datetime="2023-05-09T18:01:01+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.2k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>P18 Overview</li>
+</ul>
+<h1 id="P18-Advanced-Topics-in-Rendering"><a href="#P18-Advanced-Topics-in-Rendering" class="headerlink" title="P18 Advanced Topics in Rendering"></a>P18 Advanced Topics in Rendering</h1><h2 id="Advanced-Light-Transport"><a href="#Advanced-Light-Transport" class="headerlink" title="Advanced Light Transport"></a>Advanced Light Transport</h2><ul>
+<li>概述<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.32.40.png" alt="截屏2023-05-08 13.32.40" style="zoom:40%;"></li>
+<li>Unbiased 无偏的</li>
+</ul>
+</li>
+</ul>
+<h3 id="Biased-vs-Unbiased-Monte-Carlo-Estimators"><a href="#Biased-vs-Unbiased-Monte-Carlo-Estimators" class="headerlink" title="Biased vs. Unbiased Monte Carlo Estimators"></a>Biased vs. Unbiased Monte Carlo Estimators</h3><ul>
+<li>对比<ul>
+<li>Unbiased 无偏：无论使用多少样本，无偏估计量的期望值总是正确</li>
+<li>否则，为Biased有偏的（一种特殊情况，样本数无限多，期望值收敛于正确的值，这种情况称作consistent）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Bidirectional-Path-Tracing-BDPT"><a href="#Bidirectional-Path-Tracing-BDPT" class="headerlink" title="Bidirectional Path Tracing (BDPT)"></a>Bidirectional Path Tracing (BDPT)</h3><p>跟踪来自照相机和光线的子路径，从两个子路径中连接端点</p>
+<p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.50.19.png" alt="截屏2023-05-08 13.50.19" style="zoom:50%;"></p>
+<ul>
+<li>应用场景：在光源由漫反射形成的场景中效果较好<ul>
+<li>从相机出发的光线若为漫反射，则不容易达到光源处，因而BDPT效果会好</li>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 13.55.09.png" alt="截屏2023-05-08 13.55.09" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Metropolis-Light-Transport-MLT"><a href="#Metropolis-Light-Transport-MLT" class="headerlink" title="Metropolis Light Transport (MLT)"></a>Metropolis Light Transport (MLT)</h3><ul>
+<li><p>思想：利用统计学采样工具“马尔可夫链” + 蒙特卡洛积分，生成与被积分函数形状一致的函数为PDF进行采样（当PDF函数和被采样函数形状一致时，采样方差最小）</p>
+</li>
+<li><p>局部的操作，采样（产生路径）时，通过一定的概率扰动路径的传播，以已有路径作为种子，生成与已有路径相似的路径</p>
+</li>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.05.38.png" alt="截屏2023-05-08 14.05.38" style="zoom:40%;"></li>
+<li><p>优：适用于光线复杂的场景</p>
+<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.14.44.png" alt="截屏2023-05-08 14.14.44" style="zoom:40%;"></li>
+</ul>
+</li>
+<li><p>劣：难以理论分析收敛（渲染完成的）速度；画面效果可能比较脏</p>
+<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.20.35.png" alt="截屏2023-05-08 14.20.35" style="zoom:40%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Photon-Mapping-光子映射"><a href="#Photon-Mapping-光子映射" class="headerlink" title="Photon Mapping 光子映射"></a>Photon Mapping 光子映射</h3><p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.21.49.png" alt="截屏2023-05-08 14.21.49" style="zoom:40%;"></p>
+<ul>
+<li>步骤<ul>
+<li>STEP1: 光线向各个方向出射光子，进行反射/折射，直到打到Diffuse的表面才停止</li>
+<li>STEP2: 从相机出发，进行反射/折射，直到打到Diffuse的表面才停止</li>
+<li>STEP3: 局部密度估算<ul>
+<li>想法：有更多光子的区域应该会更亮</li>
+<li>对于每个着色点，找到最近的 $N$ 个光子。取这 $N$ 个光子所占的表面积 $S$</li>
+<li>计算密度（$N/S$）</li>
+</ul>
+</li>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.34.46.png" alt="截屏2023-05-08 14.34.46"></li>
+</ul>
+</li>
+<li>问题：光子数少，Noise明显；光子数大，画面模糊</li>
+<li>Why biased？<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 14.40.22.png" alt="截屏2023-05-08 14.40.22" style="zoom:40%;"></li>
+<li>But consistent: 射出光子无限多，无限趋向于真实</li>
+</ul>
+</li>
+</ul>
+<h3 id="Vertex-Connection-and-Merging-VCM"><a href="#Vertex-Connection-and-Merging-VCM" class="headerlink" title="Vertex Connection and Merging (VCM)"></a>Vertex Connection and Merging (VCM)</h3><ul>
+<li>是BDPT和光子映射的结合<ul>
+<li>两端使用BDPT后，对邻近的断点使用光子映射</li>
+</ul>
+</li>
+<li>电影制作中广泛应用</li>
+</ul>
+<p><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.31.04.png" alt="截屏2023-05-08 18.31.04"></p>
+<h3 id="Instant-Radiosity-IR-实时辐射度算法"><a href="#Instant-Radiosity-IR-实时辐射度算法" class="headerlink" title="Instant Radiosity (IR) 实时辐射度算法"></a>Instant Radiosity (IR) 实时辐射度算法</h3><ul>
+<li>思想<ul>
+<li>认为已经被照亮的面，都是光源</li>
+<li>针对一个着色点，认为其被其他“光源”照亮——利用直接光照的方法，获取间接光照的结果</li>
+</ul>
+</li>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.41.02.png" alt="截屏2023-05-08 18.41.02"></li>
+<li>优劣<ul>
+<li>优：fast and usually gives good results on diffuse scenes</li>
+<li>劣<ul>
+<li>缝隙处出现亮点（原因：对渲染方程的积分换元时，从换成 $d\omega$ 光源面积 $dA$ ，分母出现 $|x’ - x|^2$ 。因此两点间距离极小时， $L_o$ 极大）</li>
+<li>做不出glossy</li>
+</ul>
+</li>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.52.15.png" alt="截屏2023-05-08 18.52.15"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Advanced-Appearance-Modeling"><a href="#Advanced-Appearance-Modeling" class="headerlink" title="Advanced Appearance Modeling"></a>Advanced Appearance Modeling</h2><ul>
+<li>概述<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.54.53.png" alt="截屏2023-05-08 18.54.53" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Non-Surface-Models"><a href="#Non-Surface-Models" class="headerlink" title="Non-Surface Models"></a>Non-Surface Models</h3><h4 id="Participating-Media-散射介质"><a href="#Participating-Media-散射介质" class="headerlink" title="Participating Media 散射介质"></a>Participating Media 散射介质</h4><ul>
+<li>光在行进过程中，穿过散射介质时，会发生吸收、散射<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 18.59.12.png" alt="截屏2023-05-08 18.59.12"></li>
+</ul>
+</li>
+<li>Phase Function 相位函数：决定光线如何散射的函数<ul>
+<li><img src="/2023/05/08/Games101/Games101-P18/截屏2023-05-08 19.01.01.png" alt="截屏2023-05-08 19.01.01"></li>
+</ul>
+</li>
+<li>散射介质的渲染</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -326,7 +524,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-08 00:37:40" itemprop="dateModified" datetime="2023-05-08T00:37:40+08:00">2023-05-08</time>
+      <time title="Modified: 2023-05-08 13:29:20" itemprop="dateModified" datetime="2023-05-08T13:29:20+08:00">2023-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -344,7 +542,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.1k</span>
+      <span>1.7k</span>
     </span>
 </div>
 
@@ -355,109 +553,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="P17-Materials-amp-Appearances"><a href="#P17-Materials-amp-Appearances" class="headerlink" title="P17 Materials &amp; Appearances"></a>P17 Materials &amp; Appearances</h1><p>外观 = 光线 + 材质；研究光照和材质的作用方式</p>
-<p><strong>Material == BDRF</strong></p>
-<h2 id="Diffuse-Lambertian-Material"><a href="#Diffuse-Lambertian-Material" class="headerlink" title="Diffuse / Lambertian Material"></a>Diffuse / Lambertian Material</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.20.18.png" alt="截屏2023-05-07 16.20.18"></p>
-<ul>
-<li>该类材质特点：假设从各个方向射入的Radiance光线相同，则反射光同样为uniform(均匀)的；假设<strong>无能量吸收</strong>，由于能量守恒，则 $Iradiance_{入射} = Irradiance_{出射}$ ，进而可得出 $Radiance_{入射} = Radiance_{出射}$ （即 $L_O = Li$，进而得出 $f_r = \frac{1}{\pi}$ ）<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.29.48.png" alt="截屏2023-05-07 16.29.48"><ul>
-<li>定义albedo（反射率）来引入不同颜色的diffuse BRDF</li>
+          <ul>
+<li>P17 Overview (Materials &amp; Appearances)<ul>
+<li>Diffuse / Lambertian Material</li>
+<li>Glossy material (BRDF)</li>
+<li>Ideal reflective / refractive material (BSDF*)<ul>
+<li>Fresnel Reflection / Term 菲涅尔项</li>
+</ul>
+</li>
+<li>Microfacet Material 微表面模型<ul>
+<li>Microfacet BRDF</li>
+</ul>
+</li>
+<li>Isotropic / Anisotropic Materials (BRDFs) 各向同性/各向异性</li>
+<li>BRDF性质</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="Glossy-material-BRDF"><a href="#Glossy-material-BRDF" class="headerlink" title="Glossy material (BRDF)"></a>Glossy material (BRDF)</h2><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.36.33.png" alt="截屏2023-05-07 16.36.33"></p>
-<h2 id="Ideal-reflective-refractive-material-BSDF"><a href="#Ideal-reflective-refractive-material-BSDF" class="headerlink" title="Ideal reflective / refractive material (BSDF*)"></a>Ideal reflective / refractive material (BSDF*)</h2><p>(BSDF，S表示散射)</p>
-<p><strong>BSDF = BR(Reflect反射)DF + BT(Transmit折射)DF</strong></p>
-<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.39.11.png" alt="截屏2023-05-07 16.39.11"></p>
-<ul>
-<li><strong>计算镜面反射</strong>出射光 $w_o$：计算出 $\theta$ 和 $\phi$ 即可（方位角）<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 16.45.43.png" alt="截屏2023-05-07 16.45.43" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="折射"><a href="#折射" class="headerlink" title="折射"></a>折射</h3><ul>
-<li>折射（表现：色散、caustics）</li>
-</ul>
-<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.02.10.png" alt="截屏2023-05-07 23.02.10" style="zoom:40%;"></p>
-<ul>
-<li>caustics成因：光经海水表面折射，光线聚焦（渲染灾难）</li>
-<li><p>Snell’s Law 斯内尔定律</p>
-<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.09.09.png" alt="截屏2023-05-07 23.09.09" style="zoom:40%;"></li>
-<li>全反射发生条件：<img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.12.39.png" alt="截屏2023-05-07 23.12.39" style="zoom:40%;"></li>
-</ul>
-</li>
-<li><p>Snell’s Window / Circle</p>
-<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.17.42.png" alt="截屏2023-05-07 23.17.42" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Fresnel-Reflection-Term-菲涅尔项"><a href="#Fresnel-Reflection-Term-菲涅尔项" class="headerlink" title="Fresnel Reflection / Term 菲涅尔项"></a>Fresnel Reflection / Term 菲涅尔项</h3><p>（解释能量分别发生多少反射/折射）</p>
-<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.39.21.png" alt="截屏2023-05-07 23.39.21"></p>
-<ul>
-<li><p>绝缘体</p>
-<ul>
-<li><p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.39.33.png" alt="截屏2023-05-07 23.39.33" style="zoom:40%;"></p>
-</li>
-<li><p>上图</p>
-<ul>
-<li>红：菲涅尔效应</li>
-<li>蓝、绿：光极化（偏振）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>导体（折射率是复数）</p>
-</li>
-</ul>
-<p><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.50.07.png" alt="截屏2023-05-07 23.50.07" style="zoom:40%;"></p>
-<ul>
-<li>计算菲涅尔项<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-07 23.55.15.png" alt="截屏2023-05-07 23.55.15"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Microfacet-Material-微表面模型"><a href="#Microfacet-Material-微表面模型" class="headerlink" title="Microfacet Material 微表面模型"></a>Microfacet Material 微表面模型</h2><p>Microfacet Material是基于物理的；被PBR所使用；可描述的材质很多</p>
-<ul>
-<li>如图：图中出现了一块完美的较光滑高光，而看不到地表的细节结构。说明从足够远处看，看不到表面的具体微小细节，只能观察到这些细节对光线作用后给表面带来的整体影响。<ul>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.08.14.png" alt="截屏2023-05-08 00.08.14"></li>
-</ul>
-</li>
-<li>Microfacet Theory<ul>
-<li>远看材质，近看几何</li>
-<li><strong>每一个Microfacet都发生镜面反射，每一个Microfacet都有法线</strong></li>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.14.34.png" alt="截屏2023-05-08 00.14.34" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Microfacet-BRDF"><a href="#Microfacet-BRDF" class="headerlink" title="Microfacet BRDF"></a>Microfacet BRDF</h3><ul>
-<li><p>关键：微表面的法线分布</p>
-<ul>
-<li>通过微表面发现分布，来表示材质粗糙程度</li>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.17.18.png" alt="截屏2023-05-08 00.17.18" style="zoom:40%;"></li>
-</ul>
-</li>
-<li><p><strong style="color:red;">Microfacet BRDF</strong></p>
-<ul>
-<li>$F(i, h)$：菲涅尔项，用于<strong>表示总共多少量被反射</strong></li>
-<li>$D(h)$：法线分布，用于<strong>查询什么样的微表面才能将光线反射到某一特定方向</strong><ul>
-<li>考虑half vector $h$ ，因为微表面发生镜面反射 </li>
-</ul>
-</li>
-<li>$G(i,o,h)$：几何项，用于<strong>修护边界处因忽略遮挡导致的过亮 </strong>(决定性作用)<ul>
-<li>考虑微表面间遮挡&amp;互相形成阴影，导致部分微表面失去作用</li>
-<li>$i$ or $o$ 接近Grazing Angle(光几乎平行表面)时，易发生</li>
-</ul>
-</li>
-<li><img src="/2023/05/05/Games101/Games101-P17/截屏2023-05-08 00.22.11.png" alt="截屏2023-05-08 00.22.11" style="zoom:40%;"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Isotropic-Anisotropic-Materials-BRDFs"><a href="#Isotropic-Anisotropic-Materials-BRDFs" class="headerlink" title="Isotropic / Anisotropic Materials (BRDFs)"></a>Isotropic / Anisotropic Materials (BRDFs)</h2><p>一种区分材质的方式</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/05/Games101/Games101-P17/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1395,7 +1515,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">27k</span>
+    <span title="Word count total">29k</span>
   </span>
 </div>
 
