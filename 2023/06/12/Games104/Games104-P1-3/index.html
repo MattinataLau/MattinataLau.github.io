@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Lecture2 游戏引擎的分层架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Games104-P1-3 基础架构">
+<meta property="og:url" content="http://example.com/2023/06/12/Games104/Games104-P1-3/index.html">
+<meta property="og:site_name" content="MattinataLau&#39;s Blog">
+<meta property="og:description" content="Lecture2 游戏引擎的分层架构">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/IMG_0933.jpg">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/IMG_0935.JPG">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2014.04.42.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2014.07.37.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-18%2020.45.47.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-18%2020.46.31.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2013.28.41.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-18%2017.17.33.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-18%2017.23.33.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-18%2020.38.12.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2013.34.23.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2013.44.56.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-19%2013.56.01.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.21.36.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.48.01.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.52.07.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.53.32.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.53.52.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2018.58.30.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.02.54.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.03.41.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.05.40.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.23.54.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.18.00.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-20%2019.22.12.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2017.11.16.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2017.12.52.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2017.14.07.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2019.18.31.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2019.23.29.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2019.25.58.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2019.28.20.png">
+<meta property="og:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/%E6%88%AA%E5%B1%8F2023-06-21%2019.35.50.png">
+<meta property="article:published_time" content="2023-06-12T10:53:56.000Z">
+<meta property="article:modified_time" content="2023-06-21T12:09:56.763Z">
+<meta property="article:author" content="SU Wenji">
+<meta property="article:tag" content="Games104">
+<meta property="article:tag" content="现代游戏引擎">
+<meta property="article:tag" content="引擎架构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/06/12/Games104/Games104-P1-3/IMG_0933.jpg">
+
+
+<link rel="canonical" href="http://example.com/2023/06/12/Games104/Games104-P1-3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/06/12/Games104/Games104-P1-3/","path":"2023/06/12/Games104/Games104-P1-3/","title":"Games104-P1-3 基础架构"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Games104-P1-3 基础架构 | MattinataLau's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MattinataLau's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nice to see u :P</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture2-%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E7%9A%84%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">Lecture2 游戏引擎的分层架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E6%93%8E%E5%88%86%E5%B1%82"><span class="nav-number">1.1.</span> <span class="nav-text">引擎分层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%B1%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">工具层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%B1%82"><span class="nav-number">1.1.2.</span> <span class="nav-text">功能层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%B1%82"><span class="nav-number">1.1.3.</span> <span class="nav-text">资源层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%B1%82"><span class="nav-number">1.1.4.</span> <span class="nav-text">核心层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E5%B1%82"><span class="nav-number">1.1.5.</span> <span class="nav-text">平台层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%95%E6%93%8E%E8%A6%81%E5%88%86%E5%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">为什么引擎要分层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Piccolo%E9%80%BB%E8%BE%91"><span class="nav-number">1.3.</span> <span class="nav-text">Piccolo逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture3-%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E6%B8%B8%E6%88%8F%E4%B8%96%E7%95%8C"><span class="nav-number">2.</span> <span class="nav-text">Lecture3 如何构建游戏世界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E6%88%90"><span class="nav-number">2.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Game-Object"><span class="nav-number">2.2.</span> <span class="nav-text">Game Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">2.2.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="nav-number">2.2.2.</span> <span class="nav-text">组件化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%95%86%E4%B8%9A%E5%BC%95%E6%93%8E%E4%B8%AD%E7%9A%84Component"><span class="nav-number">2.2.3.</span> <span class="nav-text">商业引擎中的Component</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%96%E7%95%8C%E5%8A%A8%E8%B5%B7%E6%9D%A5"><span class="nav-number">2.3.</span> <span class="nav-text">如何让世界动起来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-based-Tick"><span class="nav-number">2.3.1.</span> <span class="nav-text">Object-based Tick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Component-based-Tick"><span class="nav-number">2.3.2.</span> <span class="nav-text">Component-based Tick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tick%E5%AF%B9%E6%AF%94"><span class="nav-number">2.3.3.</span> <span class="nav-text">tick对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">2.3.4.</span> <span class="nav-text">事件机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF%E7%AE%A1%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">场景管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">2.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%9A%BE%E9%A2%98"><span class="nav-number">2.6.</span> <span class="nav-text">其他需要解决的难题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SU Wenji"
+      src="/images/blog_avatar.JPG">
+  <p class="site-author-name" itemprop="name">SU Wenji</p>
+  <div class="site-description" itemprop="description">Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://jiaxcuit.github.io/zh/" title="https:&#x2F;&#x2F;jiaxcuit.github.io&#x2F;zh&#x2F;" rel="noopener" target="_blank">十之以饼干盒</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/12/Games104/Games104-P1-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_avatar.JPG">
+      <meta itemprop="name" content="SU Wenji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MattinataLau's Blog">
+      <meta itemprop="description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Games104-P1-3 基础架构 | MattinataLau's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Games104-P1-3 基础架构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-06-12 18:53:56" itemprop="dateCreated datePublished" datetime="2023-06-12T18:53:56+08:00">2023-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-06-21 20:09:56" itemprop="dateModified" datetime="2023-06-21T20:09:56+08:00">2023-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Games104/" itemprop="url" rel="index"><span itemprop="name">Games104</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.4k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Lecture2-游戏引擎的分层架构"><a href="#Lecture2-游戏引擎的分层架构" class="headerlink" title="Lecture2 游戏引擎的分层架构"></a>Lecture2 游戏引擎的分层架构</h1><p><img src="/2023/06/12/Games104/Games104-P1-3/IMG_0933.jpg" alt="IMG_0933"></p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/IMG_0935.JPG" alt="IMG_0935"></p>
+<span id="more"></span>
+<h2 id="引擎分层"><a href="#引擎分层" class="headerlink" title="引擎分层"></a>引擎分层</h2><h3 id="工具层"><a href="#工具层" class="headerlink" title="工具层"></a>工具层</h3><p>构成完整游戏生态体系</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 14.04.42.png" alt="截屏2023-06-19 14.04.42"></p>
+<ul>
+<li>引擎内：⬆️</li>
+<li>引擎外：DCC</li>
+</ul>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 14.07.37.png" alt="截屏2023-06-19 14.07.37"></p>
+<ul>
+<li>Asset conditioning pipeline：各种import&amp;output</li>
+<li>数据间互导需要统一格式</li>
+</ul>
+<h3 id="功能层"><a href="#功能层" class="headerlink" title="功能层"></a>功能层</h3><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-18 20.45.47.png" alt="截屏2023-06-18 20.45.47" style="zoom:33%;"></p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-18 20.46.31.png" alt="截屏2023-06-18 20.46.31"></p>
+<ul>
+<li>Gametick<ul>
+<li>游戏里的“普朗克时间”，1/30s</li>
+<li>tickLogic：逻辑帧，对于世界tick内的物理模拟</li>
+<li>tickRender：渲染帧，tick内进行渲染</li>
+</ul>
+</li>
+<li>区分引擎&amp;游戏的功能代码：功能层提供引擎功能，部分功能隶属游戏而非游戏引擎</li>
+</ul>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 13.28.41.png" alt="截屏2023-06-19 13.28.41"></p>
+<ul>
+<li>多线程架构：如将tickLogic、tickRender、Render放入三个线程</li>
+<li>未来引擎使用多核架构，JOB System更先进，但Dependency的管理困难</li>
+</ul>
+<h3 id="资源层"><a href="#资源层" class="headerlink" title="资源层"></a>资源层</h3><p>资源层管理游戏运行时，生态资源池的分配；管理资产生命周期</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-18 17.17.33.png" alt="截屏2023-06-18 17.17.33"></p>
+<ul>
+<li><p>数据引擎化</p>
+<ul>
+<li><p>原因：DCC生成的文件包含大量无效信息</p>
+</li>
+<li><p>做法：Importing时，将Sources转为Assets，使用引擎高效数据</p>
+</li>
+</ul>
+</li>
+<li><p>GUID</p>
+<ul>
+<li>资产的唯一识别号，资产的ID</li>
+<li>通过XML文件，完成数据间关联</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-18 17.23.33.png" alt="截屏2023-06-18 17.23.33"></p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-18 20.38.12.png" alt="截屏2023-06-18 20.38.12"></p>
+<ul>
+<li>运行时资源管理——游戏优化<ul>
+<li>handle系统：和GUID一起负责资产的生命周期。类比GC（垃圾回收）系统。例如切换关卡时，部分资产失效，需要加载新的资产</li>
+<li>延迟加载：指的是希望人走到哪，这些资源再加载。例如，玩虚幻引擎做的游戏的时候经常有个细节<em>（不知道最新版本有没有修改）</em>：一个角色出现在你的面前，一开始看到那个贴图很模糊，然后一点点变得更清晰</li>
+</ul>
+</li>
+</ul>
+<h3 id="核心层"><a href="#核心层" class="headerlink" title="核心层"></a>核心层</h3><p>游戏引擎的基础</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 13.34.23.png" alt="截屏2023-06-19 13.34.23"></p>
+<ul>
+<li>引擎数学库：更适用于引擎，提升效率</li>
+</ul>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 13.44.56.png" alt="截屏2023-06-19 13.44.56"></p>
+<ul>
+<li>内存管理<ul>
+<li>尽可能将数据放到一起</li>
+<li>数据按顺序排列</li>
+<li>数据修改时，一次修改一批而非一个</li>
+</ul>
+</li>
+</ul>
+<h3 id="平台层"><a href="#平台层" class="headerlink" title="平台层"></a>平台层</h3><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-19 13.56.01.png" alt="截屏2023-06-19 13.56.01"></p>
+<ul>
+<li><p>平台无关性</p>
+<ul>
+<li>去除平台间差异（系统路径和API）</li>
+</ul>
+</li>
+<li><p>Render Hardware Interface (RHI) </p>
+<ul>
+<li>重新定义API，将SDK封装使用以消除差异</li>
+</ul>
+</li>
+</ul>
+<h2 id="为什么引擎要分层"><a href="#为什么引擎要分层" class="headerlink" title="为什么引擎要分层"></a>为什么引擎要分层</h2><ul>
+<li>降低复杂度<ul>
+<li>下层提供基础服务，每一层各司其职</li>
+</ul>
+</li>
+<li>层层封装<ul>
+<li>底层尽量不改动</li>
+<li>底层稳定，上层灵活</li>
+<li>上层调用下层功能，下层禁止调用上层功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="Piccolo逻辑"><a href="#Piccolo逻辑" class="headerlink" title="Piccolo逻辑"></a>Piccolo逻辑</h2><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.21.36.png" alt="截屏2023-06-20 18.21.36"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>游戏引擎架构分层</li>
+<li>底层稳定，上层灵活</li>
+<li>tick驱动</li>
+</ol>
+<h1 id="Lecture3-如何构建游戏世界"><a href="#Lecture3-如何构建游戏世界" class="headerlink" title="Lecture3 如何构建游戏世界"></a>Lecture3 如何构建游戏世界</h1><h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><ul>
+<li>Game Object<ul>
+<li>Dynamic 可交互</li>
+<li>Static</li>
+</ul>
+</li>
+<li><p>环境</p>
+<ul>
+<li>Sky</li>
+<li>Vegetation</li>
+<li>Terrain</li>
+</ul>
+</li>
+<li><p>Other</p>
+<ul>
+<li><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.48.01.png" alt="截屏2023-06-20 18.48.01"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Game-Object"><a href="#Game-Object" class="headerlink" title="Game Object"></a>Game Object</h2><p>属性：Property</p>
+<p>行为：Behavior</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.52.07.png" alt="截屏2023-06-20 18.52.07"></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
+<li><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.53.32.png" alt="截屏2023-06-20 18.53.32"></li>
+<li><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.53.52.png" alt="截屏2023-06-20 18.53.52"></li>
+</ul>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>适用于，游戏自定义</p>
+<p>解决继承中，谁是爷爷（？）的问题</p>
+<p>将对象拆分为不同组建</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 18.58.30.png" alt="截屏2023-06-20 18.58.30"></p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.02.54.png" alt="截屏2023-06-20 19.02.54"></p>
+<p>组件化后：</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.03.41.png" alt="截屏2023-06-20 19.03.41"></p>
+<h3 id="商业引擎中的Component"><a href="#商业引擎中的Component" class="headerlink" title="商业引擎中的Component"></a>商业引擎中的Component</h3><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.05.40.png" alt="截屏2023-06-20 19.05.40"></p>
+<h2 id="如何让世界动起来"><a href="#如何让世界动起来" class="headerlink" title="如何让世界动起来"></a>如何让世界动起来</h2><h3 id="Object-based-Tick"><a href="#Object-based-Tick" class="headerlink" title="Object-based Tick"></a>Object-based Tick</h3><p>按照GO，对GO中Component依此进行tick</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.23.54.png" alt="截屏2023-06-20 19.23.54"></p>
+<h3 id="Component-based-Tick"><a href="#Component-based-Tick" class="headerlink" title="Component-based Tick"></a>Component-based Tick</h3><p>按照Component，针对一个系统tick</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.18.00.png" alt="截屏2023-06-20 19.18.00"></p>
+<h3 id="tick对比"><a href="#tick对比" class="headerlink" title="tick对比"></a>tick对比</h3><p>高效的做法——流水线</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-20 19.22.12.png" alt="截屏2023-06-20 19.22.12"></p>
+<h3 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h3><p>eg：如何实现爆炸</p>
+<p>早期：Hardcode；无法解决复杂游戏世界中问题</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 17.11.16.png" alt="截屏2023-06-21 17.11.16"></p>
+<p>衍生出事件机制；解耦合</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 17.12.52.png" alt="截屏2023-06-21 17.12.52"></p>
+<p>发出Event给到对应的GO，由GO进一步处理</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 17.14.07.png" alt="截屏2023-06-21 17.14.07"></p>
+<p>现代游戏引擎设有自定义机制的接口（add custom event</p>
+<h2 id="场景管理"><a href="#场景管理" class="headerlink" title="场景管理"></a>场景管理</h2><p>每一个GO都有一个ID，用于被标识和定位</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 19.18.31.png" alt="截屏2023-06-21 19.18.31"></p>
+<p>对于非均匀场景，根据GO分布，进行八叉树（空间）划分</p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 19.23.29.png" alt="截屏2023-06-21 19.23.29"></p>
+<p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 19.25.58.png" alt="截屏2023-06-21 19.25.58"></p>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 19.28.20.png" alt="截屏2023-06-21 19.28.20"></p>
+<h2 id="其他需要解决的难题"><a href="#其他需要解决的难题" class="headerlink" title="其他需要解决的难题"></a>其他需要解决的难题</h2><p><img src="/2023/06/12/Games104/Games104-P1-3/截屏2023-06-21 19.35.50.png" alt="截屏2023-06-21 19.35.50"></p>
+<ul>
+<li><p>绑定：运动联动</p>
+<ul>
+<li>父节点先于子节点tick</li>
+</ul>
+</li>
+<li><p>时序问题</p>
+<ul>
+<li>eventTick和posTick解决</li>
+<li>消息分发，引擎优化</li>
+</ul>
+</li>
+<li><p>循环依赖（图片左下角</p>
+<ul>
+<li>物理和动画互相影响，通过插值处理</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Games104/" rel="tag"># Games104</a>
+              <a href="/tags/%E7%8E%B0%E4%BB%A3%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" rel="tag"># 现代游戏引擎</a>
+              <a href="/tags/%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84/" rel="tag"># 引擎架构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/17/Games101/Games101-P19-20/" rel="prev" title="Games101-P19-20 Camera & Color">
+                  <i class="fa fa-chevron-left"></i> Games101-P19-20 Camera & Color
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/21/Games104/Games104-P4-7/" rel="next" title="Games104-P4-7 Rendering">
+                  Games104-P4-7 Rendering <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SU Wenji</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">33k</span>
+  </span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
