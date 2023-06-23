@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="P21 Overview  Keyframe animation Physical animation Kinematics Rigging   P22 Overvoew  Single particle simulation  Explicit Euler method  Instability and improvements    Rigid body simulation  Fluid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Games101-P21-22 Animation">
+<meta property="og:url" content="http://example.com/2023/06/21/Games101/Games101-P21-22/index.html">
+<meta property="og:site_name" content="MattinataLau&#39;s Blog">
+<meta property="og:description" content="P21 Overview  Keyframe animation Physical animation Kinematics Rigging   P22 Overvoew  Single particle simulation  Explicit Euler method  Instability and improvements    Rigid body simulation  Fluid">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.19.17.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.35.59.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.41.18.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.46.16.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.51.03.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.54.48.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.04.22.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.10.06.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.10.44.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.29.29.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.34.44.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.37.31.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.39.56.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.43.53.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2015.49.41.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.01.46.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.05.54.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.08.15.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.19.10.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.20.44.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.21.38.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.38.34.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.50.17.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.54.22.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2016.58.37.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.03.57.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.21.26.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.28.51.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.35.13.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.42.58.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2017.46.32.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2018.53.25.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2018.58.37.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2019.01.27.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2019.06.11.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2019.17.04.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2019.20.55.png">
+<meta property="og:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2019.37.48.png">
+<meta property="article:published_time" content="2023-06-21T12:32:02.000Z">
+<meta property="article:modified_time" content="2023-06-23T11:47:49.133Z">
+<meta property="article:author" content="SU Wenji">
+<meta property="article:tag" content="Games101">
+<meta property="article:tag" content="图形学">
+<meta property="article:tag" content="Animation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/06/21/Games101/Games101-P21-22/%E6%88%AA%E5%B1%8F2023-06-23%2014.19.17.png">
+
+
+<link rel="canonical" href="http://example.com/2023/06/21/Games101/Games101-P21-22/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/06/21/Games101/Games101-P21-22/","path":"2023/06/21/Games101/Games101-P21-22/","title":"Games101-P21-22 Animation"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Games101-P21-22 Animation | MattinataLau's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MattinataLau's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nice to see u :P</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P21-Animation"><span class="nav-number">1.</span> <span class="nav-text">P21 Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Keyframe"><span class="nav-number">1.1.</span> <span class="nav-text">Keyframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Physical-Simulation"><span class="nav-number">1.2.</span> <span class="nav-text">Physical Simulation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Physically-Based-Animation"><span class="nav-number">1.2.1.</span> <span class="nav-text">Physically Based Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%A8%E7%82%B9%E5%BC%B9%E7%B0%A7%E7%B3%BB%E7%BB%9F-Mass-Spring-System"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">质点弹簧系统 Mass Spring System</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">模型建立</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B9%E7%B0%A7%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">弹簧的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Aside-FEM-Finite-Element-Method-Instead-of-Springs"><span class="nav-number">1.2.1.1.3.</span> <span class="nav-text">Aside: FEM (Finite Element Method) Instead of Springs</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Particle-Systems"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Particle Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BE%A4%E4%BD%93%E6%A8%A1%E6%8B%9F"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">群体模拟</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kinematics-%E8%BF%90%E5%8A%A8%E5%AD%A6"><span class="nav-number">1.3.</span> <span class="nav-text">Kinematics 运动学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Kinematics-FK"><span class="nav-number">1.3.1.</span> <span class="nav-text">Forward Kinematics (FK)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse-Kinematics-IK"><span class="nav-number">1.3.2.</span> <span class="nav-text">Inverse Kinematics (IK)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rigging"><span class="nav-number">1.4.</span> <span class="nav-text">Rigging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motion-Capture-Facial-Motion-Capture"><span class="nav-number">1.5.</span> <span class="nav-text">Motion Capture &#x2F; Facial Motion Capture</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#P22"><span class="nav-number">2.</span> <span class="nav-text">P22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Single-Particle-Simulation"><span class="nav-number">2.1.</span> <span class="nav-text">Single Particle Simulation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9F%E5%BA%A6%E5%9C%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">速度场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Euler%E2%80%99s-Method-%E6%AC%A7%E6%8B%89%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.2.</span> <span class="nav-text">Euler’s Method 欧拉方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE%E5%92%8C%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">2.1.3.</span> <span class="nav-text">误差和稳定性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rigid-Body-Simulation-%E5%88%9A%E4%BD%93%E6%A8%A1%E6%8B%9F"><span class="nav-number">2.2.</span> <span class="nav-text">Rigid Body Simulation 刚体模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fluid-Simulation"><span class="nav-number">2.3.</span> <span class="nav-text">Fluid Simulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eulerian-vs-Lagrangian"><span class="nav-number">2.4.</span> <span class="nav-text">Eulerian vs. Lagrangian</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OVER"><span class="nav-number">3.</span> <span class="nav-text">OVER!</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SU Wenji"
+      src="/images/blog_avatar.JPG">
+  <p class="site-author-name" itemprop="name">SU Wenji</p>
+  <div class="site-description" itemprop="description">Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://jiaxcuit.github.io/zh/" title="https:&#x2F;&#x2F;jiaxcuit.github.io&#x2F;zh&#x2F;" rel="noopener" target="_blank">十之以饼干盒</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/21/Games101/Games101-P21-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blog_avatar.JPG">
+      <meta itemprop="name" content="SU Wenji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MattinataLau's Blog">
+      <meta itemprop="description" content="Games101学习中……东西慢慢学，挖坑慢慢填，博客慢慢写…… :P">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Games101-P21-22 Animation | MattinataLau's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Games101-P21-22 Animation
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-06-21 20:32:02" itemprop="dateCreated datePublished" datetime="2023-06-21T20:32:02+08:00">2023-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-06-23 19:47:49" itemprop="dateModified" datetime="2023-06-23T19:47:49+08:00">2023-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.8k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li><p>P21 Overview</p>
+<ul>
+<li>Keyframe animation</li>
+<li>Physical animation</li>
+<li>Kinematics</li>
+<li>Rigging</li>
+</ul>
+</li>
+<li><p>P22 Overvoew</p>
+<ul>
+<li><p>Single particle simulation</p>
+<ul>
+<li><p>Explicit Euler method</p>
+</li>
+<li><p>Instability and improvements</p>
+</li>
+</ul>
+</li>
+<li><p>Rigid body simulation</p>
+</li>
+<li><p>Fluid simulation</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="P21-Animation"><a href="#P21-Animation" class="headerlink" title="P21 Animation"></a>P21 Animation</h1><ul>
+<li>帧率按需求设定；VR至少90fps</li>
+</ul>
+<h2 id="Keyframe"><a href="#Keyframe" class="headerlink" title="Keyframe"></a>Keyframe</h2><ul>
+<li>给定一系列不同的帧，中间的帧通过插值（linear/non-linear）得到<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.19.17.png" alt="截屏2023-06-23 14.19.17"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Physical-Simulation"><a href="#Physical-Simulation" class="headerlink" title="Physical Simulation"></a>Physical Simulation</h2><ul>
+<li>牛顿定律 $F = ma$</li>
+</ul>
+<h3 id="Physically-Based-Animation"><a href="#Physically-Based-Animation" class="headerlink" title="Physically Based Animation"></a>Physically Based Animation</h3><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.35.59.png" alt="截屏2023-06-23 14.35.59"></p>
+<h4 id="质点弹簧系统-Mass-Spring-System"><a href="#质点弹簧系统-Mass-Spring-System" class="headerlink" title="质点弹簧系统 Mass Spring System"></a>质点弹簧系统 Mass Spring System</h4><ul>
+<li>Examples<ul>
+<li>hair</li>
+<li>cloth<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.41.18.png" alt="截屏2023-06-23 14.41.18"></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h5 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h5><ul>
+<li>模型基础：相互连接的质点和弹簧，考虑弹力和摩擦 </li>
+<li>胡克定律<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.46.16.png" alt="截屏2023-06-23 14.46.16"><ul>
+<li>问题：没有能量损耗，无限振动</li>
+</ul>
+</li>
+<li>添加能量损失<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.51.03.png" alt="截屏2023-06-23 14.51.03"></li>
+<li>问题：该方法所添加的摩擦力只适用于外部力，对于弹簧内部相互作用力造成的损耗无法模拟</li>
+</ul>
+</li>
+<li>添加内部相互作用力的能量损耗<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.54.48.png" alt="截屏2023-06-23 14.54.48"></li>
+<li>摩擦力延ab方向（投影</li>
+<li>圆周运动，$f_b = 0$</li>
+</ul>
+</li>
+</ul>
+<h5 id="弹簧的结构"><a href="#弹簧的结构" class="headerlink" title="弹簧的结构"></a>弹簧的结构</h5><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.04.22.png" alt="截屏2023-06-23 15.04.22"></p>
+<ul>
+<li>上图结构无法模拟 &amp; 如何解决<ul>
+<li>对角线拉扯：出现切变的形变<ul>
+<li>解决：添加蓝色Spring，出现切变时，以提供对伉力；力较强<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.10.06.png" alt="截屏2023-06-23 15.10.06"></li>
+</ul>
+</li>
+<li>Out-of-plane：布料因受力而形变至不在同一平面<ul>
+<li>解决：添加Skip connection；力较弱，只起到辅助作用<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.10.44.png" alt="截屏2023-06-23 15.10.44"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Aside-FEM-Finite-Element-Method-Instead-of-Springs"><a href="#Aside-FEM-Finite-Element-Method-Instead-of-Springs" class="headerlink" title="Aside: FEM (Finite Element Method) Instead of Springs"></a>Aside: FEM (Finite Element Method) Instead of Springs</h5><ul>
+<li>考虑力的传导</li>
+</ul>
+<h4 id="Particle-Systems"><a href="#Particle-Systems" class="headerlink" title="Particle Systems"></a>Particle Systems</h4><ul>
+<li><p><strong style="color:red;">本质</strong>：定义个体与群体的关系</p>
+</li>
+<li><p>将动力学系统的模型定义为大量粒子的集合，每个粒子的运动都是由一组物理（或非物理）力来定义的</p>
+</li>
+<li><p>挑战</p>
+<ul>
+<li>需要大量粒子（e.g. fluids</li>
+<li>需要考虑粒子间相互作用力（e.g. 碰撞、吸引力etc（实现困难</li>
+</ul>
+</li>
+<li>对于每一帧动画<ul>
+<li>（if needed）生成新的粒子</li>
+<li>计算每一个粒子间作用力</li>
+<li>更新粒子的位置和速度</li>
+<li>（if needed）根据粒子存活时间，remove the dead</li>
+<li>渲染</li>
+</ul>
+</li>
+<li>粒子间的相互作用力<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.29.29.png" alt="截屏2023-06-23 15.29.29"></li>
+</ul>
+</li>
+</ul>
+<h5 id="群体模拟"><a href="#群体模拟" class="headerlink" title="群体模拟"></a>群体模拟</h5><ul>
+<li>鸟群<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.34.44.png" alt="截屏2023-06-23 15.34.44"></li>
+</ul>
+</li>
+<li>人群<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.37.31.png" alt="截屏2023-06-23 15.37.31"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Kinematics-运动学"><a href="#Kinematics-运动学" class="headerlink" title="Kinematics 运动学"></a>Kinematics 运动学</h2><h3 id="Forward-Kinematics-FK"><a href="#Forward-Kinematics-FK" class="headerlink" title="Forward Kinematics (FK)"></a>Forward Kinematics (FK)</h3><ul>
+<li>定义关节，形成骨骼结构</li>
+<li>关节分类<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.39.56.png" alt="截屏2023-06-23 15.39.56"></li>
+</ul>
+</li>
+<li>计算：通过 $\theta_1 \&amp; \theta_2$ 计算 $p$ 的位置<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.43.53.png" alt="截屏2023-06-23 15.43.53"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Inverse-Kinematics-IK"><a href="#Inverse-Kinematics-IK" class="headerlink" title="Inverse Kinematics (IK)"></a>Inverse Kinematics (IK)</h3><ul>
+<li>计算<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.49.41.png" alt="截屏2023-06-23 15.49.41"></li>
+</ul>
+</li>
+<li>问题：解不唯一<ul>
+<li>解决方法：梯度下降<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.01.46.png" alt="截屏2023-06-23 16.01.46"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Rigging"><a href="#Rigging" class="headerlink" title="Rigging"></a>Rigging</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.05.54.png" alt="截屏2023-06-23 16.05.54"></p>
+<ul>
+<li><p>对于形状的控制</p>
+</li>
+<li><p>Blend Shapes</p>
+<ul>
+<li>两个不同的动作间，插值控制<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.08.15.png" alt="截屏2023-06-23 16.08.15"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Motion-Capture-Facial-Motion-Capture"><a href="#Motion-Capture-Facial-Motion-Capture" class="headerlink" title="Motion Capture / Facial Motion Capture"></a>Motion Capture / Facial Motion Capture</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.19.10.png" alt="截屏2023-06-23 16.19.10"></p>
+<p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.20.44.png" alt="截屏2023-06-23 16.20.44"></p>
+<p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.21.38.png" alt="截屏2023-06-23 16.21.38"></p>
+<h1 id="P22"><a href="#P22" class="headerlink" title="P22"></a>P22</h1><h2 id="Single-Particle-Simulation"><a href="#Single-Particle-Simulation" class="headerlink" title="Single Particle Simulation"></a>Single Particle Simulation</h2><ul>
+<li>已知初始位置和速度，解一段时间后的位置和速度</li>
+</ul>
+<h3 id="速度场"><a href="#速度场" class="headerlink" title="速度场"></a>速度场</h3><ul>
+<li><p>速度场——理想情况</p>
+<ul>
+<li>给定位置$x$和时间$t$，都能知道速度；先考虑一个粒子，而后推广<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.38.34.png" alt="截屏2023-06-23 16.38.34"></li>
+</ul>
+</li>
+<li><p>Ordinary Differential Equation (ODE) 常微分方程</p>
+<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.50.17.png" alt="截屏2023-06-23 16.50.17"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>需求：给定位置，求某一时刻的速度</li>
+<li>方法👇</li>
+</ul>
+<h3 id="Euler’s-Method-欧拉方法"><a href="#Euler’s-Method-欧拉方法" class="headerlink" title="Euler’s Method 欧拉方法"></a>Euler’s Method 欧拉方法</h3><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.54.22.png" alt="截屏2023-06-23 16.54.22"></p>
+<ul>
+<li>缺点<ul>
+<li>误差。缩小步长可提高准确度<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.58.37.png" alt="截屏2023-06-23 16.58.37"></li>
+<li>稳定性；出现正反馈，问题无限放大。如速度场为同心圆，理论上质点做圆周运动。但欧拉方法下无论步长多大，质点都会偏移圆周轨迹<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.03.57.png" alt="截屏2023-06-23 17.03.57"></li>
+</ul>
+</li>
+</ul>
+<h3 id="误差和稳定性"><a href="#误差和稳定性" class="headerlink" title="误差和稳定性"></a>误差和稳定性</h3><ul>
+<li>误差<ul>
+<li>每个时间步长上的误差都会累积。精度随着模拟的进行而降低</li>
+<li>准确性在图形学中可能并不重要</li>
+</ul>
+</li>
+<li><p>稳定性</p>
+<ul>
+<li>错误可能会加剧，导致模拟发散(<strong>diverge</strong>)，即使底层系统没有</li>
+<li>缺乏稳定性是仿真中的一个基本问题，不容忽视</li>
+</ul>
+</li>
+<li><p>Combating Instability</p>
+<ul>
+<li>Midpoint method：$\Delta t$ 时间，应运动到a。计算中点b的速度。对于起始点，应用中点b的速度，得到c<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.21.26.png" alt="截屏2023-06-23 17.21.26"></li>
+</ul>
+</li>
+<li>Modified Euler：中点法展开式<ul>
+<li>$\Delta t^2$ 二次项，达到模拟抛物线的效果；泰勒展开</li>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.28.51.png" alt="截屏2023-06-23 17.28.51"></li>
+</ul>
+</li>
+<li>Adaptive step size：通过误差比较（$x_T$和$x_{T/2}$的差距），选择步长大小（是否还需继续二分）<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.35.13.png" alt="截屏2023-06-23 17.35.13"></li>
+</ul>
+</li>
+<li>Implicit methods：使用下一个时间的速度和加速度进行求解<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.42.58.png" alt="截屏2023-06-23 17.42.58"></li>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.46.32.png" alt="截屏2023-06-23 17.46.32"></li>
+<li>补：龙哥库塔方法<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 18.53.25.png" alt="截屏2023-06-23 18.53.25"></li>
+</ul>
+</li>
+<li>Position-based / Verlet integration：不基于物理<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 18.58.37.png" alt="截屏2023-06-23 18.58.37"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Rigid-Body-Simulation-刚体模拟"><a href="#Rigid-Body-Simulation-刚体模拟" class="headerlink" title="Rigid Body Simulation 刚体模拟"></a>Rigid Body Simulation 刚体模拟</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.01.27.png" alt="截屏2023-06-23 19.01.27"></p>
+<ul>
+<li>刚体：不发生形变</li>
+<li>刚体内部运动完全一致，因而刚体可看成一个粒子</li>
+</ul>
+<h2 id="Fluid-Simulation"><a href="#Fluid-Simulation" class="headerlink" title="Fluid Simulation"></a>Fluid Simulation</h2><ul>
+<li>A Simple Position-Based Method<ul>
+<li>通过模拟组成流体的小球的位置，模拟流体的运动</li>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.06.11.png" alt="截屏2023-06-23 19.06.11"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Eulerian-vs-Lagrangian"><a href="#Eulerian-vs-Lagrangian" class="headerlink" title="Eulerian vs. Lagrangian"></a>Eulerian vs. Lagrangian</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.17.04.png" alt="截屏2023-06-23 19.17.04"></p>
+<ul>
+<li>Material Point Method (MPM)<ul>
+<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.20.55.png" alt="截屏2023-06-23 19.20.55"></li>
+</ul>
+</li>
+</ul>
+<h1 id="OVER"><a href="#OVER" class="headerlink" title="OVER!"></a>OVER!</h1><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.37.48.png" alt="截屏2023-06-23 19.37.48"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Games101/" rel="tag"># Games101</a>
+              <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag"># 图形学</a>
+              <a href="/tags/Animation/" rel="tag"># Animation</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/21/Games104/Games104-P4-7/" rel="prev" title="Games104-P4-7 Rendering">
+                  <i class="fa fa-chevron-left"></i> Games104-P4-7 Rendering
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SU Wenji</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">34k</span>
+  </span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
