@@ -236,7 +236,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-06-23 19:47:49" itemprop="dateModified" datetime="2023-06-23T19:47:49+08:00">2023-06-23</time>
+      <time title="Modified: 2023-06-25 13:21:59" itemprop="dateModified" datetime="2023-06-25T13:21:59+08:00">2023-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -291,218 +291,14 @@
 </ul>
 </li>
 </ul>
-<h1 id="P21-Animation"><a href="#P21-Animation" class="headerlink" title="P21 Animation"></a>P21 Animation</h1><ul>
-<li>帧率按需求设定；VR至少90fps</li>
-</ul>
-<h2 id="Keyframe"><a href="#Keyframe" class="headerlink" title="Keyframe"></a>Keyframe</h2><ul>
-<li>给定一系列不同的帧，中间的帧通过插值（linear/non-linear）得到<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.19.17.png" alt="截屏2023-06-23 14.19.17"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Physical-Simulation"><a href="#Physical-Simulation" class="headerlink" title="Physical Simulation"></a>Physical Simulation</h2><ul>
-<li>牛顿定律 $F = ma$</li>
-</ul>
-<h3 id="Physically-Based-Animation"><a href="#Physically-Based-Animation" class="headerlink" title="Physically Based Animation"></a>Physically Based Animation</h3><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.35.59.png" alt="截屏2023-06-23 14.35.59"></p>
-<h4 id="质点弹簧系统-Mass-Spring-System"><a href="#质点弹簧系统-Mass-Spring-System" class="headerlink" title="质点弹簧系统 Mass Spring System"></a>质点弹簧系统 Mass Spring System</h4><ul>
-<li>Examples<ul>
-<li>hair</li>
-<li>cloth<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.41.18.png" alt="截屏2023-06-23 14.41.18"></li>
-<li></li>
-</ul>
-</li>
-</ul>
-<h5 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h5><ul>
-<li>模型基础：相互连接的质点和弹簧，考虑弹力和摩擦 </li>
-<li>胡克定律<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.46.16.png" alt="截屏2023-06-23 14.46.16"><ul>
-<li>问题：没有能量损耗，无限振动</li>
-</ul>
-</li>
-<li>添加能量损失<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.51.03.png" alt="截屏2023-06-23 14.51.03"></li>
-<li>问题：该方法所添加的摩擦力只适用于外部力，对于弹簧内部相互作用力造成的损耗无法模拟</li>
-</ul>
-</li>
-<li>添加内部相互作用力的能量损耗<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 14.54.48.png" alt="截屏2023-06-23 14.54.48"></li>
-<li>摩擦力延ab方向（投影</li>
-<li>圆周运动，$f_b = 0$</li>
-</ul>
-</li>
-</ul>
-<h5 id="弹簧的结构"><a href="#弹簧的结构" class="headerlink" title="弹簧的结构"></a>弹簧的结构</h5><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.04.22.png" alt="截屏2023-06-23 15.04.22"></p>
-<ul>
-<li>上图结构无法模拟 &amp; 如何解决<ul>
-<li>对角线拉扯：出现切变的形变<ul>
-<li>解决：添加蓝色Spring，出现切变时，以提供对伉力；力较强<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.10.06.png" alt="截屏2023-06-23 15.10.06"></li>
-</ul>
-</li>
-<li>Out-of-plane：布料因受力而形变至不在同一平面<ul>
-<li>解决：添加Skip connection；力较弱，只起到辅助作用<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.10.44.png" alt="截屏2023-06-23 15.10.44"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="Aside-FEM-Finite-Element-Method-Instead-of-Springs"><a href="#Aside-FEM-Finite-Element-Method-Instead-of-Springs" class="headerlink" title="Aside: FEM (Finite Element Method) Instead of Springs"></a>Aside: FEM (Finite Element Method) Instead of Springs</h5><ul>
-<li>考虑力的传导</li>
-</ul>
-<h4 id="Particle-Systems"><a href="#Particle-Systems" class="headerlink" title="Particle Systems"></a>Particle Systems</h4><ul>
-<li><p><strong style="color:red;">本质</strong>：定义个体与群体的关系</p>
-</li>
-<li><p>将动力学系统的模型定义为大量粒子的集合，每个粒子的运动都是由一组物理（或非物理）力来定义的</p>
-</li>
-<li><p>挑战</p>
-<ul>
-<li>需要大量粒子（e.g. fluids</li>
-<li>需要考虑粒子间相互作用力（e.g. 碰撞、吸引力etc（实现困难</li>
-</ul>
-</li>
-<li>对于每一帧动画<ul>
-<li>（if needed）生成新的粒子</li>
-<li>计算每一个粒子间作用力</li>
-<li>更新粒子的位置和速度</li>
-<li>（if needed）根据粒子存活时间，remove the dead</li>
-<li>渲染</li>
-</ul>
-</li>
-<li>粒子间的相互作用力<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.29.29.png" alt="截屏2023-06-23 15.29.29"></li>
-</ul>
-</li>
-</ul>
-<h5 id="群体模拟"><a href="#群体模拟" class="headerlink" title="群体模拟"></a>群体模拟</h5><ul>
-<li>鸟群<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.34.44.png" alt="截屏2023-06-23 15.34.44"></li>
-</ul>
-</li>
-<li>人群<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.37.31.png" alt="截屏2023-06-23 15.37.31"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Kinematics-运动学"><a href="#Kinematics-运动学" class="headerlink" title="Kinematics 运动学"></a>Kinematics 运动学</h2><h3 id="Forward-Kinematics-FK"><a href="#Forward-Kinematics-FK" class="headerlink" title="Forward Kinematics (FK)"></a>Forward Kinematics (FK)</h3><ul>
-<li>定义关节，形成骨骼结构</li>
-<li>关节分类<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.39.56.png" alt="截屏2023-06-23 15.39.56"></li>
-</ul>
-</li>
-<li>计算：通过 $\theta_1 \&amp; \theta_2$ 计算 $p$ 的位置<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.43.53.png" alt="截屏2023-06-23 15.43.53"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Inverse-Kinematics-IK"><a href="#Inverse-Kinematics-IK" class="headerlink" title="Inverse Kinematics (IK)"></a>Inverse Kinematics (IK)</h3><ul>
-<li>计算<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 15.49.41.png" alt="截屏2023-06-23 15.49.41"></li>
-</ul>
-</li>
-<li>问题：解不唯一<ul>
-<li>解决方法：梯度下降<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.01.46.png" alt="截屏2023-06-23 16.01.46"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Rigging"><a href="#Rigging" class="headerlink" title="Rigging"></a>Rigging</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.05.54.png" alt="截屏2023-06-23 16.05.54"></p>
-<ul>
-<li><p>对于形状的控制</p>
-</li>
-<li><p>Blend Shapes</p>
-<ul>
-<li>两个不同的动作间，插值控制<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.08.15.png" alt="截屏2023-06-23 16.08.15"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Motion-Capture-Facial-Motion-Capture"><a href="#Motion-Capture-Facial-Motion-Capture" class="headerlink" title="Motion Capture / Facial Motion Capture"></a>Motion Capture / Facial Motion Capture</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.19.10.png" alt="截屏2023-06-23 16.19.10"></p>
-<p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.20.44.png" alt="截屏2023-06-23 16.20.44"></p>
-<p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.21.38.png" alt="截屏2023-06-23 16.21.38"></p>
-<h1 id="P22"><a href="#P22" class="headerlink" title="P22"></a>P22</h1><h2 id="Single-Particle-Simulation"><a href="#Single-Particle-Simulation" class="headerlink" title="Single Particle Simulation"></a>Single Particle Simulation</h2><ul>
-<li>已知初始位置和速度，解一段时间后的位置和速度</li>
-</ul>
-<h3 id="速度场"><a href="#速度场" class="headerlink" title="速度场"></a>速度场</h3><ul>
-<li><p>速度场——理想情况</p>
-<ul>
-<li>给定位置$x$和时间$t$，都能知道速度；先考虑一个粒子，而后推广<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.38.34.png" alt="截屏2023-06-23 16.38.34"></li>
-</ul>
-</li>
-<li><p>Ordinary Differential Equation (ODE) 常微分方程</p>
-<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.50.17.png" alt="截屏2023-06-23 16.50.17"></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>需求：给定位置，求某一时刻的速度</li>
-<li>方法👇</li>
-</ul>
-<h3 id="Euler’s-Method-欧拉方法"><a href="#Euler’s-Method-欧拉方法" class="headerlink" title="Euler’s Method 欧拉方法"></a>Euler’s Method 欧拉方法</h3><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.54.22.png" alt="截屏2023-06-23 16.54.22"></p>
-<ul>
-<li>缺点<ul>
-<li>误差。缩小步长可提高准确度<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 16.58.37.png" alt="截屏2023-06-23 16.58.37"></li>
-<li>稳定性；出现正反馈，问题无限放大。如速度场为同心圆，理论上质点做圆周运动。但欧拉方法下无论步长多大，质点都会偏移圆周轨迹<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.03.57.png" alt="截屏2023-06-23 17.03.57"></li>
-</ul>
-</li>
-</ul>
-<h3 id="误差和稳定性"><a href="#误差和稳定性" class="headerlink" title="误差和稳定性"></a>误差和稳定性</h3><ul>
-<li>误差<ul>
-<li>每个时间步长上的误差都会累积。精度随着模拟的进行而降低</li>
-<li>准确性在图形学中可能并不重要</li>
-</ul>
-</li>
-<li><p>稳定性</p>
-<ul>
-<li>错误可能会加剧，导致模拟发散(<strong>diverge</strong>)，即使底层系统没有</li>
-<li>缺乏稳定性是仿真中的一个基本问题，不容忽视</li>
-</ul>
-</li>
-<li><p>Combating Instability</p>
-<ul>
-<li>Midpoint method：$\Delta t$ 时间，应运动到a。计算中点b的速度。对于起始点，应用中点b的速度，得到c<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.21.26.png" alt="截屏2023-06-23 17.21.26"></li>
-</ul>
-</li>
-<li>Modified Euler：中点法展开式<ul>
-<li>$\Delta t^2$ 二次项，达到模拟抛物线的效果；泰勒展开</li>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.28.51.png" alt="截屏2023-06-23 17.28.51"></li>
-</ul>
-</li>
-<li>Adaptive step size：通过误差比较（$x_T$和$x_{T/2}$的差距），选择步长大小（是否还需继续二分）<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.35.13.png" alt="截屏2023-06-23 17.35.13"></li>
-</ul>
-</li>
-<li>Implicit methods：使用下一个时间的速度和加速度进行求解<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.42.58.png" alt="截屏2023-06-23 17.42.58"></li>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 17.46.32.png" alt="截屏2023-06-23 17.46.32"></li>
-<li>补：龙哥库塔方法<img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 18.53.25.png" alt="截屏2023-06-23 18.53.25"></li>
-</ul>
-</li>
-<li>Position-based / Verlet integration：不基于物理<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 18.58.37.png" alt="截屏2023-06-23 18.58.37"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Rigid-Body-Simulation-刚体模拟"><a href="#Rigid-Body-Simulation-刚体模拟" class="headerlink" title="Rigid Body Simulation 刚体模拟"></a>Rigid Body Simulation 刚体模拟</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.01.27.png" alt="截屏2023-06-23 19.01.27"></p>
-<ul>
-<li>刚体：不发生形变</li>
-<li>刚体内部运动完全一致，因而刚体可看成一个粒子</li>
-</ul>
-<h2 id="Fluid-Simulation"><a href="#Fluid-Simulation" class="headerlink" title="Fluid Simulation"></a>Fluid Simulation</h2><ul>
-<li>A Simple Position-Based Method<ul>
-<li>通过模拟组成流体的小球的位置，模拟流体的运动</li>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.06.11.png" alt="截屏2023-06-23 19.06.11"></li>
-</ul>
-</li>
-</ul>
-<h2 id="Eulerian-vs-Lagrangian"><a href="#Eulerian-vs-Lagrangian" class="headerlink" title="Eulerian vs. Lagrangian"></a>Eulerian vs. Lagrangian</h2><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.17.04.png" alt="截屏2023-06-23 19.17.04"></p>
-<ul>
-<li>Material Point Method (MPM)<ul>
-<li><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.20.55.png" alt="截屏2023-06-23 19.20.55"></li>
-</ul>
-</li>
-</ul>
-<h1 id="OVER"><a href="#OVER" class="headerlink" title="OVER!"></a>OVER!</h1><p><img src="/2023/06/21/Games101/Games101-P21-22/截屏2023-06-23 19.37.48.png" alt="截屏2023-06-23 19.37.48"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/21/Games101/Games101-P21-22/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -564,7 +360,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-06-24 21:10:17" itemprop="dateModified" datetime="2023-06-24T21:10:17+08:00">2023-06-24</time>
+      <time title="Modified: 2023-06-25 21:37:19" itemprop="dateModified" datetime="2023-06-25T21:37:19+08:00">2023-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -582,7 +378,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.1k</span>
+      <span>2.3k</span>
     </span>
 </div>
 
@@ -1600,7 +1396,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">35k</span>
+    <span title="Word count total">37k</span>
   </span>
 </div>
 
