@@ -8,7 +8,7 @@
       <link href="/2023/07/04/Games104/Games104-P6-7/"/>
       <url>/2023/07/04/Games104/Games104-P6-7/</url>
       
-        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="Lecture6-Rendering-Terrian"><a href="#Lecture6-Rendering-Terrian" class="headerlink" title="Lecture6 Rendering(Terrian)"></a>Lecture6 Rendering(Terrian)</h1><h2 id="地形概述"><a href="#地形概述" class="headerlink" title="地形概述"></a>地形概述</h2><ul><li><p>Heightfield</p><ul><li><img src="/2023/07/04/Games104/Games104-P6-7/截屏2023-07-05 16.06.54.png" alt="截屏2023-07-05 16.06.54"></li><li>LOD受限，需要设计</li></ul></li><li><p>根据FOV设置细致程度</p><ul><li><img src="/2023/07/04/Games104/Games104-P6-7/截屏2023-07-05 16.11.49.png" alt="截屏2023-07-05 16.11.49"></li></ul></li></ul>]]></content>
       
       
       <categories>
