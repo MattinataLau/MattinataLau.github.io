@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>PBR</title>
+      <link href="/2023/07/17/Others/PBR/"/>
+      <url>/2023/07/17/Others/PBR/</url>
+      
+        <content type="html"><![CDATA[<p><strong>PBR</strong>补充笔记</p><span id="more"></span><p>引擎PBR公式基于微表面模型，BRDF：$f_r = f_{spec} + f_{diff}$</p><ul><li><p>其中微表面BRDF高光部分：$f_{spec} = k_s \frac{DFG}{4(\omega_o \cdot n)(\omega_i \cdot n)}$，用于计算specular</p><ul><li><p>D为法线分布（描述漫反射/镜面反射）；$D = \frac{Roughness^2}{\pi (cos^2\theta_h(Roughness^2 -1 )+1)^2}$</p></li><li><p>F为菲涅尔项（描述反射、折射的能量分布）；$F = F_0 + (1-F_0)(1-cos\theta _h)^5$，$F_0$根据金属度发生变化</p></li><li><p>G为几何项（描述微表面间的相互遮挡）；$G = G_{GGX}(n\cdot l ,k) \cdot G_{GGX}(n\cdot v ,k)$，其中$G_{GGX}(float \quad dot ,float \quad k) = \frac{dot}{dot(1-k)+k}$，而$k = \frac{(Roughness + 1)^2}{8}$</p></li></ul></li><li><p>其中微表面BRDF高光部分：$f_{diff} = k_d \frac{Diffuse}{\pi}$</p><ul><li>将微表面BRDF带入反射方程：$L_0 = \int_\pi f_r \cdot L_i \cdot (\omega_i \cdot n)d\omega_i$</li></ul></li></ul><p>基于上述公式，可以实现引擎中PBR</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 补充 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图形学，PBR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Games104-P6-7 Rendering</title>
       <link href="/2023/07/04/Games104/Games104-P6-7/"/>
       <url>/2023/07/04/Games104/Games104-P6-7/</url>
