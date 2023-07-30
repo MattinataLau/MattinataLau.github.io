@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="P5 Overview Finishing up viewing Viewport transformation    Rasterization Different raster displays Rasterizing a triangle     P6 Overview  Antialiasing  采样简单理论 实际图形学中的反走样   Visible &#x2F;  Occlusion（讲解部分">
+    <meta name="description" content="P5 Preview Finishing up viewing Viewport transformation    Rasterization Different raster displays Rasterizing a triangle     P6 Preview  Antialiasing  采样简单理论 实际图形学中的反走样   Visible &#x2F;  Occlusion（讲解部分在P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games101-P5-6 Rasterization">
 <meta property="og:url" content="http://example.com/2023/03/27/Games101/Games101-P5-6/index.html">
 <meta property="og:site_name" content="MattinataLau&#39;s Blog">
-<meta property="og:description" content="P5 Overview Finishing up viewing Viewport transformation    Rasterization Different raster displays Rasterizing a triangle     P6 Overview  Antialiasing  采样简单理论 实际图形学中的反走样   Visible &#x2F;  Occlusion（讲解部分">
+<meta property="og:description" content="P5 Preview Finishing up viewing Viewport transformation    Rasterization Different raster displays Rasterizing a triangle     P6 Preview  Antialiasing  采样简单理论 实际图形学中的反走样   Visible &#x2F;  Occlusion（讲解部分在P">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/03/27/Games101/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-03-27%2021.09.36.png">
 <meta property="og:image" content="http://example.com/2023/03/27/Games101/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-03-27%2021.22.19.png">
@@ -80,10 +80,10 @@
 <meta property="og:image" content="http://example.com/2023/03/27/Games101/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.40.33.png">
 <meta property="og:image" content="http://example.com/2023/03/27/Games101/Games101-P5-6/%E6%88%AA%E5%B1%8F2023-04-20%2023.52.49.png">
 <meta property="article:published_time" content="2023-03-27T07:25:22.000Z">
-<meta property="article:modified_time" content="2023-04-20T15:57:47.243Z">
-<meta property="article:author" content="SU Wenji">
-<meta property="article:tag" content="Games101">
+<meta property="article:modified_time" content="2023-07-30T04:45:09.681Z">
+<meta property="article:author" content="Mattina">
 <meta property="article:tag" content="图形学">
+<meta property="article:tag" content="Games101">
 <meta property="article:tag" content="光栅化">
 <meta property="article:tag" content="反走样">
 <meta name="twitter:card" content="summary">
@@ -203,27 +203,27 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="SU Wenji"
+    <img class="site-author-image" itemprop="image" alt="Mattina"
       src="/images/blog_avatar.JPG">
-  <p class="site-author-name" itemprop="name">SU Wenji</p>
+  <p class="site-author-name" itemprop="name">Mattina</p>
   <div class="site-description" itemprop="description">Doing: Games104<br/>Done: Games101<br/>Will do: Games202 and so on...<br/>东西慢慢学，挖坑慢慢填，博客慢慢写…… :P</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -242,6 +242,9 @@
         <ul class="links-of-blogroll-list">
             <li class="links-of-blogroll-item">
               <a href="https://jiaxcuit.github.io/zh/" title="https:&#x2F;&#x2F;jiaxcuit.github.io&#x2F;zh&#x2F;" rel="noopener" target="_blank">十之以饼干盒（超厉害的发小）</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://whitetail-o.github.io/" title="https:&#x2F;&#x2F;whitetail-o.github.io&#x2F;" rel="noopener" target="_blank">WhiteTail（超厉害的大学同学）</a>
             </li>
         </ul>
       </div>
@@ -266,7 +269,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blog_avatar.JPG">
-      <meta itemprop="name" content="SU Wenji">
+      <meta itemprop="name" content="Mattina">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -298,7 +301,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-20 23:57:47" itemprop="dateModified" datetime="2023-04-20T23:57:47+08:00">2023-04-20</time>
+      <time title="Modified: 2023-07-30 12:45:09" itemprop="dateModified" datetime="2023-07-30T12:45:09+08:00">2023-07-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +331,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <ul>
-<li>P5 Overview<ul>
+<li>P5 Preview<ul>
 <li>Finishing up viewing<ul>
 <li>Viewport transformation </li>
 </ul>
@@ -340,7 +343,7 @@
 </li>
 </ul>
 </li>
-<li><p>P6 Overview</p>
+<li><p>P6 Preview</p>
 <ul>
 <li><p>Antialiasing</p>
 <ul>
@@ -827,8 +830,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Games101/" rel="tag"># Games101</a>
               <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag"># 图形学</a>
+              <a href="/tags/Games101/" rel="tag"># Games101</a>
               <a href="/tags/%E5%85%89%E6%A0%85%E5%8C%96/" rel="tag"># 光栅化</a>
               <a href="/tags/%E5%8F%8D%E8%B5%B0%E6%A0%B7/" rel="tag"># 反走样</a>
           </div>
@@ -869,7 +872,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">SU Wenji</span>
+  <span class="author" itemprop="copyrightHolder">Mattina</span>
 </div>
 <div class="wordcount">
   <span class="post-meta-item">
@@ -877,7 +880,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">38k</span>
+    <span title="Word count total">41k</span>
   </span>
 </div>
 <div class="busuanzi-count">
