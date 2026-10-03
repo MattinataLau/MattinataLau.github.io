@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88mm" height="107mm" viewBox="0 0 88 107">
+  <title>Gradient Film 09 — Soft White</title>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f6f4"/>
+      <stop offset="0.8409" stop-color="#f5f6f4"/>
+      <stop offset="0.8410" stop-color="#faf9f5"/>
+      <stop offset="1" stop-color="#faf9f5"/>
+    </linearGradient>
+    <mask id="frame">
+      <rect width="88" height="107" rx="0.8" fill="white"/>
+      <rect x="4.5" y="4.5" width="79" height="79" rx="0.3" fill="black"/>
+    </mask>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.45" numOctaves="3" seed="99"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <g mask="url(#frame)">
+    <rect width="88" height="107" rx="0.8" fill="url(#paper)"/>
+    <rect width="88" height="107" rx="0.8" filter="url(#grain)" opacity="0.018"/>
+  </g>
+  <rect x="4.5" y="4.5" width="79" height="79" rx="0.3" fill="none" stroke="#d9dbd8" stroke-width="0.20" opacity="0.58"/>
+  <rect x="0.35" y="0.35" width="87.3" height="106.3" rx="0.8" fill="none" stroke="#e1e3e0" stroke-width="0.25" opacity="0.52"/>
+</svg>
