@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "meadow",
+  "sourceImage": "/display/img_20261003191447_47_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 682,
+    "left": 171,
+    "top": 0,
+    "side": 682,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "central walker",
+    "valley path",
+    "foreground grass"
+  ],
+  "anchors": [
+    {
+      "id": "walker",
+      "x": 0.51,
+      "y": 0.48
+    },
+    {
+      "id": "path",
+      "x": 0.48,
+      "y": 0.76
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M170 205 C220 165 310 165 360 215 L420 512 L90 512 Z"
+    ],
+    "allowedPaths": [
+      "M185 195 C225 165 300 165 340 205 L390 512 L110 512 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/meadow.png",
+    "visualizationZone": "/visual-zones/meadow.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

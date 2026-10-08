@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "child",
+  "sourceImage": "/display/img_20261003191446_45_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 768,
+    "left": 128,
+    "top": 0,
+    "side": 768,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "raised hands",
+    "pink jacket silhouette",
+    "grass negative space"
+  ],
+  "anchors": [
+    {
+      "id": "left-hand",
+      "x": 0.41,
+      "y": 0.35
+    },
+    {
+      "id": "right-hand",
+      "x": 0.52,
+      "y": 0.35
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M120 90 C180 55 325 55 385 105 L420 480 L90 480 Z"
+    ],
+    "allowedPaths": [
+      "M125 55 L385 55 L415 470 L90 470 Z"
+    ],
+    "protectedPaths": [
+      "M215 185 C230 165 275 165 292 190 C305 215 288 245 255 248 C220 246 202 215 215 185 Z"
+    ]
+  },
+  "assets": {
+    "contourMask": "/edge-masks/child.png",
+    "visualizationZone": "/visual-zones/child.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": true
+  }
+}

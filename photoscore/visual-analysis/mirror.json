@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "mirror",
+  "sourceImage": "/display/img_20261003191444_43_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 682,
+    "left": 171,
+    "top": 0,
+    "side": 682,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "snow mountain ridge",
+    "side mirror",
+    "car window diagonal"
+  ],
+  "anchors": [
+    {
+      "id": "open-sky",
+      "x": 0.28,
+      "y": 0.18
+    },
+    {
+      "id": "mirror",
+      "x": 0.75,
+      "y": 0.58
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M0 185 L320 180 L330 290 L0 290 Z",
+      "M285 205 C340 175 445 170 485 205 L485 395 C445 435 335 420 285 360 Z"
+    ],
+    "allowedPaths": [
+      "M0 0 L325 0 L325 185 L0 225 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/mirror.png",
+    "visualizationZone": "/visual-zones/mirror.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

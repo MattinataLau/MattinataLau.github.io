@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "umbrella",
+  "sourceImage": "/display/img_20261004031624_50_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "left": 0,
+    "top": 256,
+    "side": 1024,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 34,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "inverted umbrella",
+    "pink interior detail",
+    "snow field"
+  ],
+  "anchors": [
+    {
+      "id": "canopy",
+      "x": 0.63,
+      "y": 0.82
+    },
+    {
+      "id": "pink-detail",
+      "x": 0.66,
+      "y": 0.85
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M245 345 C285 315 390 320 425 385 L395 485 L245 475 L215 405 Z"
+    ],
+    "allowedPaths": [
+      "M145 250 L470 250 L470 505 L145 505 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/umbrella.png",
+    "visualizationZone": "/visual-zones/umbrella.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "road",
+  "sourceImage": "/display/img_20261003191445_44_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 682,
+    "left": 171,
+    "top": 0,
+    "side": 682,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "road perspective",
+    "central vehicle",
+    "snow banks"
+  ],
+  "anchors": [
+    {
+      "id": "vanishing-point",
+      "x": 0.5,
+      "y": 0.69
+    },
+    {
+      "id": "vehicle",
+      "x": 0.5,
+      "y": 0.79
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M0 290 L512 290 L512 512 L0 512 Z"
+    ],
+    "allowedPaths": [
+      "M0 300 L512 300 L512 512 L0 512 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/road.png",
+    "visualizationZone": "/visual-zones/road.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

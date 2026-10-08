@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "fjord",
+  "sourceImage": "/display/img_20261003191444_42_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "left": 0,
+    "top": 256,
+    "side": 1024,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "snow ridges",
+    "warm horizon gap",
+    "water reflection"
+  ],
+  "anchors": [
+    {
+      "id": "horizon",
+      "x": 0.61,
+      "y": 0.47
+    },
+    {
+      "id": "reflection",
+      "x": 0.61,
+      "y": 0.78
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M0 225 L130 220 L215 285 L300 250 L360 285 L420 220 L512 225 L512 410 L0 410 Z"
+    ],
+    "allowedPaths": [
+      "M65 215 L445 215 L445 260 L65 260 Z",
+      "M275 245 L355 245 L370 512 L255 512 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/fjord.png",
+    "visualizationZone": "/visual-zones/fjord.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

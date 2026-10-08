@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "chair",
+  "sourceImage": "/display/img_20261003191446_46_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 1364,
+    "left": 0,
+    "top": 170,
+    "side": 1024,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "empty chair",
+    "indoor plant",
+    "window grid"
+  ],
+  "anchors": [
+    {
+      "id": "chair-seat",
+      "x": 0.74,
+      "y": 0.64
+    },
+    {
+      "id": "plant-edge",
+      "x": 0.46,
+      "y": 0.43
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M0 40 C90 10 260 65 315 180 L300 460 L0 465 Z",
+      "M300 220 C345 190 470 205 500 275 L485 475 L285 475 Z"
+    ],
+    "allowedPaths": [
+      "M170 80 L495 80 L495 465 L170 465 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/chair.png",
+    "visualizationZone": "/visual-zones/chair.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}

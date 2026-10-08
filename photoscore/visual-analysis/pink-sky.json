@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "pink-sky",
+  "sourceImage": "/display/img_20261004174303_76_2.webp",
+  "canonicalCrop": {
+    "sourceWidth": 1024,
+    "sourceHeight": 1366,
+    "left": 0,
+    "top": 171,
+    "side": 1024,
+    "outputSize": 512,
+    "objectFit": "cover",
+    "objectPosition": "50% 50%"
+  },
+  "extraction": {
+    "method": "roi-guided-laplacian-contour",
+    "threshold": 76,
+    "edgeBandRadiusPx": 8
+  },
+  "subjects": [
+    "tree silhouette",
+    "branch tips",
+    "warm cloud opening"
+  ],
+  "anchors": [
+    {
+      "id": "right-crown",
+      "x": 0.73,
+      "y": 0.29
+    },
+    {
+      "id": "warm-sky",
+      "x": 0.8,
+      "y": 0.18
+    }
+  ],
+  "regions": {
+    "subjectRoiPaths": [
+      "M0 120 C120 80 405 70 512 145 L512 512 L0 512 Z"
+    ],
+    "allowedPaths": [
+      "M0 0 L512 0 L512 310 C390 255 180 220 0 300 Z"
+    ],
+    "protectedPaths": []
+  },
+  "assets": {
+    "contourMask": "/edge-masks/pink-sky.png",
+    "visualizationZone": "/visual-zones/pink-sky.png"
+  },
+  "generationGate": {
+    "contourVerified": true,
+    "cropVerified": true,
+    "protectedRegionsRequired": false
+  }
+}
